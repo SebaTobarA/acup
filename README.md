@@ -4,9 +4,15 @@ Sitio de ACUP: asesoría en prevención de riesgos laborales, auditoría de Sist
 
 ## Estructura
 
-Página estática de un solo archivo. `index.html` contiene el HTML, el CSS y el JS. Sin build, sin dependencias que instalar; la única carga externa son las tipografías de Google Fonts (Barlow Condensed, Inter, IBM Plex Mono, Montserrat).
+Sitio estático, sin build ni dependencias que instalar. La única carga externa son las tipografías de Google Fonts (Barlow Condensed, Inter, IBM Plex Mono, Montserrat).
 
-Para verla en local basta con abrir `index.html` en el navegador.
+| Archivo | Contenido |
+|---|---|
+| `index.html` | Landing: hero, servicios, cómo trabajamos, filosofía, precios, CTA y footer |
+| `sobre-acup.html` | Quiénes somos: constitución de la empresa y palabras del gerente general |
+| `styles.css` | Todos los estilos, compartidos por ambas páginas |
+
+Para verlo en local basta con abrir `index.html` en el navegador.
 
 ## Marca
 
@@ -23,9 +29,16 @@ Tipografías: Barlow Condensed en titulares, Inter en cuerpo, IBM Plex Mono en d
 
 ## Pendiente antes de publicar
 
-Contenido de ejemplo que hay que reemplazar por dato real (marcado con comentarios `REEMPLAZAR` en `index.html`):
+Contenido a completar con dato real. En el código va marcado con comentarios `REEMPLAZAR`; en `sobre-acup.html` además se ve en pantalla, en coral con subrayado punteado (clase `.todo`), para que no se publique por descuido.
 
-- Cifras del bloque de stats (`-40%`, `12.000+`)
-- Testimonio completo: cita, nombre, cargo y empresa
-- Los tres precios (`$—`)
-- Contacto: número de WhatsApp y correo
+**`sobre-acup.html`**
+
+- Año de constitución y ciudad
+- Razón social
+- Rubros principales con los que se trabaja
+- La cita del gerente general es un **borrador** redactado en el tono del sitio, no una declaración real de Sebastián Tobar. Hay que aprobarla o reescribirla.
+
+**`index.html`**
+
+- La bitácora de terreno del hero es un ejemplo ilustrativo de una jornada, así rotulado en pantalla
+- Contacto: correo de contacto definitivo
