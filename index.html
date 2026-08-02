@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACUP — Prevención de riesgos y cultura preventiva</title>
+<meta name="description" content="Asesoría en prevención de riesgos, auditorías de Sistema Integrado de Gestión y app propia de inspecciones. Cumplir la norma no basta si nadie la practica todos los días.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+/* ============================================================
+   ACUP — tokens de marca
+   marino #30408E (letras del logo) · coral #F85A7A (el punto)
+   ============================================================ */
+:root{
+  --navy:#30408E;
+  --navy-900:#141C42;   /* base de tarjetas oscuras */
+  --navy-800:#1B2555;
+  --navy-700:#222E6B;
+  --navy-600:#2A3779;
+  --coral:#F85A7A;
+  --coral-soft:#FFE4EA;
+  --paper:#F2F4F8;      /* blanco frío, afín al marino */
+  --paper-2:#FFFFFF;
+  --ink:#151726;
+  --muted:#5F6479;
+  --line:#E3E7F0;
+  --line-dark:rgba(255,255,255,.10);
+  --dim:rgba(255,255,255,.62);
+
+  --display:'Barlow Condensed','Oswald','Arial Narrow',sans-serif;
+  --logo:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;
+
+  --r-xl:32px; --r-lg:24px; --r-md:16px; --r-sm:12px;
+  --wrap:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{width:min(var(--wrap),92vw);margin-inline:auto}
+
+h1,h2,h3,.display{font-family:var(--display);font-weight:700;line-height:.98;letter-spacing:-.01em;text-transform:none}
+h2{font-size:clamp(34px,4vw,54px)}
+h3{font-size:clamp(22px,2.4vw,30px);line-height:1.05}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+/* punto coral = guiño al logo */
+.dot{color:var(--coral)}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--navy);display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--coral);flex:none}
+.eyebrow.on-dark{color:rgba(255,255,255,.7)}
+
+/* ---------- botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--sans);font-weight:600;font-size:15px;
+  padding:13px 13px 13px 24px;border-radius:999px;border:0;cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn .arrow{
+  width:26px;height:26px;border-radius:50%;display:grid;place-items:center;flex:none;
+  background:rgba(255,255,255,.22);
+}
+.btn .arrow svg{width:12px;height:12px}
+.btn-coral{background:var(--coral);color:#fff;box-shadow:0 8px 22px -10px rgba(248,90,122,.85)}
+.btn-coral:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(248,90,122,.9)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid var(--line-dark)}
+.btn-ghost .arrow{background:rgba(255,255,255,.14)}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy .arrow{background:rgba(255,255,255,.2)}
+.btn-navy:hover{transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.btn-outline .arrow{background:rgba(48,64,142,.12)}
+.btn-outline .arrow svg{stroke:var(--navy)}
+
+/* ============================================================
+   HERO — tarjeta oscura flotando + tarjeta asomando detrás
+   ============================================================ */
+.hero-zone{padding:26px 0 0;position:relative}
+.hero-stack{position:relative;width:min(1320px,94vw);margin-inline:auto}
+
+/* tarjeta trasera (efecto stack, esquina superior derecha) */
+.hero-back{
+  position:absolute;top:-16px;right:-30px;height:190px;width:min(560px,62%);
+  background:linear-gradient(180deg,#2A3779,#1E2A63);
+  border-radius:var(--r-xl);opacity:.55;z-index:0;
+  box-shadow:0 20px 50px -30px rgba(20,28,66,.7);
+}
+.hero-back::after{
+  content:"SIG · INSPECCIONES · CONDUCTA";
+  position:absolute;top:22px;right:34px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.35);
+}
+
+.hero{
+  --ntl-w:132px;   /* mordida superior izquierda: el logo va FUERA de la tarjeta */
+  --ntl-h:62px;
+  --nbl-w:188px;   /* mordida inferior izquierda: los avatares */
+  --nbl-h:68px;
+  --cut:22px;      /* radio de los filetes cóncavos */
+  --nr:20px;       /* radio convexo interior de cada mordida */
+  position:relative;z-index:1;
+  background:linear-gradient(165deg,#22306E 0%, var(--navy-900) 62%);
+  border-radius:var(--r-xl);
+  overflow:hidden;
+  box-shadow:0 40px 80px -50px rgba(20,28,66,.85);
+}
+
+/* --- mordidas: bloques color papel con filetes cóncavos tangentes --- */
+.notch{position:absolute;z-index:5;background:var(--paper);display:flex;align-items:center}
+.notch::before,.notch::after{content:"";position:absolute;width:var(--cut);height:var(--cut)}
+
+.notch-tl{
+  top:0;left:0;width:var(--ntl-w);height:var(--ntl-h);
+  border-radius:var(--r-xl) 0 var(--nr) 0;
+  padding-left:16px;color:var(--navy);
+}
+.notch-tl::after{ /* filete a la derecha, sobre el borde superior */
+  left:100%;top:0;
+  background:radial-gradient(circle at 100% 100%, transparent var(--cut), var(--paper) calc(var(--cut) + .5px));
+}
+.notch-tl::before{ /* filete abajo, sobre el borde izquierdo */
+  top:100%;left:0;
+  background:radial-gradient(circle at 100% 100%, transparent var(--cut), var(--paper) calc(var(--cut) + .5px));
+}
+
+.notch-bl{
+  bottom:0;left:0;width:var(--nbl-w);height:var(--nbl-h);
+  border-radius:0 var(--nr) 0 var(--r-xl);
+  padding-left:16px;
+}
+.notch-bl::after{ /* filete a la derecha, sobre el borde inferior */
+  left:100%;bottom:0;
+  background:radial-gradient(circle at 100% 0, transparent var(--cut), var(--paper) calc(var(--cut) + .5px));
+}
+.notch-bl::before{ /* filete arriba, sobre el borde izquierdo */
+  bottom:100%;left:0;
+  background:radial-gradient(circle at 100% 0, transparent var(--cut), var(--paper) calc(var(--cut) + .5px));
+}
+/* círculos concéntricos tenues detrás del panel derecho */
+.hero-rings{
+  position:absolute;right:-6%;top:-14%;width:760px;height:760px;pointer-events:none;z-index:0;opacity:.55;
+}
+.hero-rings span{
+  position:absolute;inset:0;margin:auto;border-radius:50%;
+  border:1px solid rgba(255,255,255,.055);
+}
+.hero-rings span:nth-child(1){width:100%;height:100%}
+.hero-rings span:nth-child(2){width:76%;height:76%}
+.hero-rings span:nth-child(3){width:54%;height:54%}
+.hero-rings span:nth-child(4){width:32%;height:32%;border-color:rgba(248,90,122,.16)}
+
+/* --- nav: el logo vive en la mordida, los links van centrados en la tarjeta --- */
+.nav{
+  position:relative;z-index:3;height:var(--ntl-h);
+  display:flex;align-items:center;justify-content:flex-end;
+  padding:0 22px 0 calc(var(--ntl-w) + 24px);
+}
+.brand{display:inline-flex;align-items:center;color:inherit}
+.brand .word{
+  font-family:var(--logo);font-weight:700;font-size:25px;
+  letter-spacing:-.025em;line-height:1;text-transform:lowercase;
+}
+.nav-links{
+  position:absolute;left:50%;top:50%;translate:-50% -50%;
+  display:flex;gap:32px;
+}
+.nav-links a{
+  font-size:14.5px;color:rgba(255,255,255,.72);position:relative;padding-bottom:5px;font-weight:500;
+}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-links a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--coral);
+  transition:right .25s ease;
+}
+.nav-links a:hover::after,.nav-links a.active::after{right:0}
+
+/* --- cuerpo del hero --- */
+.hero-body{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.22fr .78fr;gap:44px;align-items:stretch;
+  padding:22px 0 0 34px;min-height:min(70vh,650px);
+}
+.hero-copy{
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding-bottom:calc(var(--nbl-h) + 34px);max-width:760px;
+}
+.hero h1{
+  color:#fff;
+  font-size:clamp(38px,3.9vw,56px);
+  line-height:1.02;
+  margin-bottom:22px;
+}
+.hero h1 em{font-style:normal;color:var(--coral)}
+/* ancla de seriedad: normativa aplicada, sobre el titular */
+.hero-norm{
+  position:relative;padding-left:17px;margin-bottom:18px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+}
+.hero-norm::before{
+  content:"";position:absolute;left:0;top:.36em;
+  width:7px;height:7px;border-radius:50%;background:var(--coral);
+}
+.hero-norm b{color:rgba(255,255,255,.82);font-weight:500}
+.hero p.sub{
+  color:var(--dim);font-size:16.5px;line-height:1.55;max-width:720px;margin-bottom:32px;
+}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* --- badges de rubro superpuestos (ocupan la mordida inferior izquierda) --- */
+.sector-avatars{display:flex;align-items:center}
+.sector-avatars .av{
+  width:42px;height:42px;border-radius:50%;margin-left:-12px;
+  border:2.5px solid var(--paper);
+  background:var(--navy);display:grid;place-items:center;color:#fff;
+  box-shadow:0 4px 10px -4px rgba(20,28,66,.5);
+}
+.sector-avatars .av:first-child{margin-left:0}
+.sector-avatars .av svg{width:19px;height:19px}
+.sector-avatars .av.alt{background:var(--navy-700)}
+.sector-avatars .av.coral{background:var(--coral);font-family:var(--mono);font-size:11px;font-weight:600}
+
+/* --- panel bitácora (reemplaza la foto) --- */
+.logbook{
+  position:relative;
+  background:rgba(255,255,255,.045);
+  border:1px solid var(--line-dark);
+  border-right:0;border-bottom:0;
+  border-radius:var(--r-lg) 0 0 0;
+  padding:20px 22px 26px;
+  backdrop-filter:blur(2px);
+  display:flex;flex-direction:column;
+}
+.log-list{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:2px}
+.logbook-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-bottom:14px;margin-bottom:14px;border-bottom:1px dashed rgba(255,255,255,.12);
+}
+.logbook-head .t{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:rgba(255,255,255,.8);text-transform:uppercase}
+.live{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--coral)}
+.live i{width:7px;height:7px;border-radius:50%;background:var(--coral);display:block;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.8)}}
+
+.log-row{
+  display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;
+  padding:11px 10px;border-radius:10px;
+}
+.log-row + .log-row{margin-top:2px}
+.log-row:hover{background:rgba(255,255,255,.04)}
+.log-row .h{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.4)}
+.log-row .txt{font-size:13.5px;color:rgba(255,255,255,.9);line-height:1.3}
+.log-row .txt small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:rgba(255,255,255,.42);margin-top:3px;text-transform:uppercase}
+.tag{
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 9px;border-radius:6px;white-space:nowrap;
+}
+.tag.ok{background:rgba(255,255,255,.10);color:rgba(255,255,255,.75)}
+.tag.alert{background:rgba(248,90,122,.16);color:#FF93A9;border:1px solid rgba(248,90,122,.35)}
+.tag.sign{background:rgba(255,255,255,.06);color:rgba(255,255,255,.6)}
+.log-foot{
+  margin-top:16px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.12);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.log-foot .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.log-foot .v{font-family:var(--display);font-size:26px;color:#fff;line-height:1}
+.log-foot .v span{color:var(--coral)}
+
+/* ============================================================
+   CHIPS DE NORMATIVA
+   ============================================================ */
+.compliance{padding:40px 0 8px}
+.compliance .lead{
+  text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:22px;
+}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.chip{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--line);background:var(--paper-2);
+  border-radius:999px;padding:9px 18px 9px 14px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--navy);font-weight:500;
+}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--navy);opacity:.5}
+.chip.accent{border-color:rgba(248,90,122,.4);background:#fff}
+.chip.accent::before{background:var(--coral);opacity:1}
+
+/* ============================================================
+   BENTO STATS
+   ============================================================ */
+section{padding:86px 0}
+.bento{
+  background:linear-gradient(160deg,#FFFFFF, #E9EDF6);
+  border:1px solid var(--line);
+  border-radius:var(--r-xl);
+  padding:clamp(28px,4vw,56px);
+  display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.bento::after{ /* círculos concéntricos tenues, eco del hero */
+  content:"";position:absolute;right:-140px;bottom:-180px;width:520px;height:520px;border-radius:50%;
+  border:1px solid rgba(48,64,142,.07);box-shadow:0 0 0 60px rgba(48,64,142,.035);
+}
+.bento-main{position:relative;z-index:1}
+.bento-main h2{margin-bottom:18px;max-width:11ch}
+.bento-main h2 u{text-decoration:none;position:relative;white-space:nowrap}
+.bento-main h2 u::after{
+  content:"";position:absolute;left:0;right:0;bottom:.1em;height:5px;border-radius:3px;background:var(--coral);opacity:.85;
+}
+.bento-main p{color:var(--muted);max-width:44ch;margin-bottom:26px;font-size:15.5px}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;position:relative;z-index:1}
+.stat{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:22px 20px;transition:transform .2s ease,box-shadow .2s ease;
+}
+.stat:hover{transform:translateY(-4px);box-shadow:0 18px 32px -24px rgba(20,28,66,.5)}
+.stat .n{font-family:var(--display);font-size:clamp(34px,3.6vw,46px);line-height:1;color:var(--navy);letter-spacing:-.01em}
+.stat .n .u{color:var(--coral)}
+.stat .l{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.35}
+.stat.big{grid-column:span 2;background:var(--navy-900);border-color:transparent}
+.stat.big .n{color:#fff}
+.stat.big .l{color:rgba(255,255,255,.6)}
+.stat.zero .n{color:var(--coral)}
+
+/* ============================================================
+   MECANISMO — 3 pasos
+   ============================================================ */
+.sec-head{max-width:880px;margin-bottom:44px}
+.sec-head h2{margin-bottom:16px}
+.sec-head p{color:var(--muted);font-size:16.5px;max-width:58ch}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative}
+.step{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:30px 28px 32px;position:relative;overflow:hidden;
+  transition:border-color .2s ease, transform .2s ease;
+}
+.step:hover{border-color:rgba(48,64,142,.35);transform:translateY(-4px)}
+.step .num{
+  font-family:var(--display);font-size:76px;line-height:.8;color:rgba(48,64,142,.13);
+  position:absolute;top:16px;right:20px;
+}
+.step .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:14px;display:block}
+.step h3{margin-bottom:12px;max-width:14ch}
+.step p{color:var(--muted);font-size:14.8px}
+.step .foot{
+  margin-top:20px;padding-top:16px;border-top:1px dashed var(--line);
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--navy);
+}
+
+/* divisor diagonal de dos tonos marino */
+.diagonal{height:120px;position:relative;overflow:hidden;background:var(--paper)}
+.diagonal::before,.diagonal::after{content:"";position:absolute;inset:0}
+.diagonal::before{background:var(--navy-900);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.diagonal::after{background:var(--navy);clip-path:polygon(0 100%,100% 22%,100% 42%,0 100%);opacity:.55}
+.diagonal .pin{
+  position:absolute;left:50%;bottom:26px;width:10px;height:10px;border-radius:50%;background:var(--coral);z-index:2;
+  box-shadow:0 0 0 8px rgba(248,90,122,.18);
+}
+
+/* ============================================================
+   COMPARATIVA
+   ============================================================ */
+.dark{background:var(--navy-900);color:#fff}
+.dark h2{color:#fff}
+.dark .sec-head p{color:var(--dim)}
+.table{
+  border:1px solid var(--line-dark);border-radius:var(--r-lg);overflow:hidden;background:rgba(255,255,255,.025);
+}
+.trow{
+  display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;align-items:stretch;
+  border-bottom:1px solid var(--line-dark);
+}
+.trow:last-child{border-bottom:0}
+.trow > div{padding:18px 22px;font-size:14.5px;color:var(--dim);display:flex;align-items:center;gap:9px}
+.trow .rowlabel{color:#fff;font-weight:500}
+.trow.head > div{
+  padding-top:22px;padding-bottom:22px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);
+}
+.col-acup{background:rgba(248,90,122,.055);border-left:1px solid rgba(248,90,122,.28);border-right:1px solid rgba(248,90,122,.28);color:#fff !important}
+.trow.head .col-acup{color:#fff !important;font-weight:600;position:relative}
+.trow.head .col-acup::after{content:"";position:absolute;left:22px;bottom:12px;width:22px;height:3px;background:var(--coral);border-radius:2px}
+.trow:last-child .col-acup{border-bottom:1px solid rgba(248,90,122,.28)}
+.ico{width:15px;height:15px;flex:none}
+.ico.no{color:rgba(255,255,255,.3)}
+.ico.yes{color:var(--coral)}
+
+/* ============================================================
+   TESTIMONIO
+   ============================================================ */
+.quote-block{
+  background:linear-gradient(150deg,#22306E,var(--navy-900));
+  border-radius:var(--r-xl);padding:clamp(30px,4.4vw,60px);
+  display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:start;position:relative;overflow:hidden;
+}
+.quote-block::before{
+  content:"";position:absolute;left:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.06);box-shadow:0 0 0 50px rgba(255,255,255,.02);
+}
+.quote-mark{
+  font-family:var(--display);font-size:120px;line-height:.6;color:var(--coral);position:relative;z-index:1;
+}
+.quote-body{position:relative;z-index:1}
+.quote-body blockquote{
+  font-family:var(--display);font-weight:600;font-size:clamp(24px,2.9vw,38px);line-height:1.12;color:#fff;margin-bottom:26px;
+}
+.quote-body blockquote span{color:var(--coral)}
+.quote-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.quote-meta .who{font-size:14px;color:#fff;font-weight:600}
+.quote-meta .who small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:400;margin-top:3px}
+.quote-meta .sep{width:1px;height:32px;background:var(--line-dark)}
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.price-head{text-align:center;max-width:640px;margin:0 auto 48px}
+.price-head h2{margin-bottom:14px}
+.price-head p{color:var(--muted)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:center}
+.plan{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:30px 28px 34px;transition:transform .2s ease,box-shadow .2s ease;
+}
+.plan:hover{transform:translateY(-4px);box-shadow:0 24px 40px -32px rgba(20,28,66,.6)}
+.plan .pname{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.plan .pname b{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--navy)}
+.badge{
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--coral);color:#fff;padding:5px 10px;border-radius:6px;
+}
+.plan .amount{font-family:var(--display);font-size:52px;line-height:1;color:var(--ink);display:flex;align-items:baseline;gap:6px}
+.plan .amount small{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--muted)}
+.plan .desc{color:var(--muted);font-size:14px;margin:14px 0 22px;min-height:42px}
+.plan ul{list-style:none;display:grid;gap:11px;margin-top:22px;padding-top:22px;border-top:1px dashed var(--line)}
+.plan li{display:flex;gap:10px;font-size:14px;color:var(--ink);align-items:flex-start;line-height:1.4}
+.plan li svg{width:15px;height:15px;flex:none;margin-top:3px;color:var(--navy)}
+.plan .btn{width:100%;justify-content:space-between}
+.plan.featured{
+  background:var(--navy-900);border-color:transparent;color:#fff;
+  transform:translateY(-18px);padding:38px 30px 42px;
+  box-shadow:0 40px 70px -46px rgba(20,28,66,.9);
+}
+.plan.featured:hover{transform:translateY(-24px)}
+.plan.featured .pname b{color:#fff}
+.plan.featured .amount{color:#fff}
+.plan.featured .amount small{color:rgba(255,255,255,.55)}
+.plan.featured .desc{color:rgba(255,255,255,.6)}
+.plan.featured ul{border-top-color:var(--line-dark)}
+.plan.featured li{color:rgba(255,255,255,.88)}
+.plan.featured li svg{color:var(--coral)}
+.price-note{
+  text-align:center;margin-top:36px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);
+}
+
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+.cta-final{
+  background:var(--navy-900);border-radius:var(--r-xl);padding:clamp(36px,5vw,72px);
+  position:relative;overflow:hidden;text-align:center;
+}
+.cta-final::before{
+  content:"";position:absolute;left:50%;top:-40%;translate:-50% 0;width:760px;height:760px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.05);box-shadow:0 0 0 70px rgba(255,255,255,.02);
+}
+.cta-final .inner{position:relative;z-index:1}
+.cta-final h2{color:#fff;margin-bottom:16px}
+.cta-final h2 em{font-style:normal;color:var(--coral)}
+.cta-final p{color:var(--dim);max-width:52ch;margin:0 auto 30px}
+.cta-final .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-micro{
+  margin-top:26px;display:flex;gap:26px;justify-content:center;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.42);
+}
+.cta-micro span{display:inline-flex;align-items:center;gap:8px}
+.cta-micro span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--coral)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{background:var(--navy-900);color:#fff;padding:72px 0 34px}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:46px;border-bottom:1px solid var(--line-dark)}
+.f-brand .brand{margin-bottom:18px}
+.f-brand p{color:var(--dim);font-size:14.5px;max-width:34ch}
+.f-col h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:18px;font-weight:500}
+.f-col ul{list-style:none;display:grid;gap:11px}
+.f-col a{font-size:14.5px;color:rgba(255,255,255,.78)}
+.f-col a:hover{color:var(--coral)}
+.f-bottom{padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,.4);text-transform:uppercase}
+
+/* reveal — sólo si el JS corre; si falla, todo queda visible */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1080px){
+  /* apilado: la mordida inferior vuelve al flujo, justo bajo el CTA */
+  .hero-body{grid-template-columns:1fr;gap:26px;padding:40px 22px 22px}
+  .hero-copy{padding-bottom:0;max-width:none}
+  .logbook{border-radius:var(--r-lg);border:1px solid var(--line-dark)}
+  .notch-bl{
+    position:static;margin-top:30px;padding:10px 18px;
+    border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line-dark);
+    width:max-content;height:auto;
+  }
+  .notch-bl::before,.notch-bl::after{display:none}
+  .notch-bl .av{border-color:#232F6B}
+  .bento{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+  .plan.featured{transform:none}
+  .plan.featured:hover{transform:translateY(-4px)}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .quote-block{grid-template-columns:1fr;gap:0}
+  .quote-mark{font-size:80px}
+}
+@media (max-width:860px){
+  .nav-links{display:none}
+  .nav .btn{padding:11px 11px 11px 18px;font-size:14px}
+  .hero{--ntl-w:104px;--ntl-h:56px;--cut:18px}
+  .notch-tl{padding-left:12px}
+  .brand .word{font-size:22px}
+  .trow{grid-template-columns:1fr}
+  .trow > div{padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05)}
+  .trow.head{display:none}
+  .trow .rowlabel{background:rgba(255,255,255,.04);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .trow > div::before{
+    content:attr(data-col);font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:rgba(255,255,255,.35);min-width:96px;
+  }
+  .trow .rowlabel::before{content:none}
+  .col-acup{border-left:2px solid var(--coral);border-right:0}
+  .hero-back{right:-14px;width:70%;height:150px}
+}
+@media (max-width:560px){
+  section{padding:60px 0}
+  .hero-body{padding:34px 16px 16px}
+  .hero .nav{padding-right:14px}
+  .hero h1{font-size:34px;line-height:1.05;text-wrap:balance}
+  .hero h1 br.lb, .sec-head h2 br, .cta-final h2 br{display:none}
+  .hero p.sub{font-size:15.5px}
+  .log-row{grid-template-columns:44px 1fr;row-gap:6px}
+  .log-row .tag{grid-column:2;justify-self:start}
+  .f-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ HERO ============================ -->
+<div class="hero-zone">
+  <div class="hero-stack">
+    <div class="hero-back" aria-hidden="true"></div>
+
+    <header class="hero">
+      <div class="hero-rings" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+      <!-- mordida superior izquierda: el logo queda fuera de la tarjeta oscura -->
+      <div class="notch notch-tl">
+        <a class="brand" href="#top" aria-label="ACUP, inicio">
+          <span class="word">acup<span class="dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="nav" aria-label="Principal">
+        <div class="nav-links">
+          <a class="active" href="#mecanismo">Cómo trabajamos</a>
+          <a href="#porque">Por qué ACUP</a>
+          <a href="#precios">Cómo contratar</a>
+          <a href="#casos">Comparativa</a>
+        </div>
+
+        <a class="btn btn-coral" href="#agendar">
+          Agendar
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </nav>
+
+      <div class="hero-body">
+        <div class="hero-copy">
+          <p class="hero-norm">
+            Marco aplicado — <b>DS 44</b> · <b>DS 594</b> · <b>Ley 16.744</b> · <b>ISO 45001</b>
+          </p>
+
+          <h1>
+            Cumplir la norma <em>no basta</em><br class="lb">
+            si nadie la practica todos los días.
+          </h1>
+
+          <p class="sub">
+            Te acompañamos a cumplir tu normativa de prevención de riesgos de forma eficiente, y usamos
+            eso como puerta de entrada para instalar un hábito de seguridad real en tu empresa.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-coral" href="#agendar">
+              Agendar una conversación
+              <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="btn btn-ghost" href="#mecanismo">
+              Ver cómo trabajamos
+              <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v13M6 12l6 6 6-6"/></svg></span>
+            </a>
+          </div>
+
+          <!-- mordida inferior izquierda: badges de rubro superpuestos -->
+          <div class="notch notch-bl">
+            <div class="sector-avatars" role="img" aria-label="Rubros atendidos: construcción, minería, logística y otros">
+              <span class="av" title="Construcción"><!-- construcción -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16h18"/><path d="M5 16a7 7 0 0 1 14 0"/><path d="M12 4v5"/></svg>
+              </span>
+              <span class="av alt"><!-- minería -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 14 10"/><path d="M9 5c3.5-1.5 7 .5 8.5 4"/><path d="M17.5 9c1.5 3.5-.5 7-4 8.5"/></svg>
+              </span>
+              <span class="av"><!-- logística -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h10v9H3z"/><path d="M13 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+              </span>
+              <span class="av coral">+4</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- panel bitácora de terreno (ocupa el lugar de la foto) -->
+        <aside class="logbook" aria-label="Bitácora de terreno">
+          <div class="logbook-head">
+            <span class="t">Bitácora de terreno — ejemplo</span>
+            <span class="live"><i aria-hidden="true"></i> Así se ve un día</span>
+          </div>
+
+          <div class="log-list">
+          <div class="log-row">
+            <span class="h">07:12</span>
+            <span class="txt">Charla de 5 minutos firmada<small>Obra Norte · 14 trabajadores</small></span>
+            <span class="tag sign">Firmado</span>
+          </div>
+          <div class="log-row">
+            <span class="h">09:40</span>
+            <span class="txt">Inspección de andamios<small>Nivel 3 · Checklist DS 44</small></span>
+            <span class="tag ok">Conforme</span>
+          </div>
+          <div class="log-row">
+            <span class="h">11:05</span>
+            <span class="txt">Hallazgo: bloqueo eléctrico incompleto<small>Sala de máquinas · Riesgo crítico</small></span>
+            <span class="tag alert">Abierto</span>
+          </div>
+          <div class="log-row">
+            <span class="h">15:30</span>
+            <span class="txt">Cierre verificado en terreno<small>Con evidencia fotográfica y responsable</small></span>
+            <span class="tag ok">Cerrado</span>
+          </div>
+          </div>
+
+          <div class="log-foot">
+            <span class="k">Hallazgos abiertos hoy</span>
+            <span class="v">1<span>.</span></span>
+          </div>
+        </aside>
+      </div>
+    </header>
+  </div>
+</div>
+
+<!-- ==================== CHIPS DE NORMATIVA ==================== -->
+<div class="compliance">
+  <div class="wrap">
+    <p class="lead">Marco normativo con el que se trabaja</p>
+    <div class="chips">
+      <span class="chip accent">DS 44</span>
+      <span class="chip">DS 594</span>
+      <span class="chip">Ley 16.744</span>
+      <span class="chip">ISO 45001</span>
+      <span class="chip">ISO 9001 / 14001</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== BENTO STATS ==================== -->
+<section id="porque">
+  <div class="wrap">
+    <div class="bento rv">
+      <div class="bento-main">
+        <span class="eyebrow">Por qué ACUP</span>
+        <h2>No venimos a <u>fiscalizar</u>. Venimos a acompañar.</h2>
+        <p>
+          Cumplir la norma es obligatorio, pero no basta si nadie la practica todos los días. Por eso
+          combinamos asesoría en terreno, auditoría de Sistema Integrado de Gestión y una app propia
+          de inspecciones para que cumplir sea más simple — y ese tiempo que ganas se convierta en la
+          puerta de entrada a un hábito de seguridad real.
+        </p>
+        <a class="btn btn-navy" href="#mecanismo">
+          Ver el mecanismo
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+
+      <div class="stat-grid">
+        <!-- Sin cifras de desempeño: aún no tenemos datos reales que respaldar. Contenido cualitativo. -->
+        <div class="stat big">
+          <div class="n">3 <span class="u">en 1</span></div>
+          <div class="l">Asesoría en terreno + auditoría SIG + app propia, con un solo interlocutor y un solo criterio técnico.</div>
+        </div>
+        <div class="stat">
+          <div class="n">Diálogo</div>
+          <div class="l">El cambio de conducta se logra conversando con quien ejecuta el trabajo, no solo dando instrucciones.</div>
+        </div>
+        <div class="stat">
+          <div class="n">Eficiencia</div>
+          <div class="l">Capacitaciones y procesos pensados para no quitarle más tiempo del necesario a tus trabajadores.</div>
+        </div>
+        <div class="stat zero" style="grid-column:span 2">
+          <div class="n">0</div>
+          <div class="l">Módulos genéricos que no calzan con tu faena. El sistema se arma con lo que tu operación realmente necesita registrar.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MECANISMO ==================== -->
+<section id="mecanismo" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2>Un método pensado para instalar<br>el hábito, no solo para cumplir la norma.</h2>
+      <p>
+        Cumplir la norma es el piso, no la meta. El diagnóstico en terreno, el diálogo con tus equipos
+        y el seguimiento con nuestra app son parte de un mismo proceso, no etapas separadas.
+      </p>
+    </div>
+
+    <div class="steps">
+      <article class="step rv">
+        <span class="num" aria-hidden="true">01</span>
+        <span class="k">Semana 1</span>
+        <h3>Diagnóstico y cumplimiento eficiente</h3>
+        <p>
+          Recorrido de faena, revisión documental y checklists de tu SIG (ISO 9001/14001/45001),
+          armados para no quitarte más tiempo del necesario.
+        </p>
+        <div class="foot">Entregable: matriz de riesgos priorizada</div>
+      </article>
+
+      <article class="step rv">
+        <span class="num" aria-hidden="true">02</span>
+        <span class="k">Misma semana</span>
+        <h3>Diálogo en terreno</h3>
+        <p>
+          Conversamos con tus equipos y tu liderazgo para entender dónde se pierde el hábito en la
+          práctica diaria — no solo lo que dice el papel.
+        </p>
+        <div class="foot">Entregable: checklists ajustados a tu operación</div>
+      </article>
+
+      <article class="step rv">
+        <span class="num" aria-hidden="true">03</span>
+        <span class="k">Continuo</span>
+        <h3>Instalación progresiva y seguimiento</h3>
+        <p>
+          Con nuestra app propia (hallazgo → mejora → cierre) hacemos seguimiento del avance real,
+          con evidencia y estadísticas por área.
+        </p>
+        <div class="foot">Entregable: trazabilidad auditable</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="diagonal" aria-hidden="true"><span class="pin"></span></div>
+
+<!-- ==================== COMPARATIVA ==================== -->
+<section class="dark" id="casos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow on-dark">La comparación honesta</span>
+      <h2>Dónde ACUP no compite<br>—y dónde sí.</h2>
+      <p>
+        Si necesitas una plataforma corporativa con integración a SAP y soporte 24/7 en tres países,
+        no soy la opción. Si necesitas que alguien entienda tu faena y responda el mismo día, sí.
+      </p>
+    </div>
+
+    <div class="table rv">
+      <div class="trow head">
+        <div></div>
+        <div class="col-acup">ACUP</div>
+        <div>Software SST genérico</div>
+        <div>Consultora tradicional</div>
+      </div>
+
+      <div class="trow">
+        <div class="rowlabel">Quién levanta el riesgo</div>
+        <div class="col-acup" data-col="ACUP"><svg class="ico yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Quien trabaja contigo el hábito, no solo el checklist</div>
+        <div data-col="Software"><svg class="ico no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg> Nadie: tú lo cargas</div>
+        <div data-col="Consultora"><svg class="ico no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg> Un consultor, en PDF</div>
+      </div>
+
+      <div class="trow">
+        <div class="rowlabel">Criterio de cierre de hallazgo</div>
+        <div class="col-acup" data-col="ACUP"><svg class="ico yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Verificación técnica con evidencia</div>
+        <div data-col="Software"><svg class="ico no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg> Un botón "resuelto"</div>
+        <div data-col="Consultora">Depende de la próxima visita</div>
+      </div>
+
+      <div class="trow">
+        <div class="rowlabel">Implementación</div>
+        <div class="col-acup" data-col="ACUP"><svg class="ico yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Días, con checklists de tu faena</div>
+        <div data-col="Software">Meses y un onboarding pagado</div>
+        <div data-col="Consultora">No aplica: no hay sistema</div>
+      </div>
+
+      <div class="trow">
+        <div class="rowlabel">Cobro</div>
+        <div class="col-acup" data-col="ACUP"><svg class="ico yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Por proyecto, sin cobro por usuario ni por módulo</div>
+        <div data-col="Software">Por usuario y por módulo</div>
+        <div data-col="Consultora">Por hora / por informe</div>
+      </div>
+
+      <div class="trow">
+        <div class="rowlabel">Proceso comercial</div>
+        <div class="col-acup" data-col="ACUP"><svg class="ico yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Hablas directo con quien ejecuta</div>
+        <div data-col="Software">Demo, ejecutivo, propuesta, comité</div>
+        <div data-col="Consultora">Reunión de levantamiento y espera</div>
+      </div>
+
+      <div class="trow">
+        <div class="rowlabel">Cambio en un checklist</div>
+        <div class="col-acup" data-col="ACUP"><svg class="ico yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Se pide y se hace</div>
+        <div data-col="Software">Ticket a soporte, sin fecha</div>
+        <div data-col="Consultora">Se corrige en el próximo informe</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIO ==================== -->
+<section style="padding-top:0" class="dark">
+  <div class="wrap">
+    <!-- Espacio reservado para un testimonio real y autorizado por el cliente, cuando esté disponible -->
+    <div class="quote-block rv">
+      <div class="quote-mark" aria-hidden="true">“</div>
+      <div class="quote-body">
+        <blockquote>
+          No venimos a fiscalizarte. Venimos a acompañarte hasta que cumplir la norma deje de
+          sentirse como un <span>trámite</span> y se convierta en un hábito real, sostenido por tu
+          propia gente.
+        </blockquote>
+        <div class="quote-meta">
+          <div class="who">Así trabajamos<small>Filosofía ACUP</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRICING ==================== -->
+<section id="precios">
+  <div class="wrap">
+    <div class="price-head rv">
+      <span class="eyebrow" style="margin-inline:auto;display:flex;justify-content:center">Cómo nos contratas</span>
+      <h2>Un acompañamiento a tu medida.</h2>
+      <p>No cobramos por usuario ni por módulo. El alcance se ajusta a tu faena y se cotiza según el trabajo real — sin planes cerrados que no calzan con tu operación.</p>
+    </div>
+
+    <div class="plans">
+      <!-- REEMPLAZAR valores por los reales -->
+      <article class="plan rv">
+        <div class="pname"><b>Cumplimiento</b></div>
+        <div class="amount" style="font-size:22px;">Cotización según tu faena</div>
+        <p class="desc">Para cumplir tu normativa (SIG, capacitaciones, auditorías) sin que se convierta en una carga para tus trabajadores.</p>
+        <a class="btn btn-outline" href="#agendar">Cotizar<span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#30408E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Software de inspecciones, usuarios ilimitados</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Checklists armados sobre tu matriz de riesgos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Registro fotográfico y firma digital</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Reportes exportables para fiscalización</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Puesta en marcha incluida</li>
+        </ul>
+      </article>
+
+      <article class="plan featured rv">
+        <div class="pname"><b>Cumplimiento + Cultura</b><span class="badge">Recomendado</span></div>
+        <div class="amount" style="font-size:22px;">Cotización según tu faena</div>
+        <p class="desc">Cumplimiento normativo más acompañamiento en terreno para instalar el hábito de seguridad, no solo el papel.</p>
+        <a class="btn btn-coral" href="#agendar">Cotizar<span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Todo lo del plan Básico</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Visitas a terreno programadas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Observación de conducta con retroalimentación a línea de mando</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Seguimiento de cierre con verificación en faena</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Preparación para fiscalización DS 44</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Ajustes de checklist sin ticket ni espera</li>
+        </ul>
+      </article>
+
+      <article class="plan rv">
+        <div class="pname"><b>A medida</b></div>
+        <div class="amount">Según<small>alcance</small></div>
+        <p class="desc">Multi-faena, auditoría de SIG o certificación con fecha comprometida.</p>
+        <a class="btn btn-outline" href="#agendar">Conversemos<span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#30408E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Todo lo del plan Intermedio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Auditoría interna de Sistema Integrado de Gestión</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Preparación ISO 45001 / 9001 / 14001</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Consolidado multi-faena y reporte a gerencia</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Desarrollo de módulos específicos de tu operación</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="price-note">Sin cobro por usuario · Sin permanencia mínima · Cotización según tu faena</p>
+  </div>
+</section>
+
+<!-- ==================== CTA FINAL ==================== -->
+<section id="agendar" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-final rv">
+      <div class="inner">
+        <span class="eyebrow on-dark" style="justify-content:center">Siguiente paso</span>
+        <h2>20 minutos por WhatsApp<br>y sabes si <em>te sirve</em>.</h2>
+        <p>
+          Me cuentas qué rubro, cuántos trabajadores y qué te está costando cerrar. Si el problema
+          se resuelve con lo que ya tienes, te lo digo en esa llamada y no seguimos.
+        </p>
+        <div class="btns">
+          <a class="btn btn-coral" href="mailto:somos@acup.cl?subject=Quiero%20agendar%20una%20conversaci%C3%B3n%20sobre%20prevenci%C3%B3n">
+            Escribir un correo
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="btn btn-ghost" href="#precios">
+            Ver cómo nos contratas
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </div>
+        <!-- Cuando tengas un WhatsApp de contacto confirmado, agregamos aquí un botón wa.me con el número real -->
+        <!-- (se retiró el botón porque el número anterior +56 9 0000 0000 era un placeholder, no un dato real) -->
+        <div class="cta-micro">
+          <span>Sin formulario largo</span>
+          <span>Sin ejecutivo de cuenta</span>
+          <span>Respondo yo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="brand" href="#top">
+          <span class="word">acup<span class="dot">.</span></span>
+        </a>
+        <p>Asesoría en prevención de riesgos laborales y cultura preventiva: cumplimiento normativo, auditoría de Sistema Integrado de Gestión y app propia de inspecciones. Chile.</p>
+      </div>
+
+      <div class="f-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#mecanismo">Asesoría en prevención</a></li>
+          <li><a href="#mecanismo">Auditoría SIG</a></li>
+          <li><a href="#mecanismo">Software de inspecciones</a></li>
+          <li><a href="#mecanismo">Observación de conducta</a></li>
+          <li><a href="#precios">Preparación DS 44</a></li>
+        </ul>
+      </div>
+
+      <div class="f-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#porque">Por qué ACUP</a></li>
+          <li><a href="#casos">Comparativa</a></li>
+          <li><a href="#precios">Cómo contratar</a></li>
+          <li><a href="#agendar">Agendar</a></li>
+        </ul>
+      </div>
+
+      <div class="f-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:somos@acup.cl">somos@acup.cl</a></li>
+          <li><a href="#agendar">Región Metropolitana y regiones</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span>© <span id="y">2026</span> ACUP<span class="dot">.</span> Todos los derechos reservados</span>
+      <span>Prevención de riesgos · SIG · Software de inspecciones</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.rv').forEach((el, i) => {
+  el.style.transitionDelay = (i % 3) * 70 + 'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
