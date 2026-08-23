@@ -4,14 +4,102 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ACUP — Prevención de riesgos y cultura preventiva</title>
-<meta name="description" content="Asesoría en prevención de riesgos, auditorías de Sistema Integrado de Gestión y app propia de inspecciones. Cumplir la norma no basta si nadie la practica todos los días.">
+<meta name="description" content="Asesoría en prevención de riesgos laborales, auditoría de Sistema Integrado de Gestión y app propia de inspecciones. Región de Valparaíso y otras regiones.">
+<link rel="canonical" href="https://sebatobara.github.io/acup/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ACUP">
+<meta property="og:locale" content="es_CL">
+<meta property="og:url" content="https://sebatobara.github.io/acup/">
+<meta property="og:title" content="ACUP — Prevención de riesgos y cultura preventiva">
+<meta property="og:description" content="Asesoría en prevención de riesgos laborales, auditoría de Sistema Integrado de Gestión y app propia de inspecciones. Región de Valparaíso y otras regiones.">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ACUP — Prevención de riesgos y cultura preventiva">
+<meta name="twitter:description" content="Asesoría en prevención de riesgos laborales, auditoría de Sistema Integrado de Gestión y app propia de inspecciones. Región de Valparaíso y otras regiones.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="stylesheet" href="styles.css">
+
+<!-- Datos estructurados. Solo información ya publicada en el sitio: no se
+     declaran teléfono, dirección de calle ni fecha de fundación porque aún
+     son placeholders en sobre-acup.html. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://sebatobara.github.io/acup/#organizacion",
+  "name": "ACUP",
+  "url": "https://sebatobara.github.io/acup/",
+  "logo": "https://sebatobara.github.io/acup/favicon.svg",
+  "image": "https://sebatobara.github.io/acup/favicon.svg",
+  "description": "Asesoría en prevención de riesgos laborales, auditoría de Sistema Integrado de Gestión y app propia de inspecciones.",
+  "email": "somos@acup.cl",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Región de Valparaíso",
+    "addressCountry": "CL"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Chile"
+  },
+  "employee": {
+    "@type": "Person",
+    "name": "Sebastián Tobar",
+    "jobTitle": "Gerente General"
+  },
+  "knowsAbout": [
+    "Prevención de riesgos laborales",
+    "DS 44",
+    "DS 594",
+    "Ley 16.744",
+    "ISO 45001",
+    "ISO 9001",
+    "ISO 14001"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios ACUP",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Asesorías en Prevención de Riesgos Laborales",
+          "description": "Acompañamiento en terreno: diagnóstico, plan de trabajo y cumplimiento del marco legal vigente."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Control de empresas colaboradoras",
+          "description": "Documentación, acreditación y cumplimiento de contratistas, revisados y al día."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Auditorías de Sistemas de Gestión",
+          "description": "Revisión de procesos contra la norma, con cada hallazgo asignado a un responsable y un plazo."
+        }
+      }
+    ]
+  }
+}
+</script>
 </head>
 <body>
+
+<main>
 
 <!-- ============================ HERO ============================ -->
 <div class="hero-zone">
@@ -160,21 +248,21 @@
           <li>
             <b>01</b>
             <div>
-              <strong>Asesorías en Prevención de Riesgos Laborales</strong>
+              <h3>Asesorías en Prevención de Riesgos Laborales</h3>
               <span>Acompañamiento en terreno: diagnóstico, plan de trabajo y cumplimiento del marco legal vigente.</span>
             </div>
           </li>
           <li>
             <b>02</b>
             <div>
-              <strong>Control de empresas colaboradoras</strong>
+              <h3>Control de empresas colaboradoras</h3>
               <span>Documentación, acreditación y cumplimiento de tus contratistas, revisados y al día.</span>
             </div>
           </li>
           <li>
             <b>03</b>
             <div>
-              <strong>Auditorías de Sistemas de Gestión</strong>
+              <h3>Auditorías de Sistemas de Gestión</h3>
               <span>Revisamos tus procesos contra la norma y dejamos cada hallazgo con responsable y plazo.</span>
             </div>
           </li>
@@ -275,7 +363,7 @@
         <div class="pname"><b>Cumplimiento</b></div>
         <div class="amount" style="font-size:22px;">Cotización según tu faena</div>
         <p class="desc">Para cumplir tu normativa (SIG, capacitaciones, auditorías) sin que se convierta en una carga para tus trabajadores.</p>
-        <a class="btn btn-outline" href="#agendar">Cotizar<span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#30408E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+        <a class="btn btn-outline" href="mailto:somos@acup.cl?subject=Cotizaci%C3%B3n%20plan%20Cumplimiento">Cotizar<span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#30408E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Software de inspecciones, usuarios ilimitados</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Checklists armados sobre tu matriz de riesgos</li>
@@ -289,7 +377,7 @@
         <div class="pname"><b>Cumplimiento + Cultura</b><span class="badge">Recomendado</span></div>
         <div class="amount" style="font-size:22px;">Cotización según tu faena</div>
         <p class="desc">Cumplimiento normativo más acompañamiento en terreno para instalar el hábito de seguridad, no solo el papel.</p>
-        <a class="btn btn-coral" href="#agendar">Cotizar<span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+        <a class="btn btn-coral" href="mailto:somos@acup.cl?subject=Cotizaci%C3%B3n%20plan%20Cumplimiento%20%2B%20Cultura">Cotizar<span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Todo lo del plan Básico</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Visitas a terreno programadas</li>
@@ -304,7 +392,7 @@
         <div class="pname"><b>A medida</b></div>
         <div class="amount">Según<small>alcance</small></div>
         <p class="desc">Multi-faena, auditoría de SIG o certificación con fecha comprometida.</p>
-        <a class="btn btn-outline" href="#agendar">Conversemos<span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#30408E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+        <a class="btn btn-outline" href="mailto:somos@acup.cl?subject=Consulta%20por%20un%20plan%20a%20medida">Conversemos<span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#30408E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Todo lo del plan Intermedio</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9 17.5 20 6.5"/></svg> Auditoría interna de Sistema Integrado de Gestión</li>
@@ -352,6 +440,8 @@
   </div>
 </section>
 
+</main>
+
 <!-- ==================== FOOTER ==================== -->
 <footer>
   <div class="wrap">
@@ -364,7 +454,7 @@
       </div>
 
       <div class="f-col">
-        <h4>Servicios</h4>
+        <h3>Servicios</h3>
         <ul>
           <li><a href="#mecanismo">Asesoría en prevención</a></li>
           <li><a href="#mecanismo">Auditoría SIG</a></li>
@@ -375,7 +465,7 @@
       </div>
 
       <div class="f-col">
-        <h4>Empresa</h4>
+        <h3>Empresa</h3>
         <ul>
           <li><a href="#porque">Qué ofrecemos</a></li>
           <li><a href="#filosofia">Filosofía ACUP</a></li>
@@ -386,7 +476,7 @@
       </div>
 
       <div class="f-col">
-        <h4>Contacto</h4>
+        <h3>Contacto</h3>
         <ul>
           <li><a href="mailto:somos@acup.cl">somos@acup.cl</a></li>
           <li><a href="#agendar">Región de Valparaíso y otras regiones</a></li>

@@ -324,7 +324,7 @@ section{padding:86px 0}
 .services li:first-child{padding-top:0}
 .services li:last-child{padding-bottom:0}
 .services li b{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--coral);padding-top:4px}
-.services li strong{
+.services li h3{
   display:block;margin-bottom:5px;
   font-family:var(--display);font-size:23px;font-weight:600;color:#fff;line-height:1.06;
 }
@@ -514,7 +514,7 @@ footer{background:var(--navy-900);color:#fff;padding:72px 0 34px}
 .f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:46px;border-bottom:1px solid var(--line-dark)}
 .f-brand .brand{margin-bottom:18px}
 .f-brand p{color:var(--dim);font-size:14.5px;max-width:34ch}
-.f-col h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:18px;font-weight:500}
+.f-col h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:18px;font-weight:500}
 .f-col ul{list-style:none;display:grid;gap:11px}
 .f-col a{font-size:14.5px;color:rgba(255,255,255,.78)}
 .f-col a:hover{color:var(--coral)}
