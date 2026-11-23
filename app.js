@@ -656,4 +656,23 @@
     var fTick = false;
     window.addEventListener('scroll', function () { if (!fTick) { fTick = true; requestAnimationFrame(function () { fTick = false; onScroll(); }); } }, { passive: true });
   }
+
+  /* ------------------------------------------------------------------
+     Divisores de sección: el degradado del borde aparece al bajar.
+     ------------------------------------------------------------------ */
+  var dividers = Array.prototype.slice.call(document.querySelectorAll('.sdiv'));
+  if (dividers.length) {
+    var setFade = function () {
+      var vh = window.innerHeight;
+      dividers.forEach(function (d) {
+        var r = d.getBoundingClientRect();
+        var p = reduced ? 1 : Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.6)));
+        d.style.setProperty('--fade', p.toFixed(3));
+      });
+    };
+    var dTick = false;
+    window.addEventListener('scroll', function () { if (!dTick) { dTick = true; requestAnimationFrame(function () { dTick = false; setFade(); }); } }, { passive: true });
+    window.addEventListener('resize', setFade);
+    setFade();
+  }
 })();

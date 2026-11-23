@@ -14,6 +14,12 @@
         "value": "geist",
         "createdAt": "2026-11-23T20:42:33.538Z",
         "reason": "Seba chose the 'Producto tech' direction (Linear/Vercel/Stripe reference) in this session; Geist is that world's face"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist mono",
+        "createdAt": "2026-11-23T22:32:41.088Z",
+        "reason": "Part of the Producto tech direction Seba chose; used only for data labels"
       }
     ]
   }

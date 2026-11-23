@@ -768,3 +768,139 @@ main > .how[data-moment]:not(.is-live) { min-height: 0; }
 
 .diag-sec .diag-intro .topics { margin-bottom: 0; }
 .field.is-live .field-media::after { background: linear-gradient(90deg, rgba(5, 7, 13, .62) 0%, rgba(5, 7, 13, .3) 40%, rgba(5, 7, 13, 0) 65%), linear-gradient(180deg, rgba(5, 7, 13, .35) 0%, rgba(5, 7, 13, .1) 40%, rgba(5, 7, 13, .35) 100%); }
+
+/* ==========================================================================
+   Ajustes: banda oscura continua, títulos, enunciado y compatibilidad
+   ========================================================================== */
+
+/* portada + diagnóstico + terreno: un solo bloque oscuro en ambos temas,
+   así las fotos se funden en oscuro y no queda una franja gris */
+.hero, .diag-sec, .field-stage { --page-bg: #05070D; }
+.diag-sec { background: #05070D; }
+.hero { background: #05070D; }
+.field-stage { background: #05070D; }
+/* el paso a la página clara ocurre una sola vez, con un degradado largo */
+:root[data-theme="light"] .field::after {
+  content: ""; display: block; height: clamp(120px, 18vh, 220px);
+  background: linear-gradient(180deg, #05070D 0%, #2A2F3E 35%, #A9AEBC 70%, var(--bg) 100%);
+}
+:root[data-theme="light"] .field:not(.is-live) .field-stage { background: #05070D; }
+
+/* títulos más contenidos */
+.hero h1 { font-size: clamp(2.3rem, 1rem + 3.9vw, 4.3rem); line-height: 1; letter-spacing: -.045em; max-width: 13ch; }
+.field-copy .h2 { font-size: clamp(1.7rem, 1rem + 2vw, 2.7rem); max-width: 16ch; }
+.h2 { font-size: clamp(1.75rem, 1.05rem + 2.3vw, 3rem); }
+
+/* enunciado en dos niveles, con efecto en la frase clave */
+.statement { padding-top: clamp(96px, 12vw, 170px); }
+.statement-lead {
+  font-size: clamp(1.15rem, 1rem + .7vw, 1.6rem); line-height: 1.4; color: var(--muted);
+  max-width: 34ch; letter-spacing: -.01em; margin-bottom: clamp(18px, 2.4vw, 30px);
+}
+.statement .mo-wh__text { font-size: clamp(1.9rem, 1rem + 3vw, 3.5rem); line-height: 1.08; letter-spacing: -.04em; max-width: 20ch; }
+.statement em.x { font-style: normal; }
+.statement em.x .mo-w { text-decoration: line-through; text-decoration-color: transparent; text-decoration-thickness: .07em; transition: color 160ms ease, text-decoration-color .45s var(--ease); }
+.statement em.x .mo-w.is-on { text-decoration-color: var(--coral); color: var(--muted); }
+.statement strong .mo-w { background-image: linear-gradient(rgba(248, 90, 122, .22), rgba(248, 90, 122, .22)); background-repeat: no-repeat; background-position: 0 88%; background-size: 0% .38em; transition: color 160ms ease, background-size .6s var(--ease); }
+.statement strong .mo-w.is-on { background-size: 100% .38em; }
+/* sin script o con movimiento reducido: el efecto ya aplicado */
+.statement:not(.mo-wh) em.x, .statement.is-done em.x .mo-w { text-decoration: line-through; text-decoration-color: var(--coral); }
+@media (prefers-reduced-motion: reduce) {
+  .statement em.x .mo-w { text-decoration-color: var(--coral); }
+  .statement strong .mo-w { background-size: 100% .38em; }
+}
+
+/* compatibilidad: navegadores sin unidades svh usan vh */
+.hero { min-height: min(100vh, 980px); }
+@supports (height: 100svh) { .hero { min-height: min(100svh, 980px); } }
+.field-stage { min-height: 100vh; }
+.field.is-live { height: 260vh; }
+.field.is-live .field-stage { height: 100vh; }
+@supports (height: 100svh) {
+  .field-stage { min-height: 100svh; }
+  .field.is-live { height: 260svh; }
+  .field.is-live .field-stage { height: 100svh; }
+}
+.field:not(.is-live) .field-stage { min-height: 0; }
+/* tarjetas de terreno: tamaño contenido en pantallas medianas */
+.fcard { width: clamp(230px, 24vw, 280px); }
+@media (max-height: 760px) { .field.is-live .fcard { padding: 11px 14px; } .field.is-live .fcard-s { display: none; } }
+
+/* ==========================================================================
+   Divisores de sección (en vez de degradar las fotos)
+   Las fotos quedan completas; el cambio de sección ocurre en el borde con
+   una curva del color de la página y un degradado que aparece al bajar.
+   ========================================================================== */
+
+.hero-media, .field-media { -webkit-mask-image: none !important; mask-image: none !important; }
+.hero, .field-stage { --page-bg: initial; }
+.diag-sec { background: var(--bg); }
+:root[data-theme="light"] .field::after { content: none; }
+:root[data-theme="light"] .field:not(.is-live) .field-stage { background: #05070D; }
+
+.sdiv { position: relative; z-index: 3; height: clamp(44px, 7vw, 110px); pointer-events: none; line-height: 0; }
+.sdiv svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; fill: var(--bg); }
+/* degradado que crece al bajar (--fade lo pone app.js, de 0 a 1) */
+.sdiv::before {
+  content: ""; position: absolute; left: 0; right: 0;
+  height: clamp(120px, 22vh, 260px);
+  opacity: var(--fade, 1);
+  transition: opacity .2s linear;
+}
+.sdiv-bottom { margin-top: calc(-1 * clamp(44px, 7vw, 110px)); }
+.sdiv-bottom::before { bottom: 0; background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--bg) 70%, transparent) 70%, var(--bg) 100%); }
+.sdiv-top { margin-bottom: calc(-1 * clamp(44px, 7vw, 110px)); }
+.sdiv-top::before { top: 0; background: linear-gradient(0deg, transparent 0%, color-mix(in srgb, var(--bg) 70%, transparent) 70%, var(--bg) 100%); }
+/* en la portada el divisor va pegado al borde inferior */
+.hero > .sdiv-bottom { position: absolute; left: 0; right: 0; bottom: -1px; margin: 0; }
+/* el divisor inferior de terreno queda fuera del escenario fijo */
+.field > .sdiv-after { margin-top: calc(-1 * clamp(44px, 7vw, 110px)); }
+.field.is-live > .sdiv-after { margin-top: calc(-1 * clamp(44px, 7vw, 110px)); }
+/* el panel del diagnóstico se apoya sobre la curva */
+.diag-sec { margin-top: clamp(-150px, -10vw, -80px); background: transparent; }
+.diag-sec::before { content: ""; position: absolute; left: 0; right: 0; top: clamp(80px, 10vw, 150px); bottom: 0; background: var(--bg); z-index: -1; }
+.field.is-live .field-cards { left: max(0px, calc((100% - var(--page) - 2 * var(--gutter)) / 2)); right: max(0px, calc((100% - var(--page) - 2 * var(--gutter)) / 2)); }
+
+/* ==========================================================================
+   Enunciado más contenido, quiénes somos corporativo y degradados de borde
+   ========================================================================== */
+
+/* el enunciado cabe completo en una pantalla */
+.statement { padding-top: clamp(80px, 10vw, 140px); padding-bottom: clamp(24px, 4vw, 56px); }
+.statement-lead { font-size: clamp(1.05rem, .95rem + .45vw, 1.35rem); max-width: 40ch; margin-bottom: clamp(14px, 1.8vw, 22px); }
+.statement .mo-wh__text { font-size: clamp(1.6rem, .95rem + 2.1vw, 2.6rem); line-height: 1.12; letter-spacing: -.035em; max-width: 24ch; }
+.wordmark-inline { font-size: 1.04em; letter-spacing: -.03em; vertical-align: baseline; color: inherit; }
+.wordmark-inline .wordmark-dot { background: var(--coral); }
+/* el wordmark no participa del efecto de palabras: queda siempre en tinta */
+.statement .wordmark-inline, .statement .wordmark-inline .mo-w { color: var(--heading) !important; }
+.statement em.x .mo-w, .statement:not(.mo-wh) em.x, .statement.is-done em.x .mo-w { text-decoration: none !important; }
+
+/* quiénes somos */
+.about { display: grid; gap: 32px; align-items: center; }
+@media (min-width: 860px) { .about { grid-template-columns: minmax(260px, 380px) 1fr; gap: clamp(40px, 6vw, 88px); } }
+.about-brand {
+  aspect-ratio: 4 / 3; border-radius: var(--radius-lg);
+  background: var(--navy); color: #fff;
+  display: grid; place-content: center; justify-items: center; gap: 10px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.about-brand::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 36px 36px; -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%); }
+.wordmark-xl { font-size: clamp(3rem, 2rem + 3vw, 4.6rem); color: #fff; position: relative; z-index: 1; }
+.about-tag { position: relative; z-index: 1; font-family: var(--mono); font-size: .8rem; color: rgba(255,255,255,.82); letter-spacing: .02em; }
+.about-text p { margin-top: 20px; font-size: 1.1rem; line-height: 1.6; color: var(--muted); max-width: 58ch; }
+
+/* divisores: sin onda, solo un degradado largo y suave en el borde */
+.sdiv { height: 0 !important; margin: 0 !important; }
+.sdiv svg { display: none; }
+.sdiv::before { height: clamp(180px, 32vh, 360px); opacity: calc(.6 + .4 * var(--fade, 1)); }
+.sdiv-bottom::before { bottom: 0; background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--bg) 18%, transparent) 30%, color-mix(in srgb, var(--bg) 55%, transparent) 60%, color-mix(in srgb, var(--bg) 85%, transparent) 82%, var(--bg) 100%); }
+.sdiv-top::before { top: 0; background: linear-gradient(0deg, transparent 0%, color-mix(in srgb, var(--bg) 18%, transparent) 30%, color-mix(in srgb, var(--bg) 55%, transparent) 60%, color-mix(in srgb, var(--bg) 85%, transparent) 82%, var(--bg) 100%); }
+.hero > .sdiv-bottom { position: absolute; left: 0; right: 0; bottom: 0; }
+.field > .sdiv-after { position: relative; }
+.diag-sec::before { top: 0; }
+.diag-sec::before { display: none; }
+
+/* el estilo del momento word-highlight pisa los párrafos: se fija su tamaño aquí */
+#enunciado { --t-h2: clamp(1.75rem, 1rem + 2.5vw, 3.1rem); --display-weight: 600; --display-tracking: -.035em; }
+#enunciado .container > p.statement-lead { font-size: clamp(1.05rem, .95rem + .45vw, 1.35rem); line-height: 1.45; font-weight: 450; letter-spacing: -.01em; color: var(--muted); max-width: 44ch; }
+#enunciado .container > p.mo-wh__text { font-size: var(--t-h2); line-height: 1.14; max-width: 26ch; }

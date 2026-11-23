@@ -43,6 +43,7 @@ En pantalla se ven en coral con subrayado punteado (clase `.todo`) para que no s
 - Plazo de la puesta al día: `[PLAZO]`
 - Condiciones de permanencia: `[CONDICIONES DE CONTRATO]`
 - Número de WhatsApp: `[NÚMERO PENDIENTE]` (el botón hoy muestra un aviso y no abre nada)
-- Foto real en terreno: `[FOTO PENDIENTE]`
+- Año de fundación en «Quiénes somos»: `[AÑO]` (el texto de esa sección es provisorio y está por afinar)
+- Fotos de portada y terreno: hoy son escenas generadas con IA en Google Flow; reemplazar por fotos reales cuando existan
 - Servicio que recibe el correo del autodiagnóstico: poner su URL en `REPORT_ENDPOINT` dentro de `app.js`. Mientras esté vacío, el formulario no envía nada y lo dice.
 - Dominio: para servir en `acup.cl` hay que configurar el dominio personalizado en GitHub Pages (archivo `CNAME` y DNS). Los metadatos ya apuntan a `https://acup.cl/`.
