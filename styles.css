@@ -904,3 +904,21 @@ main > .how[data-moment]:not(.is-live) { min-height: 0; }
 #enunciado { --t-h2: clamp(1.75rem, 1rem + 2.5vw, 3.1rem); --display-weight: 600; --display-tracking: -.035em; }
 #enunciado .container > p.statement-lead { font-size: clamp(1.05rem, .95rem + .45vw, 1.35rem); line-height: 1.45; font-weight: 450; letter-spacing: -.01em; color: var(--muted); max-width: 44ch; }
 #enunciado .container > p.mo-wh__text { font-size: var(--t-h2); line-height: 1.14; max-width: 26ch; }
+
+/* Degradados fijos a la imagen: dentro del escenario de terreno (que queda fijo),
+   no sobre la página. Sin variación con el scroll. */
+.field > .sdiv-top, .field > .sdiv-after { display: none; }
+.sdiv::before { opacity: 1 !important; transition: none; }
+.field-stage::before, .field-stage::after {
+  content: ""; position: absolute; left: 0; right: 0; z-index: 1; pointer-events: none;
+}
+.field-stage::before { top: 0; height: clamp(120px, 20vh, 220px); background: linear-gradient(180deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 82%, transparent) 22%, color-mix(in srgb, var(--bg) 45%, transparent) 55%, transparent 100%); }
+.field-stage::after { bottom: 0; height: clamp(140px, 24vh, 260px); background: linear-gradient(0deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 82%, transparent) 22%, color-mix(in srgb, var(--bg) 45%, transparent) 55%, transparent 100%); }
+.field-copy, .field-cards, .field .hot, .field svg.wires { z-index: 2; }
+.field.is-live .field-copy { padding-top: clamp(150px, 22vh, 220px); }
+
+/* Auditoría: contraste en la versión clara */
+:root[data-theme="light"] { --dim: #59607E; }
+.how { --muted: var(--dim); }
+:root[data-theme="light"] #enunciado { --accent: var(--coral-ink); }
+:root[data-theme="light"] .statement strong, :root[data-theme="light"] .statement strong .mo-w.is-on { color: var(--coral-ink); }
