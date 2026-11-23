@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es-CL">
+<html lang="es-CL" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ACUP · Prevención de riesgos al día, lista para demostrar</title>
 <meta name="description" content="Ponemos al día la prevención de riesgos de tu empresa y la mantenemos así, con todo ordenado en una plataforma que puedes mostrar a cualquier cliente o fiscalizador. Haz el autodiagnóstico en 2 minutos.">
-<meta name="theme-color" content="#1A2358">
+<meta name="theme-color" content="#070B22">
 <link rel="canonical" href="https://acup.cl/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -22,9 +22,11 @@
 <meta name="twitter:title" content="Una empresa en regla puede ir por clientes más grandes · ACUP">
 <meta name="twitter:description" content="Asesoría de prevención de riesgos y plataforma en un solo servicio. Autodiagnóstico de 10 preguntas: descubre qué podría demostrar hoy tu empresa.">
 
-<link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
-<script>document.documentElement.classList.add('js');</script>
+<script>try{var q=new URLSearchParams(location.search).get('tema');var t=q==='claro'?'light':q==='oscuro'?'dark':localStorage.getItem('acup-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.classList.add('js','m-enter');setTimeout(function(){document.documentElement.classList.add('m-enter-done')},900);document.documentElement.classList.add('mo-js');setTimeout(function(){document.documentElement.classList.add('mo-safe')},2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js">
+<script type="module" src="assets/moments/moments.js"></script>
 <script src="app.js" defer></script>
 
 <!-- Datos estructurados. Solo información confirmada: sin precios, teléfono
@@ -140,55 +142,65 @@
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
   <symbol id="i-redo" viewBox="0 0 24 24"><path d="M5.5 12a6.5 6.5 0 1 0 2-4.7M5.5 4.5v3.3h3.3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-flag" viewBox="0 0 24 24"><path d="M6 20V4.5M6 5h11l-2.5 3.5L17 12H6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3.5v4h4M10 12h5M10 15.5h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6.2-6.5-11A6.5 6.5 0 0 1 18.5 10c0 4.8-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
 <header class="top">
   <div class="top-inner">
-    <a class="folder-tab" href="#top" aria-label="ACUP, inicio">
-      <span class="wordmark">acup<span class="wordmark-dot" aria-hidden="true"></span></span>
-    </a>
-    <a class="btn btn-quiet" href="#contacto">
-      <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>
-      Hablar con un asesor
-    </a>
+    <a class="brand" href="#top" aria-label="ACUP, inicio"><span class="wordmark">acup<span class="wordmark-dot" aria-hidden="true"></span></span></a>
+    <div class="top-actions">
+      <button class="theme-btn" type="button" aria-label="Cambiar a versión clara" data-theme-toggle>
+        <svg class="ico ico-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        <svg class="ico ico-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+      <a class="btn btn-ghost btn-sm hide-sm" href="#contacto">Hablar con un asesor</a>
+      <a class="btn btn-primary btn-sm" href="#diagnostico">Hacer el diagnóstico</a>
+    </div>
   </div>
 </header>
 
-<nav class="tabs" aria-label="Índice de la página">
-  <ol>
-    <li><a href="#diagnostico" data-spy="diagnostico"><span class="tab-n">01</span>Diagnóstico</a></li>
-    <li><a href="#fechas" data-spy="fechas"><span class="tab-n">02</span>Fechas</a></li>
-    <li><a href="#comparar" data-spy="comparar"><span class="tab-n">03</span>Hoy / Con ACUP</a></li>
-    <li><a href="#como" data-spy="como"><span class="tab-n">04</span>Cómo funciona</a></li>
-    <li><a href="#planes" data-spy="planes"><span class="tab-n">05</span>Planes</a></li>
-    <li><a href="#quien" data-spy="quien"><span class="tab-n">06</span>Quién</a></li>
-    <li><a href="#preguntas" data-spy="preguntas"><span class="tab-n">07</span>Preguntas</a></li>
-  </ol>
-</nav>
-
 <main id="top">
 
-  <!-- 1 · Portada: la carpeta abierta -->
-  <section class="folder" aria-labelledby="titular">
-    <div class="cover">
-      <h1 id="titular">Una empresa en regla puede ir por clientes más grandes.</h1>
-      <p class="lede">Ponemos al día tu prevención de riesgos y la mantenemos así, con todo ordenado en una plataforma que puedes mostrar a cualquier cliente o fiscalizador.</p>
-      <ul class="supports">
-        <li>8 años del lado de una empresa grande, revisando a sus proveedores</li>
-        <li>Asesoría y plataforma en un solo servicio</li>
-        <li>En línea para todo Chile</li>
-      </ul>
+  <!-- 1 · Portada -->
+  <section class="hero" aria-labelledby="titular">
+    <div class="hero-media" aria-hidden="true">
+      <!-- IMAGEN: generada con IA en Google Flow (escena ilustrativa, no es un cliente ni un trabajador real). Reemplazable por foto real. -->
+      <img src="assets/img/hero.jpg" alt="" width="1376" height="768" fetchpriority="high" decoding="async">
     </div>
-
-    <div class="tray" id="diagnostico">
-      <div class="stack" data-remaining="10">
-        <div class="edges" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="hero-badge"><span class="pulse" aria-hidden="true"></span>Art. 16 exigible desde el 01.11.2026</p>
+        <h1 id="titular" data-enter>Una empresa en regla puede ir por <span class="hl">clientes más grandes</span>.</h1>
+        <p class="lede">Ponemos al día tu prevención de riesgos y la mantenemos así, con todo ordenado en una plataforma que puedes mostrar a cualquier cliente o fiscalizador.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn-lg" href="#diagnostico" data-scroll-diag>Hacer el autodiagnóstico<svg class="ico" aria-hidden="true"><use href="#i-right"/></svg></a>
+          <a class="btn btn-glass btn-lg" href="#contacto">Hablar con un asesor</a>
         </div>
+        <ul class="supports">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>8 años del lado de una empresa grande, revisando a sus proveedores</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>Asesoría y plataforma en un solo servicio</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>En línea para todo Chile</li>
+        </ul>
+      </div>
 
-        <article class="sheet diag" aria-labelledby="diag-title" data-step="intro">
-          <span class="flag" aria-hidden="true"></span>
-          <span class="folio" aria-hidden="true">Hoja 01</span>
+
+    </div>
+  </section>
+
+  <!-- Autodiagnóstico: sube sobre el borde inferior de la portada -->
+  <section class="diag-sec" aria-label="Autodiagnóstico">
+    <div class="wrap">
+      <div class="hero-panel" id="diagnostico">
+        <article class="panel panel-glass diag" aria-labelledby="diag-title" data-step="intro">
+          <div class="panel-bar">
+            <span class="panel-title"><span class="wordmark wordmark-xs">acup<span class="wordmark-dot" aria-hidden="true"></span></span>Autodiagnóstico</span>
+            <span class="panel-meta" id="diag-meta">10 preguntas</span>
+          </div>
           <div class="diag-body" id="diag-body">
             <div class="diag-intro">
               <h2 id="diag-title" class="diag-h" tabindex="-1">¿Tu empresa puede demostrar que cumple?</h2>
@@ -197,7 +209,9 @@
                 <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>2 minutos</li>
                 <li><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Sin registrarte</li>
               </ul>
-              <p class="covers">Revisa matriz IPER, información de riesgos, capacitación del art. 16, Ley Karin, entrega de EPP, Reglamento Interno y emergencias.</p>
+              <div class="topics" aria-label="Temas que revisa">
+                <span>Matriz IPER</span><span>IRL</span><span>Art. 16</span><span>Ley Karin</span><span>EPP</span><span>Reglamento Interno</span><span>Emergencias</span>
+              </div>
               <button class="btn btn-primary btn-lg" type="button" data-action="start">
                 Comenzar
                 <svg class="ico" aria-hidden="true"><use href="#i-right"/></svg>
@@ -211,61 +225,89 @@
     </div>
   </section>
 
-  <!-- 2 · Fechas de la norma -->
-  <section class="sheet-section" id="fechas" aria-labelledby="fechas-h">
-    <div class="sheet wide">
-      <span class="folio" aria-hidden="true">Hoja 02</span>
-      <h2 id="fechas-h" class="h2">La norma cambió. Estas fechas ya corren.</h2>
-      <ol class="register">
-        <li class="reg-row" data-date="2024-08-01">
-          <time class="reg-date" datetime="2024-08-01">01.08.2024</time>
-          <div class="reg-text">
-            <h3>Ley Karin</h3>
-            <p>Protocolo de prevención del acoso, obligatorio en todas las empresas.</p>
-          </div>
-          <p class="reg-status">Vigente</p>
+  <!-- Terreno: la foto queda fija y aparecen los registros, unidos a puntos de la escena -->
+  <section class="field" id="terreno" aria-labelledby="terreno-h">
+    <div class="field-stage">
+      <div class="field-media" aria-hidden="true">
+        <!-- IMAGEN: generada con IA en Google Flow (escena ilustrativa). Reemplazable por foto real en terreno. -->
+        <img src="assets/img/terreno.jpg" alt="" width="1376" height="768" loading="lazy" decoding="async">
+      </div>
+      <div class="wrap field-copy">
+        <h2 id="terreno-h" class="h2">Lo que pasa en terreno queda listo para demostrar.</h2>
+        <p class="field-count" aria-hidden="true"><span class="dot dot-coral"></span><b data-field-n>4</b> de 4 registros al día · ejemplo</p>
+      </div>
+      <ol class="field-cards">
+        <li class="fcard" style="--x: 86%; --y: 30%; --cx: 64%; --cy: 14%">
+          <span class="fcard-ico"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg></span>
+          <span class="fcard-k">Matriz IPER</span>
+          <strong>Trabajo en altura</strong>
+          <span class="fcard-s">Revisada este mes · con perspectiva de género</span>
         </li>
-        <li class="reg-row" data-date="2025-02-01">
-          <time class="reg-date" datetime="2025-02-01">01.02.2025</time>
-          <div class="reg-text">
-            <h3>DS 44</h3>
-            <p>Reemplaza al DS 40 y al DS 54: la gestión preventiva se tiene que poder demostrar.</p>
-          </div>
-          <p class="reg-status">Vigente</p>
+        <li class="fcard" style="--x: 35%; --y: 54%; --cx: 5%; --cy: 42%">
+          <span class="fcard-ico"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span class="fcard-k">IRL firmado</span>
+          <strong>Ingreso nuevo · Bodega</strong>
+          <span class="fcard-s">Firmado antes de empezar a trabajar</span>
         </li>
-        <li class="reg-row" data-date="2026-11-01">
-          <time class="reg-date" datetime="2026-11-01">01.11.2026</time>
-          <div class="reg-text">
-            <h3>Capacitación art. 16</h3>
-            <p>8 horas por trabajador, con evaluación, renovables cada 2 años.</p>
-          </div>
-          <p class="reg-status">Exigible</p>
+        <li class="fcard" style="--x: 64%; --y: 46%; --cx: 70%; --cy: 64%">
+          <span class="fcard-ico"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <span class="fcard-k">EPP entregado</span>
+          <strong>Casco, lentes y guantes</strong>
+          <span class="fcard-s">Entrega con registro firmado</span>
         </li>
-        <li class="reg-row" data-date="2026-12-01">
-          <time class="reg-date" datetime="2026-12-01">01.12.2026</time>
-          <div class="reg-text">
-            <h3>Ley 21.719</h3>
-            <p>Nuevas exigencias para los datos personales de tus trabajadores.</p>
-          </div>
-          <p class="reg-status">Desde el 01.12.2026</p>
+        <li class="fcard" style="--x: 41%; --y: 57%; --cx: 18%; --cy: 74%">
+          <span class="fcard-ico"><svg class="ico" aria-hidden="true"><use href="#i-list"/></svg></span>
+          <span class="fcard-k">Capacitación art. 16</span>
+          <strong>8 de 8 horas</strong>
+          <span class="fcard-s">Con evaluación, renovable cada 2 años</span>
         </li>
       </ol>
     </div>
   </section>
 
+  <!-- 2 · Fechas de la norma -->
+  <section class="section" id="fechas" aria-labelledby="fechas-h">
+    <div class="wrap">
+      <h2 id="fechas-h" class="h2">La norma cambió. <span class="dim">Estas fechas ya corren.</span></h2>
+      <div class="bento">
+        <article class="cell cell-count" data-date="2026-12-01">
+          <p class="cell-tag"><span class="dot dot-coral" aria-hidden="true"></span>Ley 21.719</p>
+          <p class="count" aria-live="off"><span class="count-n" data-unit="d">—</span><small>días</small><span class="count-n" data-unit="h">—</span><small>horas</small><span class="count-n" data-unit="m">—</span><small>min</small></p>
+          <p class="cell-text">Nuevas exigencias para los datos personales de tus trabajadores. <time datetime="2026-12-01">Rige desde el 01.12.2026.</time></p>
+        </article>
+        <article class="cell" data-date="2026-11-01">
+          <p class="cell-tag"><span class="dot dot-coral" aria-hidden="true"></span><time datetime="2026-11-01">01.11.2026</time></p>
+          <h3>Capacitación art. 16</h3>
+          <p class="cell-text">8 horas por trabajador, con evaluación, renovables cada 2 años.</p>
+          <p class="reg-status">Exigible</p>
+        </article>
+        <article class="cell" data-date="2025-02-01">
+          <p class="cell-tag"><span class="dot" aria-hidden="true"></span><time datetime="2025-02-01">01.02.2025</time></p>
+          <h3>DS 44</h3>
+          <p class="cell-text">Reemplaza al DS 40 y al DS 54: la gestión preventiva se tiene que poder demostrar.</p>
+          <p class="reg-status">Vigente</p>
+        </article>
+        <article class="cell" data-date="2024-08-01">
+          <p class="cell-tag"><span class="dot" aria-hidden="true"></span><time datetime="2024-08-01">01.08.2024</time></p>
+          <h3>Ley Karin</h3>
+          <p class="cell-text">Protocolo de prevención del acoso, obligatorio en todas las empresas.</p>
+          <p class="reg-status">Vigente</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- 3 · Comparador -->
-  <section class="sheet-section" id="comparar" aria-labelledby="comparar-h">
-    <div class="sheet wide compare" data-state="hoy">
-      <span class="folio" aria-hidden="true">Hoja 03</span>
+  <section class="section" id="comparar" aria-labelledby="comparar-h">
+    <div class="wrap compare" data-state="hoy">
       <div class="compare-head">
-        <h2 id="comparar-h" class="h2">Tener los papeles no es lo mismo que poder demostrarlo.</h2>
+        <h2 id="comparar-h" class="h2">Tener los papeles no es lo mismo que <span class="dim">poder demostrarlo.</span></h2>
         <div class="switch" role="group" aria-label="Comparar la gestión de tu empresa">
           <button type="button" class="switch-btn" data-set="hoy" aria-pressed="true">Hoy</button>
           <button type="button" class="switch-btn" data-set="acup" aria-pressed="false">Con ACUP</button>
           <span class="switch-thumb" aria-hidden="true"></span>
         </div>
       </div>
-
       <div class="compare-body">
         <div class="compare-lists">
           <ul class="clist clist-hoy" aria-label="Hoy">
@@ -329,44 +371,84 @@
     </div>
   </section>
 
-  <!-- 4 · Cómo funciona -->
-  <section class="sheet-section" id="como" aria-labelledby="como-h">
-    <div class="sheet wide">
-    <span class="folio" aria-hidden="true">Hoja 04</span>
-    <h2 id="como-h" class="h2">Te ponemos al día una vez y te mantenemos al día siempre.</h2>
-    <div class="process">
-      <div class="span span-once" aria-hidden="true"><span>Una vez</span></div>
-      <div class="span span-always" aria-hidden="true"><span>Todos los meses</span></div>
-      <ol class="steps">
-        <li>
-          <span class="step-n" aria-hidden="true">1</span>
-          <h3>Diagnóstico</h3>
-          <p>Partimos por tu autodiagnóstico y revisamos juntos tu documentación.</p>
-        </li>
-        <li>
-          <span class="step-n" aria-hidden="true">2</span>
-          <h3>Puesta al día</h3>
-          <p>Elaboramos lo que falta (matriz, protocolos, registros y capacitaciones), adaptado a tu operación.</p>
-        </li>
-        <li>
-          <span class="step-n step-n-loop" aria-hidden="true">3</span>
-          <h3>Mantención mensual</h3>
-          <p>Controlamos vencimientos, incorporamos a los trabajadores nuevos y actualizamos todo cuando cambia la norma.</p>
-        </li>
-      </ol>
-    </div>
+  <!-- Enunciado: se ilumina palabra por palabra al hacer scroll (momento word-highlight) -->
+  <section class="statement" id="enunciado" data-moment="word-highlight" data-moment-opts='{"from": 0.88, "to": 0.4}' aria-label="Por qué ACUP">
+    <div class="container"><p class="mo-wh__text">Las consultoras entregan documentos sin herramienta. Las apps, herramienta sin criterio experto. ACUP entrega las dos cosas en un solo servicio, porque registrar no es lo mismo que poder <strong>demostrar</strong>.</p></div>
+  </section>
+
+  <!-- 4 · Cómo funciona: queda fijo mientras avanzan sus tres pasos (momento pinned-chapters) -->
+  <section class="how" id="como" data-moment="pinned-chapters" aria-labelledby="como-h">
+    <div class="mo-pc__grid">
+      <div class="mo-pc__text">
+        <h2 id="como-h" class="how-h">Te ponemos al día una vez y te mantenemos al día siempre.</h2>
+        <ol class="mo-pc__steps">
+          <li class="mo-pc__step">
+            <h3><span class="how-n" aria-hidden="true">1</span>Diagnóstico</h3>
+            <p>Partimos por tu autodiagnóstico y revisamos juntos tu documentación.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit" aria-hidden="true">
+              <div class="win">
+                <div class="win-bar"><span class="wordmark wordmark-sm">acup<span class="wordmark-dot"></span></span><span>Diagnóstico · ejemplo</span></div>
+                <div class="win-body">
+                  <div class="win-score"><b>6</b><span>de 10 obligaciones acreditadas</span></div>
+                  <div class="win-ruler"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i></i><i></i><i></i><i></i></div>
+                  <ul class="win-list">
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-flag"/></svg>Matriz sin constancia de difusión</li>
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-flag"/></svg>Capacitación del art. 16 incompleta</li>
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-flag"/></svg>Protocolo Ley Karin sin difusión registrada</li>
+                    <li><svg class="ico" aria-hidden="true"><use href="#i-flag"/></svg>Plan de emergencia o simulacro pendiente</li>
+                  </ul>
+                </div>
+              </div>
+            </figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3><span class="how-n" aria-hidden="true">2</span>Puesta al día</h3>
+            <p>Elaboramos lo que falta (matriz, protocolos, registros y capacitaciones), adaptado a tu operación.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit" aria-hidden="true">
+              <div class="win">
+                <div class="win-bar"><span class="wordmark wordmark-sm">acup<span class="wordmark-dot"></span></span><span>Documentación · ejemplo</span></div>
+                <ul class="win-docs">
+                  <li><span>Matriz IPER con perspectiva de género</span><em class="ok">Elaborado</em></li>
+                  <li><span>Constancia de difusión de la matriz</span><em class="ok">Firmado</em></li>
+                  <li><span>Protocolo de prevención Ley Karin</span><em class="ok">Elaborado</em></li>
+                  <li><span>Capacitación art. 16 · 8 horas</span><em class="due">En curso</em></li>
+                  <li><span>Plan de emergencia y simulacro</span><em class="due">Agendado</em></li>
+                </ul>
+              </div>
+            </figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3><span class="how-n how-n--loop" aria-hidden="true">3</span>Mantención mensual</h3>
+            <p>Controlamos vencimientos, incorporamos a los trabajadores nuevos y actualizamos todo cuando cambia la norma.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit" aria-hidden="true">
+              <div class="win">
+                <div class="win-bar"><span class="wordmark wordmark-sm">acup<span class="wordmark-dot"></span></span><span>Vencimientos · ejemplo</span></div>
+                <div class="win-body">
+                  <div class="win-alert"><svg class="ico" aria-hidden="true"><use href="#i-flag"/></svg>Aviso: en 14 días vence la renovación de EPP</div>
+                  <ul class="win-cal">
+                    <li><time>Semana 1</time><span>Ingreso nuevo: IRL y EPP firmados</span></li>
+                    <li><time>Semana 2</time><span>Revisión de la matriz por cambio de faena</span></li>
+                    <li><time>Semana 3</time><span>Charla de difusión Ley Karin</span></li>
+                    <li><time>Semana 4</time><span>Informe mensual de cumplimiento</span></li>
+                  </ul>
+                </div>
+              </div>
+            </figure>
+          </li>
+        </ol>
+      </div>
+      <div class="mo-pc__visuals"></div>
     </div>
   </section>
 
   <!-- 5 · Planes -->
-  <section class="sheet-section" id="planes" aria-labelledby="planes-h">
-    <div class="sheet wide">
-    <span class="folio" aria-hidden="true">Hoja 05</span>
-    <div class="section-head">
-      <h2 id="planes-h" class="h2">Un plan mensual, con la plataforma incluida.</h2>
-      <p class="section-sub">Todos incluyen la puesta al día inicial y la plataforma.</p>
-    </div>
-    <div class="plans">
+  <section class="section" id="planes" aria-labelledby="planes-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="planes-h" class="h2">Un plan mensual, <span class="dim">con la plataforma incluida.</span></h2>
+        <p class="section-sub">Todos incluyen la puesta al día inicial y la plataforma.</p>
+      </div>
+      <div class="plans">
       <article class="plan" aria-labelledby="p1">
         <h3 id="p1">Esencial</h3>
         <p class="plan-for">Para empresas de hasta 25 trabajadores</p>
@@ -407,20 +489,18 @@
         </ul>
         <a class="btn btn-line" href="#contacto">Consultar por este plan</a>
       </article>
-    </div>
+      </div>
     </div>
   </section>
 
   <!-- 6 · Quién está detrás -->
-  <section class="sheet-section" id="quien" aria-labelledby="quien-h">
-    <div class="sheet wide who">
-      <span class="folio" aria-hidden="true">Hoja 06</span>
+  <section class="section" id="quien" aria-labelledby="quien-h">
+    <div class="wrap who">
       <figure class="photo">
-        <svg class="clip" viewBox="0 0 24 60" aria-hidden="true"><path d="M8 52V12a4 4 0 0 1 8 0v34a2 2 0 0 1-4 0V16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
         <div class="photo-slot"><span class="todo">[FOTO PENDIENTE]</span><span>Foto real en terreno</span></div>
       </figure>
       <div class="who-text">
-        <h2 id="quien-h" class="h2">Sé lo que busca una empresa grande en un proveedor serio, porque estuve de ese lado.</h2>
+        <h2 id="quien-h" class="h2">Sé lo que busca una empresa grande en un proveedor serio, <span class="dim">porque estuve de ese lado.</span></h2>
         <p>Soy Sebastián Tobar, Ingeniero en Prevención de Riesgos. Durante 8 años fui asesor de prevención en una empresa sanitaria regional: revisé la documentación de sus proveedores y asesoré a cinco Comités Paritarios. Hoy pongo esa experiencia de tu lado, para que tu empresa esté en regla y lista para crecer.</p>
         <p class="signature"><span class="sig-name">Sebastián Tobar</span><span class="sig-role">Ingeniero en Prevención de Riesgos · ACUP SpA</span></p>
       </div>
@@ -428,11 +508,10 @@
   </section>
 
   <!-- 7 · Preguntas frecuentes -->
-  <section class="sheet-section" id="preguntas" aria-labelledby="preguntas-h">
-    <div class="sheet wide">
-    <span class="folio" aria-hidden="true">Hoja 07</span>
-    <h2 id="preguntas-h" class="h2">Preguntas frecuentes</h2>
-    <div class="faq">
+  <section class="section" id="preguntas" aria-labelledby="preguntas-h">
+    <div class="wrap faq-wrap">
+      <h2 id="preguntas-h" class="h2">Preguntas frecuentes</h2>
+      <div class="faq">
       <div class="faq-item">
         <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-1">¿Atienden fuera de la Región de Valparaíso?<svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
         <div class="faq-a" id="faq-1"><div><p>Sí. El diagnóstico, la puesta al día y la plataforma funcionan en línea en todo Chile. Las visitas en terreno se coordinan según la zona.</p></div></div>
@@ -453,21 +532,22 @@
         <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-5">¿Hay permanencia mínima?<svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
         <div class="faq-a" id="faq-5"><div><p><span class="todo">[CONDICIONES DE CONTRATO]</span></p></div></div>
       </div>
-    </div>
+      </div>
     </div>
   </section>
 
 </main>
 
-<!-- 8 · Cierre: contratapa de la carpeta -->
+<!-- 8 · Cierre -->
 <footer class="back" id="contacto">
-  <div class="back-inner">
+  <div class="hero-grid hero-grid--back" aria-hidden="true"></div>
+  <div class="wrap back-inner">
     <h2 class="back-h">¿Prefieres conversarlo directamente?</h2>
     <div class="back-actions">
       <!-- PENDIENTE: reemplazar por https://wa.me/56XXXXXXXXX cuando exista el número. -->
-      <a class="btn btn-coral btn-lg is-pending" aria-disabled="true" role="link" tabindex="0" data-pending="WhatsApp">
+      <a class="btn btn-primary btn-lg is-pending" aria-disabled="true" role="link" tabindex="0" data-pending="WhatsApp">
         <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>
-        Escribir por WhatsApp <span class="todo todo-light">[NÚMERO PENDIENTE]</span>
+        Escribir por WhatsApp <span class="todo todo-dark">[NÚMERO PENDIENTE]</span>
       </a>
       <a class="btn btn-ghost btn-lg" href="mailto:somos@acup.cl?subject=Agendar%20una%20reuni%C3%B3n%20con%20ACUP">
         <svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>
@@ -481,6 +561,11 @@
     </div>
   </div>
 </footer>
+
+<a class="actionbar" href="#diagnostico" aria-hidden="true" tabindex="-1">
+  Hacer el autodiagnóstico
+  <svg class="ico" aria-hidden="true"><use href="#i-right"/></svg>
+</a>
 
 </body>
 </html>

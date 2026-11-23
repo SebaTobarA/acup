@@ -171,7 +171,9 @@
     }
   }
 
+  var meta = document.getElementById('diag-meta');
   function render() {
+    if (meta) meta.textContent = step < 0 ? '10 preguntas' : (step >= QUESTIONS.length ? 'Resultado' : String(step + 1).padStart(2, '0') + ' / 10');
     if (step < 0) renderIntro();
     else if (step >= QUESTIONS.length) renderResult();
     else renderQuestion();
@@ -269,6 +271,24 @@
       });
   }
 
+  /* Cada respuesta se timbra en la hoja antes de archivarla. */
+  function stamp(ok) {
+    var el = document.createElement('span');
+    el.className = 'hit ' + (ok ? 'hit-ok' : 'hit-gap');
+    el.setAttribute('aria-hidden', 'true');
+    el.textContent = ok ? 'Acreditado' : 'Brecha';
+    sheet.appendChild(el);
+    el.animate(
+      [{ transform: 'scale(1.5)', opacity: 0 }, { transform: 'scale(1)', opacity: 1 }],
+      { duration: 200, easing: 'cubic-bezier(.3, 0, .2, 1)', fill: 'forwards' }
+    );
+    sheet.animate([{ transform: 'none' }, { transform: 'translateY(2px)' }, { transform: 'none' }], { duration: 220, delay: 150 });
+    window.setTimeout(function () {
+      el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, fill: 'forwards' });
+    }, 520);
+    window.setTimeout(function () { el.remove(); }, 820);
+  }
+
   if (sheet && body) {
     body.addEventListener('click', function (e) {
       var t = e.target.closest('button');
@@ -281,7 +301,10 @@
         answers[step] = t.getAttribute('data-v');
         var all = body.querySelectorAll('.answer');
         for (var i = 0; i < all.length; i++) all[i].setAttribute('aria-pressed', all[i] === t ? 'true' : 'false');
-        window.setTimeout(function () { go(step + 1, 1); }, reduced ? 0 : 140);
+        if (reduced) { go(step + 1, 1); return; }
+        busy = true;
+        stamp(answers[step] === 'si');
+        window.setTimeout(function () { busy = false; go(step + 1, 1); }, 430);
       }
     });
 
@@ -325,12 +348,13 @@
   }
 
   var today = startOfDay(new Date());
-  var rows = document.querySelectorAll('.reg-row[data-date]');
+  var rows = document.querySelectorAll('.cell[data-date]');
   for (var r = 0; r < rows.length; r++) {
     var parts = rows[r].getAttribute('data-date').split('-');
     var date = new Date(+parts[0], +parts[1] - 1, +parts[2]);
     var diff = Math.round((date - today) / DAY);
     var status = rows[r].querySelector('.reg-status');
+    if (!status) continue;
     if (diff > 0) {
       status.textContent = diff === 1 ? 'Rige mañana' : 'Rige en ' + plural(diff, 'día', 'días');
       if (diff <= 90) rows[r].classList.add('is-soon');
@@ -410,5 +434,226 @@
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) spy.observe(el); });
+  }
+
+  /* Cuenta regresiva real hasta la próxima fecha legal (se actualiza cada 30 s). */
+  var countCell = document.querySelector('.cell-count[data-date]');
+  if (countCell) {
+    var cp = countCell.getAttribute('data-date').split('-');
+    var target = new Date(+cp[0], +cp[1] - 1, +cp[2]);
+    var put = function (u, v) { var n = countCell.querySelector('[data-unit="' + u + '"]'); if (n) n.textContent = String(v); };
+    var tick = function () {
+      var ms = Math.max(0, target - new Date());
+      put('d', Math.floor(ms / 86400000));
+      put('h', Math.floor(ms / 3600000) % 24);
+      put('m', Math.floor(ms / 60000) % 60);
+    };
+    tick();
+    window.setInterval(tick, 30000);
+  }
+
+  /* Borde que se ilumina donde está el puntero (solo con mouse). */
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var spots = document.querySelectorAll('.panel, .cell, .plan, .compare-body');
+    Array.prototype.forEach.call(spots, function (el) {
+      el.classList.add('spot');
+      el.addEventListener('pointermove', function (e) {
+        var b = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - b.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - b.top) + 'px');
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     Entrada de la portada: el titular sube línea por línea, luego la
+     bajada y los apoyos; la hoja se asienta y la pila se abre en abanico.
+     ------------------------------------------------------------------ */
+
+  (function enter() {
+    var root = document.documentElement;
+    var h1 = document.querySelector('.hero h1[data-enter]');
+    if (!h1 || reduced || !h1.animate) { root.classList.add('m-enter-done', 'is-entered'); return; }
+    if (root.classList.contains('m-enter-done')) { root.classList.add('is-entered'); return; }
+
+    // cada palabra en su máscara (los nodos se conservan, solo se envuelven)
+    var words = [];
+    (function wrap(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var parts = n.textContent.split(/(\s+)/);
+          var frag = document.createDocumentFragment();
+          parts.forEach(function (t) {
+            if (!t) return;
+            if (/^\s+$/.test(t)) { frag.appendChild(document.createTextNode(t)); return; }
+            var m = document.createElement('span'); m.className = 'mask';
+            var w = document.createElement('span'); w.className = 'mw'; w.textContent = t;
+            m.appendChild(w); frag.appendChild(m); words.push(w);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if (n.nodeType === 1) { wrap(n); }
+      });
+    })(h1);
+
+    // agrupar por línea según su posición
+    var lines = [], last = null;
+    words.forEach(function (w) {
+      var top = Math.round(w.parentNode.offsetTop);
+      if (last === null || Math.abs(top - last) > 4) { lines.push([]); last = top; }
+      lines[lines.length - 1].push(w);
+    });
+    var gap = Math.min(80, 240 / Math.max(1, lines.length - 1));
+
+    root.classList.add('m-enter-done');
+    lines.forEach(function (line, i) {
+      line.forEach(function (w) {
+        w.animate([{ transform: 'translateY(108%)' }, { transform: 'none' }],
+          { duration: 700, delay: i * gap, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'backwards' });
+      });
+    });
+    var after = (lines.length - 1) * gap + 350;
+
+    // subrayado coral que se dibuja
+    var hl = h1.querySelector('.hl');
+    if (hl) hl.animate([{ backgroundSize: '0% .11em' }, { backgroundSize: '100% .11em' }],
+      { duration: 650, delay: after + 260, easing: 'cubic-bezier(.65, 0, .35, 1)', fill: 'backwards' });
+
+    var followers = [document.querySelector('.hero-badge'), document.querySelector('.lede')].concat(Array.prototype.slice.call(document.querySelectorAll('.supports li')));
+    followers.forEach(function (el, i) {
+      if (!el) return;
+      el.animate([{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 520, delay: after + i * 60, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'backwards' });
+    });
+
+    // el panel del diagnóstico se asienta
+    if (sheet) sheet.animate([{ opacity: 0, transform: 'translateY(18px) scale(.98)' }, { opacity: 1, transform: 'none' }],
+      { duration: 900, delay: 160, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'backwards' });
+    window.setTimeout(function () { root.classList.add('is-entered'); }, after + 1000);
+  })();
+
+  /* ------------------------------------------------------------------
+     Barra fija en celular: aparece cuando el diagnóstico salió de la
+     pantalla y se esconde sobre la contratapa.
+     ------------------------------------------------------------------ */
+
+  var bar = document.querySelector('.actionbar');
+  var diagEl = document.getElementById('diagnostico');
+  var backEl = document.querySelector('.back');
+  if (bar && diagEl && backEl) {
+    var ticking = false;
+    var upd = function () {
+      ticking = false;
+      var past = diagEl.getBoundingClientRect().bottom < 0;
+      var atBack = backEl.getBoundingClientRect().top < window.innerHeight;
+      bar.classList.toggle('is-up', past && !atBack);
+    };
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+  }
+
+  /* ------------------------------------------------------------------
+     Tema oscuro / claro (se recuerda en este navegador)
+     ------------------------------------------------------------------ */
+  var themeBtn = document.querySelector('[data-theme-toggle]');
+  if (themeBtn) {
+    var label = function () {
+      var light = document.documentElement.getAttribute('data-theme') === 'light';
+      themeBtn.setAttribute('aria-label', light ? 'Cambiar a versión oscura' : 'Cambiar a versión clara');
+      var mc = document.querySelector('meta[name="theme-color"]');
+      if (mc) mc.setAttribute('content', light ? '#F5F6F9' : '#05070D');
+    };
+    themeBtn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('acup-theme', next); } catch (e) {}
+      label();
+    });
+    label();
+  }
+
+  /* El botón de la portada abre directamente el diagnóstico. */
+  var heroCta = document.querySelector('[data-scroll-diag]');
+  if (heroCta) heroCta.addEventListener('click', function (e) {
+    var startBtn = document.querySelector('[data-action="start"]');
+    var panelEl = document.getElementById('diagnostico');
+    if (!startBtn || !panelEl) return;
+    e.preventDefault();
+    startBtn.click();
+    panelEl.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+  });
+
+  /* ------------------------------------------------------------------
+     Terreno: la escena queda fija y los registros aparecen uno a uno,
+     cada uno unido por una línea a su punto en la foto.
+     ------------------------------------------------------------------ */
+  var field = document.querySelector('.field');
+  if (field) {
+    var stage = field.querySelector('.field-stage');
+    var cards = Array.prototype.slice.call(field.querySelectorAll('.fcard'));
+    var countEl = field.querySelector('[data-field-n]');
+    var NS = 'http://www.w3.org/2000/svg';
+    var wires = null, hots = [], lines = [], fLive = false, shown = -1;
+    var fits = function () { return !reduced && window.matchMedia('(min-width: 1024px)').matches && window.innerHeight >= 640; };
+
+    var layout = function () {
+      if (!fLive) return;
+      var sr = stage.getBoundingClientRect();
+      cards.forEach(function (c, i) {
+        var cs = getComputedStyle(c);
+        var hx = parseFloat(cs.getPropertyValue('--x')) / 100 * sr.width;
+        var hy = parseFloat(cs.getPropertyValue('--y')) / 100 * sr.height;
+        hots[i].style.left = hx + 'px'; hots[i].style.top = hy + 'px';
+        var cr = c.getBoundingClientRect();
+        var cx = cr.left - sr.left, cy = cr.top - sr.top;
+        var tx = hx < cx ? cx : (hx > cx + cr.width ? cx + cr.width : hx);
+        var ty = hy < cy ? cy : (hy > cy + cr.height ? cy + cr.height : cy + cr.height / 2);
+        lines[i].setAttribute('x1', hx); lines[i].setAttribute('y1', hy);
+        lines[i].setAttribute('x2', tx); lines[i].setAttribute('y2', ty);
+      });
+    };
+    var showN = function (n) {
+      if (n === shown) return;
+      shown = n;
+      cards.forEach(function (c, i) {
+        var on = i < n;
+        c.classList.toggle('is-on', on); hots[i].classList.toggle('is-on', on); lines[i].classList.toggle('is-on', on);
+      });
+      if (countEl) countEl.textContent = String(n);
+    };
+    var onScroll = function () {
+      if (!fLive) return;
+      var r = field.getBoundingClientRect();
+      var p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - window.innerHeight)));
+      showN(Math.max(1, Math.min(cards.length, Math.floor(p * (cards.length + 0.6)) + 1)));
+    };
+    var goLive = function () {
+      if (fLive) return;
+      fLive = true;
+      field.classList.add('is-live');
+      wires = document.createElementNS(NS, 'svg'); wires.setAttribute('class', 'wires'); wires.setAttribute('aria-hidden', 'true');
+      stage.appendChild(wires);
+      cards.forEach(function () {
+        var h = document.createElement('span'); h.className = 'hot'; h.setAttribute('aria-hidden', 'true'); stage.appendChild(h); hots.push(h);
+        var l = document.createElementNS(NS, 'line'); wires.appendChild(l); lines.push(l);
+      });
+      shown = -1; layout(); onScroll();
+    };
+    var goRest = function () {
+      if (!fLive) return;
+      fLive = false;
+      field.classList.remove('is-live');
+      if (wires) wires.remove();
+      hots.forEach(function (h) { h.remove(); });
+      hots = []; lines = []; wires = null;
+      cards.forEach(function (c) { c.classList.remove('is-on'); });
+      if (countEl) countEl.textContent = String(cards.length);
+    };
+    var syncField = function () { if (fits()) goLive(); else goRest(); layout(); };
+    syncField();
+    var ft = 0;
+    window.addEventListener('resize', function () { clearTimeout(ft); ft = setTimeout(syncField, 120); });
+    var fTick = false;
+    window.addEventListener('scroll', function () { if (!fTick) { fTick = true; requestAnimationFrame(function () { fTick = false; onScroll(); }); } }, { passive: true });
   }
 })();

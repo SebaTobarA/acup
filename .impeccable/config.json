@@ -8,6 +8,12 @@
         "value": "montserrat",
         "createdAt": "2026-11-23T19:52:27.910Z",
         "reason": "PRODUCT.md brand commitment: wordmark set in Montserrat Bold; used only for the wordmark"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-11-23T20:42:33.538Z",
+        "reason": "Seba chose the 'Producto tech' direction (Linear/Vercel/Stripe reference) in this session; Geist is that world's face"
       }
     ]
   }

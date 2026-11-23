@@ -1,215 +1,241 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-23T19:57:58.690679+00:00",
+  "generatedAt": "2026-11-23T20:44:27.722878+00:00",
   "title": "Design System: ACUP",
   "extensions": {
     "colorMeta": {
+      "night": {
+        "role": "neutral",
+        "displayName": "Noche",
+        "tonalRamp": [
+          "#03050F",
+          "#05070D",
+          "#090C15",
+          "#0C1019",
+          "#131B47",
+          "#2A3366",
+          "#8C92AE",
+          "#E9ECFB"
+        ]
+      },
+      "night-2": {
+        "role": "neutral",
+        "displayName": "Noche profunda"
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel"
+      },
+      "panel-raised": {
+        "role": "neutral",
+        "displayName": "Panel elevado"
+      },
       "navy": {
-        "role": "primary",
-        "displayName": "Marino ACUP",
+        "role": "secondary",
+        "displayName": "Marino de marca",
         "tonalRamp": [
           "#141B47",
           "#1A2358",
           "#283679",
           "#30408E",
-          "#5464A8",
-          "#8590C4",
-          "#BCC4EA",
-          "#EEF0FA"
+          "#4A5AAE",
+          "#7A87C8",
+          "#B5BDE3",
+          "#E8ECF8"
         ]
       },
-      "navy-700": {
-        "role": "primary",
-        "displayName": "Marino hover"
-      },
-      "navy-900": {
-        "role": "primary",
-        "displayName": "Marino tapa"
-      },
-      "navy-950": {
-        "role": "primary",
-        "displayName": "Marino noche"
-      },
-      "coral": {
-        "role": "secondary",
-        "displayName": "Coral marcador",
-        "tonalRamp": [
-          "#5E1222",
-          "#8E1D37",
-          "#BF2A4C",
-          "#F85A7A",
-          "#FA7591",
-          "#F7C4D0",
-          "#FEEBEF",
-          "#FFF6F8"
-        ]
-      },
-      "coral-ink": {
-        "role": "secondary",
-        "displayName": "Coral tinta"
-      },
-      "coral-wash": {
-        "role": "secondary",
-        "displayName": "Coral lavado"
-      },
-      "ink": {
+      "line": {
         "role": "neutral",
-        "displayName": "Tinta"
+        "displayName": "Hairline"
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Hairline fuerte"
       },
       "text": {
         "role": "neutral",
         "displayName": "Texto"
       },
+      "white": {
+        "role": "neutral",
+        "displayName": "Blanco titular"
+      },
       "muted": {
         "role": "neutral",
-        "displayName": "Apagado"
+        "displayName": "Atenuado"
       },
-      "stock": {
+      "dim": {
         "role": "neutral",
-        "displayName": "Cartulina",
+        "displayName": "Tenue"
+      },
+      "coral": {
+        "role": "primary",
+        "displayName": "Coral señal",
         "tonalRamp": [
-          "#2B3259",
-          "#555D86",
-          "#8189AC",
-          "#C2C8D7",
-          "#D5D9E3",
-          "#E2E5EC",
-          "#EEF0F5",
-          "#F7F8FB"
+          "#5C1424",
+          "#8F1F38",
+          "#BF2A4C",
+          "#F85A7A",
+          "#FF7792",
+          "#FF8FA5",
+          "#FFC2CF",
+          "#FEEBEF"
         ]
       },
-      "stock-deep": {
-        "role": "neutral",
-        "displayName": "Cartulina honda"
+      "coral-hi": {
+        "role": "primary",
+        "displayName": "Coral vivo"
       },
-      "sheet": {
-        "role": "neutral",
-        "displayName": "Hoja"
+      "coral-ink": {
+        "role": "primary",
+        "displayName": "Coral legible"
       },
-      "rule": {
-        "role": "neutral",
-        "displayName": "Regla"
+      "coral-wash": {
+        "role": "primary",
+        "displayName": "Lavado coral"
       },
-      "rule-strong": {
+      "on-coral": {
         "role": "neutral",
-        "displayName": "Regla fuerte"
+        "displayName": "Tinta sobre coral"
       },
-      "cover-text": {
+      "paper": {
         "role": "neutral",
-        "displayName": "Texto de tapa"
+        "displayName": "Papel"
       },
-      "cover-muted": {
+      "paper-ink": {
         "role": "neutral",
-        "displayName": "Texto de tapa apagado"
+        "displayName": "Tinta papel"
+      },
+      "paper-muted": {
+        "role": "neutral",
+        "displayName": "Gris papel"
+      },
+      "paper-line": {
+        "role": "neutral",
+        "displayName": "Divisor papel"
+      },
+      "paper-alert": {
+        "role": "neutral",
+        "displayName": "Alerta papel"
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Titular de la tapa y de la contratapa."
+        "purpose": "Titular de portada y de cierre."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Título de cada hoja."
+        "purpose": "Titulares de sección, segunda mitad en tono tenue."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Título y preguntas de la hoja del diagnóstico."
+        "purpose": "Titular dentro del panel de diagnóstico."
       },
       "title-sm": {
-        "displayName": "Title small",
-        "purpose": "Títulos de filas, pasos y planes."
-      },
-      "body": {
-        "displayName": "Body",
-        "purpose": "Texto corrido, 40–62ch."
-      },
-      "label": {
-        "displayName": "Label",
-        "purpose": "Folios de hoja y pestañas del canto."
+        "displayName": "Title chico",
+        "purpose": "Títulos de celdas y planes."
       },
       "numeral": {
         "displayName": "Numeral",
-        "purpose": "Puntaje del resultado del diagnóstico."
+        "purpose": "Cuenta regresiva y puntaje."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido y bajadas."
+      },
+      "label": {
+        "displayName": "Label mono",
+        "purpose": "Fechas, contadores, metadatos y teclas."
       },
       "wordmark": {
         "displayName": "Wordmark",
-        "purpose": "Solo el wordmark \"acup\" con punto coral."
+        "purpose": "Solo el logotipo acup."
       }
     },
     "shadows": [
       {
-        "name": "sheet",
-        "value": "0 1px 1px rgba(22,29,69,.06), 0 12px 30px -16px rgba(22,29,69,.38)",
-        "purpose": "Toda hoja sobre cartulina."
+        "name": "panel",
+        "value": "0 1px 0 rgba(255,255,255,.04) inset, 0 30px 70px -30px rgba(0,0,0,.75)",
+        "purpose": "Panel de diagnóstico."
       },
       {
-        "name": "lift",
-        "value": "0 2px 3px rgba(22,29,69,.08), 0 22px 44px -18px rgba(22,29,69,.45)",
-        "purpose": "La carpeta y la vista de la plataforma."
+        "name": "paper-window",
+        "value": "0 40px 80px -30px rgba(0,0,0,.8)",
+        "purpose": "Ventanas de ACUP Brain."
       },
       {
-        "name": "button",
-        "value": "0 1px 1px rgba(22,29,69,.15), 0 8px 18px -10px rgba(22,29,69,.55)",
-        "purpose": "Botón primario."
+        "name": "actionbar",
+        "value": "0 18px 32px -12px rgba(0,0,0,.7)",
+        "purpose": "Barra de acción móvil."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 3px rgba(248,90,122,.22)",
+        "purpose": "Foco de inputs."
       }
     ],
     "motion": [
       {
         "name": "ease",
-        "value": "cubic-bezier(.16, 1, .3, 1)",
-        "purpose": "Ease-out exponencial para todo cambio de estado y entrada de hoja."
+        "value": "cubic-bezier(.2,.8,.2,1)",
+        "purpose": "Transiciones de estado (150ms)."
       },
       {
-        "name": "ease-exit",
-        "value": "cubic-bezier(.4, 0, 1, 1)",
-        "purpose": "Salida de la hoja archivada hacia la izquierda (170ms)."
-      },
-      {
-        "name": "sheet-out",
-        "value": "170ms",
-        "purpose": "Hoja sale: translateX(-28px) rotate(-0.6deg), opacidad 0."
-      },
-      {
-        "name": "sheet-in",
-        "value": "420ms",
-        "purpose": "Hoja entra desde translateX(34px)."
-      },
-      {
-        "name": "accordion",
-        "value": "450ms",
-        "purpose": "Acordeón por grid-template-rows 0fr a 1fr."
+        "name": "ease-enter",
+        "value": "cubic-bezier(.22,1,.36,1)",
+        "purpose": "Entradas, interruptor, acordeón, filas escalonadas."
       },
       {
         "name": "state",
-        "value": "200ms",
-        "purpose": "Hover y bordes de controles."
+        "value": "150ms",
+        "purpose": "Hover de botones y respuestas; press en 90ms."
+      },
+      {
+        "name": "hero-words",
+        "value": "700ms, escalonado por línea (máx. 80ms)",
+        "purpose": "Entrada del titular en máscara."
+      },
+      {
+        "name": "stamp",
+        "value": "200ms cubic-bezier(.3,0,.2,1)",
+        "purpose": "Sello Acreditado/Brecha por respuesta."
+      },
+      {
+        "name": "compare-thumb",
+        "value": "450ms ease-enter",
+        "purpose": "Pulgar del comparador."
+      },
+      {
+        "name": "stagger-rows",
+        "value": "70ms",
+        "purpose": "Filas de la ventana papel en el comparador."
       }
     ],
     "breakpoints": [
-      {
-        "name": "xs",
-        "value": "520px"
-      },
       {
         "name": "sm",
         "value": "560px"
       },
       {
-        "name": "md",
+        "name": "mobile-bar",
+        "value": "759px"
+      },
+      {
+        "name": "bento-2",
         "value": "760px"
       },
       {
-        "name": "lg",
+        "name": "plans",
         "value": "900px"
       },
       {
-        "name": "folder",
-        "value": "980px"
+        "name": "hero-2col",
+        "value": "1000px"
       },
       {
-        "name": "tabs",
-        "value": "1180px"
+        "name": "bento-3",
+        "value": "1040px"
       }
     ]
   },
@@ -218,111 +244,127 @@
       "name": "Botón primario",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Acción principal sobre hoja o cartulina.",
-      "html": "<button class=\"ds-btn ds-btn-primary\">Comenzar el autodiagnóstico <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h13M13 6.5l5.5 5.5-5.5 5.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button>",
-      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-btn{display:inline-flex;align-items:center;gap:.55em;min-height:46px;padding:.7em 1.25em;border-radius:6px;border:1.5px solid transparent;font-family:Archivo,system-ui,sans-serif;font-weight:600;font-size:1rem;line-height:1.2;cursor:pointer;transition:background-color .2s cubic-bezier(.16,1,.3,1),border-color .2s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1)}.ds-btn:focus-visible{outline:2px solid #F85A7A;outline-offset:3px}.ds-btn-primary{background:var(--navy);color:#fff;box-shadow:0 1px 1px rgba(22,29,69,.15),0 8px 18px -10px rgba(22,29,69,.55)}.ds-btn-primary:hover{background:var(--navy-900);transform:translateY(-1px)}.ds-btn-primary:active{transform:none}"
+      "description": "Píldora coral con texto oscuro para la acción principal.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Hacer el autodiagnóstico <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\"><path d=\"M5 12h13M13 6.5l5.5 5.5-5.5 5.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button>",
+      "css": ".ds-btn{font-family:Geist,system-ui,sans-serif;display:inline-flex;align-items:center;gap:.55em;min-height:46px;padding:.7em 1.2em;border-radius:999px;border:1px solid transparent;font-weight:600;font-size:.98rem;letter-spacing:-.005em;cursor:pointer;transition:background-color 150ms cubic-bezier(.2,.8,.2,1),border-color 150ms,transform 150ms cubic-bezier(.2,.8,.2,1);}.ds-btn svg{transition:transform 150ms cubic-bezier(.2,.8,.2,1);}.ds-btn:hover{transform:translateY(-1px);}.ds-btn:hover svg{transform:translateX(3px);}.ds-btn:active{transform:translateY(1px) scale(.985);transition-duration:90ms;}.ds-btn:focus-visible{outline:2px solid #F85A7A;outline-offset:3px;}.ds-btn-primary{background:#F85A7A;color:#12081A;}.ds-btn-primary:hover{background:#FF7792;}"
     },
     {
-      "name": "Botón de línea",
+      "name": "Botón fantasma",
       "kind": "button",
-      "refersTo": "button-line",
-      "description": "Acción secundaria sobre hoja.",
-      "html": "<button class=\"ds-btn ds-btn-line\">Ver planes</button>",
-      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-btn{display:inline-flex;align-items:center;gap:.55em;min-height:46px;padding:.7em 1.25em;border-radius:6px;border:1.5px solid transparent;font-family:Archivo,system-ui,sans-serif;font-weight:600;font-size:1rem;line-height:1.2;cursor:pointer;transition:background-color .2s cubic-bezier(.16,1,.3,1),border-color .2s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1)}.ds-btn:focus-visible{outline:2px solid #F85A7A;outline-offset:3px}.ds-btn-line{background:transparent;color:var(--navy);border-color:var(--rule-strong)}.ds-btn-line:hover{border-color:var(--navy);color:var(--navy-900)}"
-    },
-    {
-      "name": "Botón coral sobre contratapa",
-      "kind": "button",
-      "refersTo": "button-coral",
-      "description": "Acción de contacto sobre marino; único uso de coral como fondo de control.",
-      "html": "<div style=\"background:#1A2358;padding:24px;border-radius:6px\"><button class=\"ds-btn ds-btn-coral\">Hablar con un asesor</button></div>",
-      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-btn{display:inline-flex;align-items:center;gap:.55em;min-height:46px;padding:.7em 1.25em;border-radius:6px;border:1.5px solid transparent;font-family:Archivo,system-ui,sans-serif;font-weight:600;font-size:1rem;line-height:1.2;cursor:pointer;transition:background-color .2s cubic-bezier(.16,1,.3,1),border-color .2s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1)}.ds-btn:focus-visible{outline:2px solid #F85A7A;outline-offset:3px}.ds-btn-coral{background:var(--coral);color:var(--navy-950)}.ds-btn-coral:hover{background:#FA7591}"
+      "refersTo": "button-ghost",
+      "description": "Acción secundaria con borde hairline sobre el suelo oscuro.",
+      "html": "<div class=\"ds-bg\"><button class=\"ds-btn-ghost\">Escribir por WhatsApp</button></div>",
+      "css": ".ds-bg{background:#05070D;padding:24px;}.ds-btn-ghost{font-family:Geist,system-ui,sans-serif;min-height:46px;padding:.7em 1.2em;border-radius:999px;background:rgba(255,255,255,.03);color:#E9ECFB;border:1px solid rgba(170,182,255,.2);font-weight:600;font-size:.98rem;cursor:pointer;transition:background-color 150ms,border-color 150ms,transform 150ms;}.ds-btn-ghost:hover{background:rgba(255,255,255,.07);border-color:rgba(170,182,255,.35);color:#fff;transform:translateY(-1px);}.ds-btn-ghost:focus-visible{outline:2px solid #F85A7A;outline-offset:3px;}"
     },
     {
       "name": "Campo de correo",
       "kind": "input",
       "refersTo": "input",
-      "description": "Campo del pedido de informe.",
-      "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"tu@empresa.cl\">",
-      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-input{min-height:48px;padding:0 14px;font-family:Archivo,system-ui,sans-serif;font-size:1rem;color:var(--ink);background:#fff;border:1.5px solid var(--rule-strong);border-radius:6px;caret-color:var(--coral)}.ds-input::placeholder{color:#6F769A}.ds-input:focus-visible{outline:2px solid var(--navy);outline-offset:1px;border-color:var(--navy)}"
-    },
-    {
-      "name": "Pestañas del canto",
-      "kind": "nav",
-      "refersTo": "edge-tab",
-      "description": "Índice fijo en el canto derecho desde 1180px.",
-      "html": "<ol class=\"ds-tabs\"><li><a href=\"#\" class=\"is-active\"><span class=\"n\">01</span>Diagnóstico</a></li><li><a href=\"#\"><span class=\"n\">02</span>Fechas</a></li><li><a href=\"#\"><span class=\"n\">03</span>Planes</a></li></ol>",
-      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-tabs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;align-items:flex-end}.ds-tabs a{display:flex;align-items:center;gap:8px;writing-mode:vertical-rl;padding:14px 8px 14px 9px;background:var(--navy-900);color:var(--cover-muted);font-family:Archivo,system-ui,sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.02em;text-decoration:none;border-radius:7px 0 0 7px;transform:translateX(4px);transition:transform .3s cubic-bezier(.16,1,.3,1),background-color .25s}.ds-tabs .n{opacity:.7}.ds-tabs a:hover{transform:none;color:#fff;background:#283679}.ds-tabs a.is-active{transform:none;background:var(--navy);color:#fff}.ds-tabs a.is-active .n{color:var(--coral);opacity:1}.ds-tabs a:focus-visible{outline:2px solid var(--coral);outline-offset:3px}"
-    },
-    {
-      "name": "Hoja foliada con banderita",
-      "kind": "card",
-      "refersTo": "sheet",
-      "description": "El único contenedor: hoja blanca sobre cartulina, con folio y banderita coral.",
-      "html": "<div class=\"ds-stock\"><article class=\"ds-sheet\"><span class=\"ds-flag\"></span><span class=\"ds-folio\">Hoja 01</span><h3>¿Tu empresa puede demostrar que cumple?</h3><p>10 preguntas · 2 minutos · Sin registrarte</p></article></div>",
-      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-stock{background:#E2E5EC;padding:32px 24px}.ds-sheet{position:relative;background:#fff;border-radius:6px;box-shadow:0 1px 1px rgba(22,29,69,.06),0 12px 30px -16px rgba(22,29,69,.38);padding:40px 28px 28px;font-family:Archivo,system-ui,sans-serif;color:#2B3259}.ds-sheet h3{margin:0;color:var(--ink);font-size:1.6rem;font-weight:620;line-height:1.1;letter-spacing:-.025em;max-width:17ch}.ds-sheet p{margin:14px 0 0;color:var(--muted)}.ds-folio{position:absolute;top:12px;left:28px;font-size:.72rem;font-weight:600;letter-spacing:.04em;color:#8189AC}.ds-flag{position:absolute;top:-10px;right:32px;width:22px;height:42px;background:var(--coral);clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%)}"
+      "description": "Input en píldora con foco coral.",
+      "html": "<div class=\"ds-bg\"><input class=\"ds-input\" type=\"email\" placeholder=\"tu@empresa.cl\"></div>",
+      "css": ".ds-bg{background:#0C1019;padding:24px;}.ds-input{font-family:Geist,system-ui,sans-serif;min-height:46px;width:280px;padding:0 16px;font-size:1rem;color:#fff;background:#090C15;border:1px solid rgba(170,182,255,.2);border-radius:999px;caret-color:#F85A7A;transition:border-color 140ms,box-shadow 140ms;}.ds-input::placeholder{color:#8C92AE;}.ds-input:focus-visible{outline:none;border-color:#F85A7A;box-shadow:0 0 0 3px rgba(248,90,122,.22);}"
     },
     {
       "name": "Respuesta del diagnóstico",
       "kind": "custom",
       "refersTo": "answer",
-      "description": "Opción de respuesta con marca circular; seleccionada en marino.",
-      "html": "<button class=\"ds-answer\" aria-pressed=\"true\"><span class=\"mark\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\"><path d=\"M5 12.5l4.2 4.2L19 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>Sí, y puedo mostrarlo<kbd>1</kbd></button>",
-      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-answer{display:flex;align-items:center;gap:14px;width:100%;min-height:56px;padding:12px 16px;text-align:left;background:#fff;border:1.5px solid var(--rule-strong);border-radius:6px;font-family:Archivo,system-ui,sans-serif;font-size:1.02rem;font-weight:560;color:var(--ink);cursor:pointer;transition:border-color .2s,background-color .2s}.ds-answer:hover{border-color:var(--navy);background:#F7F8FC}.ds-answer:focus-visible{outline:2px solid var(--coral);outline-offset:3px}.ds-answer .mark{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;border:1.5px solid var(--rule-strong);color:var(--muted)}.ds-answer[aria-pressed=true]{border-color:var(--navy);background:#F2F4FB}.ds-answer[aria-pressed=true] .mark{background:var(--navy);border-color:var(--navy);color:#fff}.ds-answer kbd{margin-left:auto;font:600 .75rem/1 Archivo,sans-serif;color:var(--muted);border:1px solid var(--rule);border-radius:4px;padding:4px 6px}"
+      "description": "Botón de respuesta con marca y tecla; seleccionado en coral.",
+      "html": "<div class=\"ds-bg\"><button class=\"ds-answer\"><span class=\"ds-mark\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\"><path d=\"M5 12.5l4.2 4.2L19 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>Sí, está al día<kbd>S</kbd></button><button class=\"ds-answer\" aria-pressed=\"true\"><span class=\"ds-mark\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\"><path d=\"M7 7l10 10M17 7L7 17\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg></span>No<kbd>N</kbd></button></div>",
+      "css": ".ds-bg{background:#0C1019;padding:24px;display:grid;gap:8px;}.ds-answer{font-family:Geist,system-ui,sans-serif;display:flex;align-items:center;gap:14px;width:100%;min-height:54px;padding:10px 14px;text-align:left;background:rgba(255,255,255,.03);border:1px solid rgba(170,182,255,.2);border-radius:12px;font-size:1rem;font-weight:500;color:#E9ECFB;cursor:pointer;transition:border-color 150ms,background-color 150ms,transform 150ms;}.ds-answer:hover{border-color:rgba(170,182,255,.42);background:rgba(255,255,255,.06);transform:translateY(-1px);}.ds-answer:focus-visible{outline:2px solid #F85A7A;outline-offset:3px;}.ds-mark{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:rgba(255,255,255,.05);color:#A3ABD3;}.ds-answer kbd{margin-left:auto;font:500 .72rem/1 'Geist Mono',ui-monospace,monospace;color:#8C92AE;border:1px solid rgba(170,182,255,.2);border-radius:5px;padding:4px 6px;}.ds-answer[aria-pressed=true]{border-color:#F85A7A;background:rgba(248,90,122,.12);}.ds-answer[aria-pressed=true] .ds-mark{background:#F85A7A;color:#12081A;}"
     },
     {
-      "name": "Fila de registro con fecha próxima",
+      "name": "Celda de fecha",
+      "kind": "card",
+      "refersTo": "cell",
+      "description": "Celda del bento con etiqueta mono y punto de estado.",
+      "html": "<div class=\"ds-bg\"><article class=\"ds-cell\"><p class=\"ds-tag\"><span class=\"ds-dot\"></span>01.11.2026</p><h3>Capacitación del art. 16</h3><p class=\"ds-text\">Exigible para todas las empresas.</p></article></div>",
+      "css": ".ds-bg{background:#05070D;padding:24px;}.ds-cell{font-family:Geist,system-ui,sans-serif;padding:26px;background:#0C1019;border:1px solid rgba(170,182,255,.11);border-radius:18px;display:flex;flex-direction:column;gap:10px;max-width:340px;}.ds-cell h3{margin:0;color:#fff;font-weight:600;font-size:1.3rem;letter-spacing:-.02em;}.ds-tag{margin:0;display:inline-flex;align-items:center;gap:8px;font-family:'Geist Mono',ui-monospace,monospace;font-size:.8rem;color:#A3ABD3;}.ds-dot{width:7px;height:7px;border-radius:50%;background:#F85A7A;}.ds-text{margin:0;color:#A3ABD3;font-size:.98rem;}"
+    },
+    {
+      "name": "Celda cuenta regresiva",
+      "kind": "card",
+      "refersTo": "cell-count",
+      "description": "La única superficie en marino sólido, con numeral grande.",
+      "html": "<article class=\"ds-count\"><p class=\"ds-tag\">Ley 21.719</p><p><b>214</b><small>días</small></p></article>",
+      "css": ".ds-count{font-family:Geist,system-ui,sans-serif;padding:28px;background:#30408E;border:1px solid rgba(255,255,255,.16);border-radius:18px;max-width:340px;color:#fff;}.ds-tag{margin:0;font-family:'Geist Mono',ui-monospace,monospace;font-size:.8rem;color:rgba(255,255,255,.85);}.ds-count b{font-size:4.5rem;font-weight:600;line-height:.9;letter-spacing:-.05em;font-variant-numeric:tabular-nums;}.ds-count small{margin-left:6px;font-family:'Geist Mono',ui-monospace,monospace;font-size:.78rem;color:rgba(255,255,255,.8);}"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "refersTo": "panel",
+      "description": "Cabecera fija translúcida con logotipo Montserrat y punto coral.",
+      "html": "<header class=\"ds-top\"><span class=\"ds-wm\">acup<i></i></span><nav><a class=\"ds-nav-btn\" href=\"#\">Planes</a><a class=\"ds-nav-btn ds-nav-pri\" href=\"#\">Autodiagnóstico</a></nav></header>",
+      "css": ".ds-top{font-family:Geist,system-ui,sans-serif;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:rgba(7,11,34,.74);backdrop-filter:saturate(140%) blur(14px);border-bottom:1px solid rgba(170,182,255,.11);}.ds-wm{font-family:Montserrat,Geist,sans-serif;font-weight:700;font-size:1.55rem;letter-spacing:-.02em;color:#fff;display:inline-flex;align-items:baseline;}.ds-wm i{width:.22em;height:.22em;border-radius:50%;background:#F85A7A;margin-left:.06em;}.ds-top nav{display:flex;gap:8px;}.ds-nav-btn{min-height:40px;display:inline-flex;align-items:center;padding:.5em 1em;border-radius:999px;border:1px solid rgba(170,182,255,.2);color:#E9ECFB;text-decoration:none;font-weight:600;font-size:.9rem;transition:background-color 150ms,border-color 150ms;}.ds-nav-btn:hover{border-color:rgba(170,182,255,.4);background:rgba(255,255,255,.04);}.ds-nav-pri{background:#F85A7A;border-color:transparent;color:#12081A;}.ds-nav-pri:hover{background:#FF7792;}.ds-nav-btn:focus-visible{outline:2px solid #F85A7A;outline-offset:3px;}"
+    },
+    {
+      "name": "Ventana papel",
       "kind": "custom",
-      "refersTo": "sheet",
-      "description": "Fila del registro de fechas; la próxima lleva banderita en el canto y Coral tinta.",
-      "html": "<ol class=\"ds-reg\"><li><time>01.02.2025</time><div><strong>DS 44</strong><p>Reemplaza al DS 40 y DS 54.</p></div><span>Vigente</span></li><li class=\"soon\"><time>01.11.2026</time><div><strong>Capacitación art. 16</strong><p>8 horas por trabajador.</p></div><span>Exigible</span></li></ol>",
-      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-reg{list-style:none;margin:0;padding:0 0 0 30px;border-top:2px solid var(--ink);font-family:Archivo,system-ui,sans-serif;}.ds-reg li{position:relative;display:grid;grid-template-columns:150px 1fr auto;gap:20px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--rule)}.ds-reg time{font-size:1.5rem;font-weight:600;letter-spacing:-.02em;color:var(--navy);font-variant-numeric:tabular-nums}.ds-reg strong{color:var(--ink);font-weight:650}.ds-reg p{margin:2px 0 0;color:var(--muted)}.ds-reg span{color:var(--muted);font-weight:560;font-size:.92rem}.ds-reg .soon time,.ds-reg .soon span{color:var(--coral-ink)}.ds-reg .soon span{font-weight:680}.ds-reg .soon::before{content:'';position:absolute;top:22px;left:-30px;width:24px;height:16px;background:var(--coral);clip-path:polygon(0 0,100% 0,78% 50%,100% 100%,0 100%)}"
+      "refersTo": "paper-window",
+      "description": "Vista ilustrativa de ACUP Brain: única superficie blanca.",
+      "html": "<div class=\"ds-bg\"><div class=\"ds-win\"><div class=\"ds-win-bar\">ACUP Brain · Documentos</div><ul><li>Reglamento interno<em class=\"ok\">Al día</em></li><li>Matriz IPER<em class=\"due\">Vence en 12 días</em></li></ul></div></div>",
+      "css": ".ds-bg{background:#05070D;padding:24px;}.ds-win{font-family:Geist,system-ui,sans-serif;max-width:420px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.85);font-size:.9rem;}.ds-win-bar{padding:11px 16px;background:#F6F7FB;border-bottom:1px solid #E3E6EE;font-size:.76rem;font-weight:600;color:#555D86;}.ds-win ul{margin:0;padding:0;list-style:none;}.ds-win li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid #E3E6EE;color:#161D45;font-weight:500;}.ds-win li:last-child{border-bottom:0;}.ds-win em{font-style:normal;font-size:.74rem;font-weight:600;padding:4px 8px;border-radius:6px;}.ds-win em.ok{background:#E8ECF8;color:#30408E;}.ds-win em.due{background:#FEEBEF;color:#BF2A4C;}"
     }
   ],
   "narrative": {
-    "northStar": "La carpeta de acreditación",
-    "overview": "La página es la carpeta que una empresa ordenada entrega a un cliente grande: cartulina gris fría con fibra como fondo, una tapa marino profundo que abre el documento y lo cierra (contratapa), hojas blancas foliadas (\"Hoja 01\", \"Hoja 02\"…) con canto y sombra corta, pestañas marino en el canto derecho como índice. El coral es tinta de marcado: aparece solo donde falta algo o donde se marca algo.\n\nEl tono es cercano pero riguroso: tipografía Archivo de peso medio, titulares apretados, registros con líneas finas en lugar de cajas. La densidad es la de un documento bien diagramado, no la de un tablero. Se rechaza el hero de consultora con titular y fila de tarjetas con iconos.",
+    "northStar": "El producto tech",
+    "overview": "ACUP se presenta como software serio, no como folleto de consultora: suelo azul noche teñido del marino de marca, paneles de interfaz con borde fino y radio generoso, tipografía Geist grande y apretada. La página demuestra en vez de describir: el autodiagnóstico es una interfaz real que se usa en el primer pantallazo, y las vistas de ACUP Brain son ventanas de producto.\n\nEl color trabaja por escasez. Todo es azul noche, blanco y grises lavanda; el coral aparece solo donde hay una decisión o una brecha. El marino de marca sale del fondo una sola vez, como relleno sólido de la celda de cuenta regresiva. El blanco \"papel\" queda reservado para mostrar la plataforma por dentro.\n\nLa profundidad viene del tono (suelo, panel, panel elevado) y del hairline, no de sombras visibles; la única sombra larga y difusa ancla los paneles y ventanas de producto sobre el suelo oscuro.",
     "keyCharacteristics": [
-      "Tres materiales: cartulina (fondo), hoja (contenido), tapa marino (apertura y cierre).",
-      "Cada sección es una hoja foliada; dentro de la hoja, filas separadas por reglas, nunca cajas anidadas.",
-      "Coral reservado para banderitas, brechas, timbre, el paso actual y el foco.",
-      "Movimiento de papel: la hoja se archiva hacia la izquierda y la siguiente entra desde la derecha."
+      "Suelo oscuro único (#05070D) con paneles #0C1019 y bordes de 1px translúcidos.",
+      "Geist para todo el texto, con tracking negativo que crece con el tamaño.",
+      "Geist Mono solo para datos: contadores, fechas, metadatos, teclas.",
+      "Coral como único acento: botón primario, brecha, estado activo, foco.",
+      "Interfaz de producto real como imagen principal."
     ],
     "rules": [
       {
-        "name": "The Marker Ink Rule",
-        "body": "El coral marca lo que falta o lo que se señala ahora. Nunca es fondo de sección ni decoración; como texto se usa siempre Coral tinta (#BF2A4C).",
+        "name": "The One Signal Rule",
+        "body": "El coral marca lo que pide acción o lo que falta. Si un elemento coral no es un botón, una brecha, un estado activo o el foco, sobra.",
         "section": "colors"
       },
       {
-        "name": "The Three Materials Rule",
-        "body": "Toda superficie es cartulina, hoja o tapa marino. No hay un cuarto material.",
+        "name": "The Paper Is The Product Rule",
+        "body": "Las superficies blancas existen solo como ventanas de la plataforma. Ninguna sección ni tarjeta de marketing usa fondo claro.",
         "section": "colors"
       },
       {
-        "name": "The One Family Rule",
-        "body": "Todo el texto es Archivo. Montserrat existe solo para el wordmark \"acup\" con su punto coral.",
+        "name": "The Navy Once Rule",
+        "body": "El marino sólido rellena una sola superficie por vista (la cuenta regresiva); el resto del tiempo vive como tinte del suelo.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tightening Rule",
+        "body": "El tracking baja con el tamaño: -0.048em en display, -0.04em en headline, -0.02em en títulos chicos, neutro en cuerpo.",
         "section": "typography"
       },
       {
-        "name": "The Short Shadow Rule",
-        "body": "Las sombras son de papel: offset vertical, blur con spread negativo, tinte marino. Nunca sombras duras desplazadas ni resplandores.",
+        "name": "The Mono Means Data Rule",
+        "body": "Geist Mono solo para valores medibles (fechas, cuentas, metadatos, teclas). Nunca para titulares ni frases.",
+        "section": "typography"
+      },
+      {
+        "name": "The Wordmark Only Rule",
+        "body": "Montserrat se usa únicamente en el logotipo \"acup\" con su punto coral.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Over Shadow Rule",
+        "body": "Una tarjeta se separa del suelo con tono y un borde de 1px; la sombra se reserva para lo que es interfaz.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do poner cada sección en una hoja blanca foliada sobre la cartulina.",
-      "Do separar contenido con reglas de 1px y abrir registros con una regla de 2px tinta.",
-      "Do usar coral solo para lo que falta o se marca, y Coral tinta (#BF2A4C) cuando es texto.",
-      "Do mover las hojas con `cubic-bezier(.16, 1, .3, 1)`: salida 170ms, entrada 420ms, respetando `prefers-reduced-motion`.",
-      "Do usar cifras tabulares en fechas, folios, contadores y tablas."
+      "Do mantener el suelo noche (#05070D) en toda página; separar secciones con aire y hairlines, no con bandas de color.",
+      "Do mostrar la plataforma como interfaz real (panel oscuro o ventana papel) en vez de ilustraciones o íconos grandes.",
+      "Do poner texto oscuro (#12081A) sobre todo relleno coral.",
+      "Do usar Geist Mono con cifras tabulares para fechas, cuentas y metadatos.",
+      "Do dar a los titulares de sección una segunda mitad en tono tenue."
     ],
     "donts": [
-      "Don't usar tarjetas de icono ni cajas anidadas dentro de una hoja.",
-      "Don't usar Montserrat fuera del wordmark.",
-      "Don't usar coral como fondo de sección o decoración.",
-      "Don't usar sombras duras desplazadas ni resplandores.",
-      "Don't construir un hero de titular con fila de tarjetas."
+      "Don't usar el coral para decorar: ni fondos de sección, ni gradientes, ni texto de cuerpo.",
+      "Don't usar fondos blancos fuera de las ventanas de ACUP Brain.",
+      "Don't usar Montserrat fuera del logotipo ni Geist Mono en titulares.",
+      "Don't agregar sombras a tarjetas de contenido; la sombra es solo para paneles de producto.",
+      "Don't poner etiquetas o antetítulos sobre los titulares de sección."
     ]
   }
 }

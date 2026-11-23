@@ -25,12 +25,14 @@ y abrir http://127.0.0.1:8765/.
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--navy` | `#30408E` | Color principal |
-| `--navy-900` | `#1A2358` | Tapa y contratapa de la carpeta |
-| `--coral` | `#F85A7A` | Acento: banderitas, brechas, timbre. Nunca fondo grande |
-| `--stock` | `#E2E5EC` | Cartulina de fondo |
+| `--bg` | `#05070D` | Fondo azul noche, teñido del marino de marca |
+| `--panel` | `#0C1019` | Paneles y bloques, con borde fino |
+| `--navy` | `#30408E` | Marino de marca: bloque de la cuenta regresiva y ventanas de ejemplo |
+| `--coral` | `#F85A7A` | Único acento: botones principales, brechas, estados activos |
 
-Tipografías: Archivo en titulares y texto, Montserrat Bold solo en el wordmark `acup`.
+Tipografías: Geist en titulares y texto, Geist Mono solo para datos, Montserrat Bold solo en el wordmark `acup`. El sistema completo está en `DESIGN.md`.
+
+Momentos con scroll (`assets/moments/`, de la skill design-taste-frontend): el enunciado que se ilumina (`word-highlight`) y «Cómo funciona» fijo en pantalla (`pinned-chapters`).
 
 ## Pendiente antes de publicar
 

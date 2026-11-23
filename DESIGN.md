@@ -1,277 +1,293 @@
 ---
 name: ACUP
-description: Asesoría de prevención de riesgos presentada como la carpeta de acreditación que una empresa entrega a un cliente grande.
+description: Asesoría de prevención de riesgos presentada como producto tech, azul noche con paneles de interfaz y un solo acento coral.
 colors:
+  night: "#05070D"
+  night-2: "#090C15"
+  panel: "#0C1019"
+  panel-raised: "#172056"
   navy: "#30408E"
-  navy-700: "#283679"
-  navy-900: "#1A2358"
-  navy-950: "#141B47"
-  ink: "#161D45"
-  text: "#2B3259"
-  muted: "#555D86"
-  stock: "#E2E5EC"
-  stock-deep: "#D5D9E3"
-  sheet: "#FFFFFF"
-  rule: "#DDE1EA"
-  rule-strong: "#C2C8D7"
+  line: "rgba(170, 182, 255, .11)"
+  line-strong: "rgba(170, 182, 255, .2)"
+  text: "#E9ECFB"
+  white: "#FFFFFF"
+  muted: "#A3ABD3"
+  dim: "#8C92AE"
   coral: "#F85A7A"
-  coral-ink: "#BF2A4C"
-  coral-wash: "#FEEBEF"
-  cover-text: "#EEF0FA"
-  cover-muted: "#BCC4EA"
+  coral-hi: "#FF7792"
+  coral-ink: "#FF8FA5"
+  coral-wash: "rgba(248, 90, 122, .12)"
+  on-coral: "#12081A"
+  paper: "#FFFFFF"
+  paper-ink: "#161D45"
+  paper-muted: "#555D86"
+  paper-line: "#E3E6EE"
+  paper-alert: "#BF2A4C"
 typography:
   display:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "clamp(2.15rem, 1.2rem + 3.9vw, 4.25rem)"
-    fontWeight: 640
-    lineHeight: 1.02
-    letterSpacing: "-0.035em"
-  headline:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "clamp(1.75rem, 1.15rem + 2.3vw, 3rem)"
-    fontWeight: 640
-    lineHeight: 1.06
-    letterSpacing: "-0.03em"
-  title:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "clamp(1.55rem, 1.1rem + 1.6vw, 2.3rem)"
-    fontWeight: 620
-    lineHeight: 1.1
-    letterSpacing: "-0.025em"
-  title-sm:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "1.12rem"
-    fontWeight: 650
-    lineHeight: 1.3
-    letterSpacing: "-0.01em"
-  body:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "1.0625rem"
-    fontWeight: 400
-    lineHeight: 1.55
-    fontFeature: "lnum"
-  label:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "0.72rem"
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: "clamp(2.5rem, .9rem + 5.2vw, 5.4rem)"
     fontWeight: 600
-    lineHeight: 1
-    letterSpacing: "0.04em"
-    fontFeature: "tnum"
+    lineHeight: 0.98
+    letterSpacing: "-0.048em"
+  headline:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: "clamp(1.9rem, 1.1rem + 2.8vw, 3.4rem)"
+    fontWeight: 600
+    lineHeight: 1.04
+    letterSpacing: "-0.04em"
+  title:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: "clamp(1.6rem, 1.15rem + 1.5vw, 2.3rem)"
+    fontWeight: 600
+    lineHeight: 1.08
+    letterSpacing: "-0.035em"
+  title-sm:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: "1.3rem"
+    fontWeight: 600
+    lineHeight: 1.2
+    letterSpacing: "-0.02em"
   numeral:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "clamp(3.6rem, 2.6rem + 4vw, 5.6rem)"
-    fontWeight: 700
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: "clamp(3rem, 2rem + 4vw, 5.6rem)"
+    fontWeight: 600
     lineHeight: 0.9
     letterSpacing: "-0.05em"
     fontFeature: "tnum"
+  body:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 400
+    lineHeight: 1.55
+  label:
+    fontFamily: "Geist Mono, ui-monospace, monospace"
+    fontSize: "0.8rem"
+    fontWeight: 500
+    lineHeight: 1.3
+    fontFeature: "tnum"
   wordmark:
-    fontFamily: "Montserrat, Archivo, sans-serif"
-    fontSize: "1.7rem"
+    fontFamily: "Montserrat, Geist, sans-serif"
+    fontSize: "1.55rem"
     fontWeight: 700
     lineHeight: 1
     letterSpacing: "-0.02em"
 rounded:
-  xs: "3px"
-  sm: "4px"
-  sheet: "6px"
-  control: "8px"
-  tab: "10px"
-  folder: "12px"
+  xs: "6px"
+  sm: "8px"
+  md: "12px"
+  visual: "14px"
+  lg: "18px"
+  pill: "999px"
 spacing:
   gutter: "clamp(16px, 4vw, 40px)"
-  page: "1240px"
-  section: "clamp(64px, 9vw, 120px)"
-  sheet-pad: "clamp(20px, 5vw, 72px)"
+  page: "1200px"
+  grid-gap: "12px"
+  cell: "clamp(22px, 2.6vw, 30px)"
+  section: "clamp(80px, 11vw, 140px)"
 components:
   button-primary:
-    backgroundColor: "{colors.navy}"
-    textColor: "{colors.sheet}"
-    rounded: "{rounded.sheet}"
-    padding: "0.7em 1.25em"
+    backgroundColor: "{colors.coral}"
+    textColor: "{colors.on-coral}"
+    typography: "{typography.body}"
+    rounded: "{rounded.pill}"
+    padding: ".7em 1.2em"
     height: "46px"
   button-primary-hover:
-    backgroundColor: "{colors.navy-900}"
-  button-line:
-    backgroundColor: "transparent"
-    textColor: "{colors.navy}"
-    rounded: "{rounded.sheet}"
-    padding: "0.7em 1.25em"
-    height: "46px"
-  button-quiet:
-    backgroundColor: "{colors.sheet}"
-    textColor: "{colors.navy}"
-    rounded: "{rounded.sheet}"
-    padding: "0.55em 1em"
-    height: "42px"
-  button-coral:
-    backgroundColor: "{colors.coral}"
-    textColor: "{colors.navy-950}"
-    rounded: "{rounded.sheet}"
-    padding: "0.7em 1.25em"
-    height: "46px"
+    backgroundColor: "{colors.coral-hi}"
+    textColor: "{colors.on-coral}"
   button-ghost:
-    backgroundColor: "transparent"
-    textColor: "{colors.sheet}"
-    rounded: "{rounded.sheet}"
-    padding: "0.7em 1.25em"
+    backgroundColor: "rgba(255, 255, 255, .03)"
+    textColor: "{colors.text}"
+    rounded: "{rounded.pill}"
+    padding: ".7em 1.2em"
     height: "46px"
-  sheet:
-    backgroundColor: "{colors.sheet}"
-    rounded: "{rounded.sheet}"
-    padding: "clamp(40px, 5vw, 68px) clamp(20px, 5vw, 72px)"
-  folder:
-    backgroundColor: "{colors.navy-900}"
-    textColor: "{colors.cover-text}"
-    rounded: "{rounded.folder}"
-  answer:
-    backgroundColor: "{colors.sheet}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.sheet}"
-    padding: "12px 16px"
-    height: "56px"
-  input:
-    backgroundColor: "{colors.sheet}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.sheet}"
-    padding: "0 14px"
-    height: "48px"
-  edge-tab:
-    backgroundColor: "{colors.navy-900}"
-    textColor: "{colors.cover-muted}"
-    padding: "14px 8px 14px 9px"
-  edge-tab-active:
+  panel:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.text}"
+    rounded: "{rounded.lg}"
+  cell:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.muted}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.cell}"
+  cell-count:
     backgroundColor: "{colors.navy}"
-    textColor: "{colors.sheet}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.cell}"
+  answer:
+    backgroundColor: "rgba(255, 255, 255, .03)"
+    textColor: "{colors.text}"
+    rounded: "{rounded.md}"
+    padding: "10px 14px"
+    height: "54px"
+  answer-selected:
+    backgroundColor: "{colors.coral-wash}"
+    textColor: "{colors.text}"
+  input:
+    backgroundColor: "{colors.night-2}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.pill}"
+    padding: "0 16px"
+    height: "46px"
+  paper-window:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.paper-ink}"
+    rounded: "{rounded.md}"
 ---
 
 # Design System: ACUP
 
 ## Overview
 
-**Creative North Star: "La carpeta de acreditación"**
+**Creative North Star: "El producto tech"**
 
-La página es la carpeta que una empresa ordenada entrega a un cliente grande: cartulina gris fría con fibra como fondo, una tapa marino profundo que abre el documento y lo cierra (contratapa), hojas blancas foliadas ("Hoja 01", "Hoja 02"…) con canto y sombra corta, pestañas marino en el canto derecho como índice. El coral es tinta de marcado: aparece solo donde falta algo o donde se marca algo.
+ACUP se presenta como software serio, no como folleto de consultora: suelo azul noche teñido del marino de marca, paneles de interfaz con borde fino y radio generoso, tipografía Geist grande y apretada. La página demuestra en vez de describir: el autodiagnóstico es una interfaz real que se usa en el primer pantallazo, y las vistas de ACUP Brain son ventanas de producto.
 
-El tono es cercano pero riguroso: tipografía Archivo de peso medio, titulares apretados, registros con líneas finas en lugar de cajas. La densidad es la de un documento bien diagramado, no la de un tablero. Se rechaza el hero de consultora con titular y fila de tarjetas con iconos.
+El color trabaja por escasez. Todo es azul noche, blanco y grises lavanda; el coral aparece solo donde hay una decisión o una brecha. El marino de marca sale del fondo una sola vez, como relleno sólido de la celda de cuenta regresiva. El blanco "papel" queda reservado para mostrar la plataforma por dentro.
+
+La profundidad viene del tono (suelo, panel, panel elevado) y del hairline, no de sombras visibles; la única sombra larga y difusa ancla los paneles y ventanas de producto sobre el suelo oscuro.
 
 **Key Characteristics:**
-- Tres materiales: cartulina (fondo), hoja (contenido), tapa marino (apertura y cierre).
-- Cada sección es una hoja foliada; dentro de la hoja, filas separadas por reglas, nunca cajas anidadas.
-- Coral reservado para banderitas, brechas, timbre, el paso actual y el foco.
-- Movimiento de papel: la hoja se archiva hacia la izquierda y la siguiente entra desde la derecha.
+- Suelo oscuro único (#05070D) con paneles #0C1019 y bordes de 1px translúcidos.
+- Geist para todo el texto, con tracking negativo que crece con el tamaño.
+- Geist Mono solo para datos: contadores, fechas, metadatos, teclas.
+- Coral como único acento: botón primario, brecha, estado activo, foco.
+- Interfaz de producto real como imagen principal.
 
 ## Colors
 
-Marino y gris frío casi monocromos, con un solo acento coral que funciona como marcador.
+Una noche azul monocromática con un solo acento cálido.
 
 ### Primary
-- **Marino ACUP** (#30408E): color del logo. Botón primario, enlaces, íconos de "cumple", pestaña activa, cifras y fechas del registro.
-- **Marino tapa** (#1A2358): cuerpo de la carpeta, tapa interior, pestaña de cabecera, pestañas del canto y contratapa, siempre con la fibra clara encima. Hover del botón primario.
-- **Marino hover** (#283679) y **Marino noche** (#141B47): hover de pestañas del canto; texto sobre coral.
+- **Coral señal** (coral): botón primario, `aria-pressed`, marcador de brecha, segmento actual de la regla de progreso, número de paso activo, foco (`outline` 2px), selección de texto, borde spotlight bajo el puntero. Siempre con texto oscuro encima (on-coral), nunca blanco.
+- **Coral vivo** (coral-hi): solo hover del botón primario.
+- **Coral legible** (coral-ink): coral aclarado para texto pequeño sobre el suelo oscuro (errores, "pendiente", vencimientos cercanos).
+- **Lavado coral** (coral-wash): fondo de la respuesta elegida y de avisos pendientes.
 
 ### Secondary
-- **Coral marcador** (#F85A7A): banderitas, segmentos de brecha en la barra de resultado, íconos de brecha y de "hoy", el paso actual de la regla, punto del wordmark, anillo de los apoyos, borde del timbre, anillo de foco.
-- **Coral tinta** (#BF2A4C): coral legible como texto: fechas próximas, estados de vencimiento, errores, texto del timbre.
-- **Coral lavado** (#FEEBEF): fondo de avisos pendientes y de la alerta de la plataforma.
+- **Marino de marca** (navy): relleno sólido de la celda de cuenta regresiva; en las ventanas papel, color de "al día" (puntos, puntaje, fechas). Es la raíz del tinte del suelo.
 
 ### Neutral
-- **Tinta** (#161D45): titulares y texto fuerte.
-- **Texto** (#2B3259): texto corrido.
-- **Apagado** (#555D86): bajadas, notas, metadatos.
-- **Cartulina** (#E2E5EC) y **Cartulina honda** (#D5D9E3): fondo de página con fibra.
-- **Hoja** (#FFFFFF): superficies de contenido.
-- **Regla** (#DDE1EA) y **Regla fuerte** (#C2C8D7): divisores de filas, bordes de controles.
-- **Texto de tapa** (#EEF0FA) y **Texto de tapa apagado** (#BCC4EA): texto sobre marino.
+- **Noche** (night): suelo de toda la página y tinte de la cabecera translúcida.
+- **Noche profunda** (night-2): banda de "Cómo funciona", fondo de inputs y del collage "hoy".
+- **Panel** (panel): superficie de paneles, celdas, planes y comparador.
+- **Panel elevado** (panel-raised): solo el plan recomendado.
+- **Hairline / Hairline fuerte** (line, line-strong): bordes y divisores; el fuerte para controles y paneles de producto.
+- **Texto / Blanco / Atenuado / Tenue** (text, white, muted, dim): blanco para titulares, text para cuerpo, muted para bajadas, dim para metadatos.
+- **Papel** (paper, paper-ink, paper-muted, paper-line, paper-alert): exclusivos de las ventanas ilustrativas de ACUP Brain.
 
 ### Named Rules
-**The Marker Ink Rule.** El coral marca lo que falta o lo que se señala ahora. Nunca es fondo de sección ni decoración; como texto se usa siempre Coral tinta (#BF2A4C).
+**The One Signal Rule.** El coral marca lo que pide acción o lo que falta. Si un elemento coral no es un botón, una brecha, un estado activo o el foco, sobra.
 
-**The Three Materials Rule.** Toda superficie es cartulina, hoja o tapa marino. No hay un cuarto material.
+**The Paper Is The Product Rule.** Las superficies blancas existen solo como ventanas de la plataforma. Ninguna sección ni tarjeta de marketing usa fondo claro.
+
+**The Navy Once Rule.** El marino sólido rellena una sola superficie por vista (la cuenta regresiva); el resto del tiempo vive como tinte del suelo.
 
 ## Typography
 
-**Display Font:** Archivo (variable 100–900, autoalojada, con system-ui)
-**Body Font:** Archivo
+**Display Font:** Geist (con system-ui)
+**Body Font:** Geist (con system-ui)
+**Label/Mono Font:** Geist Mono (con ui-monospace)
 **Wordmark:** Montserrat Bold, solo para "acup"
 
-**Character:** Una sola familia sans de pesos intermedios (520–660) con tracking negativo en los titulares; se lee como un documento técnico bien compuesto, no como publicidad.
+**Character:** Una sola familia sans técnica, peso 600 en titulares y tracking negativo agresivo; la mono hace de lectura de instrumento.
 
 ### Hierarchy
-- **Display** (640, clamp(2.15rem → 4.25rem), 1.02, -0.035em): titular de la tapa y de la contratapa (3.8rem máx.). Máx. 14–16ch.
-- **Headline** (640, clamp(1.75rem → 3rem), 1.06, -0.03em): título de cada hoja. Máx. 22ch.
-- **Title** (620, clamp(1.55rem → 2.3rem), 1.1): título y preguntas de la hoja del diagnóstico (preguntas: 580, hasta 1.75rem).
-- **Title small** (650, 1.05–1.6rem, -0.01 a -0.025em): títulos de filas, pasos y planes.
-- **Body** (400, 1.0625rem, 1.55, cifras lining): texto corrido, 40–62ch.
-- **Label** (600, 0.72–0.76rem, +0.02 a +0.04em, tnum): folios de hoja, pestañas del canto.
-- **Numeral** (700, clamp(3.6rem → 5.6rem), 0.9, -0.05em, tnum): puntaje del resultado.
+- **Display** (600, hasta 5.4rem, 0.98): titular de portada y cierre, máx. 12 a 14ch.
+- **Headline** (600, hasta 3.4rem, 1.04): titulares de sección; la segunda mitad en tono tenue (dim) para dar contrapunto.
+- **Title** (600, hasta 2.3rem): titular dentro del panel de diagnóstico.
+- **Title-sm** (600, 1.3rem): títulos de celdas y planes.
+- **Numeral** (600, hasta 5.6rem, 0.9, tabular): cuenta regresiva y puntaje.
+- **Body** (400, 1.0625rem, 1.55): texto corrido, bajadas a 34 a 46ch, respuestas largas a 58 a 62ch.
+- **Label** (Geist Mono 500, ~0.8rem, tabular): fechas, contadores "3/10", estado de inscripción, chips de temas, teclas.
 
 ### Named Rules
-**The One Family Rule.** Todo el texto es Archivo. Montserrat existe solo para el wordmark "acup" con su punto coral.
+**The Tightening Rule.** El tracking baja con el tamaño: -0.048em en display, -0.04em en headline, -0.02em en títulos chicos, neutro en cuerpo.
+
+**The Mono Means Data Rule.** Geist Mono solo para valores medibles (fechas, cuentas, metadatos, teclas). Nunca para titulares ni frases.
+
+**The Wordmark Only Rule.** Montserrat se usa únicamente en el logotipo "acup" con su punto coral.
 
 ## Layout
 
-Página de 1240px máx. con gutter `clamp(16px, 4vw, 40px)`. La primera pieza es la carpeta abierta: en escritorio (≥980px) dos paneles 5fr / 6fr con un pliegue de lomo; la tapa a la izquierda, la bandeja con la pila de hojas a la derecha. En celular la tapa se desarma (`display: contents`) para subir la hoja del diagnóstico al primer pantallazo, y los apoyos bajan debajo.
-
-Cada sección siguiente es una hoja ancha (`padding` lateral `clamp(20px, 5vw, 72px)`) separada por `clamp(64px, 9vw, 120px)`. Dentro de la hoja, el contenido son registros: una regla superior de 2px tinta y filas con regla de 1px. Las pestañas del canto aparecen fijas a la derecha solo desde 1180px. Quiebres usados: 520, 560, 760, 860, 900, 980, 1180px.
+Columna de 1200px con gutter fluido (16 a 40px). Secciones separadas por mucho aire (80 a 140px) y encabezados de sección en fila: titular a la izquierda, bajada corta alineada abajo a la derecha. La portada es dos columnas desde 1000px (texto 1.08fr, panel 1fr) sobre una retícula de 64px enmascarada en elipse; bajo 1000px el panel de diagnóstico sube justo después de la bajada. Las fechas usan un bento (1.3fr 1fr 1fr) con la celda marina ocupando dos filas; planes en tres columnas desde 900px. Gap estándar entre tarjetas: 12px. En celular aparece una barra de acción coral fija abajo.
 
 ## Elevation & Depth
 
-La profundidad es física y baja: las hojas tienen una sombra corta y suave que las separa de la cartulina, la carpeta levanta un poco más. Bajo la hoja del diagnóstico, los cantos apilados (hasta nueve, cada uno 1–2px desplazado y un tono más gris) dicen cuántas hojas quedan. Las superficies marino llevan una fibra clara; la cartulina, una fibra oscura.
+Sistema tonal: profundidad por capas de azul (noche, noche profunda, panel, panel elevado) y bordes hairline. Las tarjetas de contenido (celdas, planes) no tienen sombra. Solo los paneles de producto y las ventanas papel llevan una sombra larga y difusa que los separa del suelo.
 
 ### Shadow Vocabulary
-- **Hoja** (`0 1px 1px rgba(22,29,69,.06), 0 12px 30px -16px rgba(22,29,69,.38)`): toda hoja sobre cartulina.
-- **Levantado** (`0 2px 3px rgba(22,29,69,.08), 0 22px 44px -18px rgba(22,29,69,.45)`): la carpeta y la vista de la plataforma.
-- **Botón** (`0 1px 1px rgba(22,29,69,.15), 0 8px 18px -10px rgba(22,29,69,.55)`): botón primario.
+- **Panel** (`box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 30px 70px -30px rgba(0,0,0,.75)`): panel de diagnóstico.
+- **Ventana papel** (`box-shadow: 0 40px 80px -30px rgba(0,0,0,.8)`): ventanas de ACUP Brain.
+- **Barra flotante** (`box-shadow: 0 18px 32px -12px rgba(0,0,0,.7)`): barra de acción móvil.
 
 ### Named Rules
-**The Short Shadow Rule.** Las sombras son de papel: offset vertical, blur con spread negativo, tinte marino. Nunca sombras duras desplazadas ni resplandores.
+**The Hairline Over Shadow Rule.** Una tarjeta se separa del suelo con tono y un borde de 1px; la sombra se reserva para lo que es interfaz.
 
 ## Shapes
 
-Esquinas apenas redondeadas: 6px en hojas, botones, respuestas y campos; 12px en la carpeta (con la esquina superior izquierda recta donde nace la pestaña); 10px arriba en la pestaña de cabecera, que se une al cuerpo con una curva cóncava; 7px solo del lado izquierdo en las pestañas del canto. La banderita es un rectángulo con muesca en V (`clip-path`), vertical en la hoja del diagnóstico y horizontal asomando por el canto izquierdo en las fechas próximas. Círculos solo para marcas de respuesta, números de paso y el ícono del acordeón.
+Esquinas suaves y consistentes: 18px para todo contenedor grande (panel, celda, plan, comparador), 14px para visuales internos, 12px para ventanas, respuestas y bloques de formulario, 6 a 9px para chips, marcas e íconos enmarcados. Todo lo accionable de primer nivel es píldora (botones, input, interruptor, sello "Recomendado"). Íconos de trazo 1.6 a 1.8px en sprite SVG, a menudo dentro de un cuadro de 28 a 34px con borde hairline.
 
 ## Components
 
 ### Buttons
-- **Shape:** 6px, borde 1.5px, alto mínimo 46px (54px en `btn-lg`), peso 600.
-- **Primary:** fondo Marino ACUP, texto blanco, sombra de botón. Hover: Marino tapa y sube 1px.
-- **Line / Quiet:** borde Regla fuerte, texto marino; Quiet sobre hoja blanca, 42px. Hover: borde marino.
-- **Coral:** fondo coral, texto Marino noche; solo para la acción de contacto sobre la contratapa.
-- **Ghost:** sobre marino, borde blanco al 45%.
-- **Focus:** anillo coral de 2px con offset 3px (global).
+- **Shape:** píldora (999px), altura 46px (40 chico, 54 grande).
+- **Primary:** fondo coral, texto on-coral, peso 600.
+- **Hover / Focus:** sube 1px (2px el grande), la flecha final avanza 3px, coral vivo; al presionar baja 1px y escala .985 en 90ms. Foco: anillo coral 2px.
+- **Ghost / Line:** fondo blanco 3% o transparente con borde hairline fuerte; en hover el borde se aclara.
+- **Text:** sin caja, muted que pasa a blanco.
+
+### Chips
+- **Style:** chips de temas en mono .78rem, radio 6px, borde hairline, fondo blanco 2.5%. Badge de estado en píldora con punto coral pulsante.
 
 ### Cards / Containers
-- **Hoja:** fondo blanco, 6px, sombra Hoja, folio "Hoja NN" arriba a la derecha. Es el único contenedor; dentro no hay tarjetas.
+- **Corner Style:** 18px.
+- **Background:** panel; celda de cuenta regresiva en marino; plan recomendado en panel elevado con borde coral al 50%.
+- **Shadow Strategy:** ninguna (ver Elevation & Depth).
+- **Border:** 1px hairline.
+- **Internal Padding:** 22 a 32px fluido.
 
 ### Inputs / Fields
-- **Style:** fondo blanco, borde 1.5px Regla fuerte, 6px, 48px de alto, caret coral.
-- **Focus:** borde y anillo marino. **Error:** borde Coral tinta, mensaje en Coral tinta.
+- **Style:** píldora de 46px, fondo noche profunda, borde hairline fuerte, cursor coral.
+- **Focus:** borde coral más halo coral de 3px al 22%.
+- **Error:** borde coral y mensaje en coral legible.
 
 ### Navigation
-- **Pestaña de cabecera:** el wordmark sobre Marino tapa con fibra, como la pestaña de la carpeta.
-- **Pestañas del canto:** texto vertical, Marino tapa, número tnum; asoman 4px y entran al hover; la activa pasa a Marino ACUP con número coral.
+- **Style:** cabecera fija con noche al 74% y blur de 14px, borde inferior hairline; logotipo a la izquierda y botones chicos a la derecha. En celular se ocultan los secundarios y aparece la barra de acción inferior.
 
-### Respuesta del diagnóstico
-Fila de 56px con marca circular de 30px; seleccionada: borde marino, marca rellena marino. Atajo de teclado en `kbd` a la derecha.
-
-### Banderita y timbre
-La banderita coral señala la hoja activa y cada fecha próxima; el timbre ("Recomendado") es un borde coral de 2px, texto Coral tinta en mayúsculas, rotado -4°.
+### Panel de producto (autodiagnóstico)
+Panel con barra superior (logotipo, título, metadato mono), regla de 10 segmentos (blanco hecho, coral actual), respuestas en botones de 54px con marca cuadrada y tecla de atajo. Al responder, un sello mono en mayúsculas ("Acreditado" en blanco o "Brecha" en coral) aparece escalando desde 1.5 en 200ms y se desvanece; el panel acusa el golpe con un desplazamiento de 2px. El borde se ilumina en coral siguiendo al puntero (spotlight).
 
 ### Comparador
-Interruptor de dos segmentos con un pulgar deslizante (tinta → marino); cambia el estado de la misma hoja, no navega.
+Interruptor en píldora con pulgar que se desliza (450ms, ease de entrada) y cambia de blanco a coral. "Hoy" es un collage de papeles sueltos inclinados sobre fondo punteado; "Con ACUP" es una ventana papel cuyas filas entran escalonadas cada 70ms tras la salida del collage.
+
+### Ventana papel (ACUP Brain)
+Ventana blanca de 12 a 14px con barra gris #F6F7FB, tabla o lista con divisores paper-line, estados con punto marino (al día) o coral (vence), avisos en lavado rosa con ícono paper-alert.
+
+### Movimiento
+Entrada del titular por palabras en máscara (700ms, escalonado por línea), subrayado coral que se dibuja después y seguidores que suben 12px. Dos momentos del kit: enunciado con resaltado de palabras y "Cómo funciona" con capítulos fijados cuyo número activo se rellena de coral. Ease base `cubic-bezier(.2,.8,.2,1)`, entrada `cubic-bezier(.22,1,.36,1)`; estados en 150ms. Con movimiento reducido todo queda instantáneo.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** poner cada sección en una hoja blanca foliada sobre la cartulina.
-- **Do** separar contenido con reglas de 1px y abrir registros con una regla de 2px tinta.
-- **Do** usar coral solo para lo que falta o se marca, y Coral tinta (#BF2A4C) cuando es texto.
-- **Do** mover las hojas con `cubic-bezier(.16, 1, .3, 1)`: salida 170ms, entrada 420ms, respetando `prefers-reduced-motion`.
-- **Do** usar cifras tabulares en fechas, folios, contadores y tablas.
+- **Do** mantener el suelo noche (#05070D) en toda página; separar secciones con aire y hairlines, no con bandas de color.
+- **Do** mostrar la plataforma como interfaz real (panel oscuro o ventana papel) en vez de ilustraciones o íconos grandes.
+- **Do** poner texto oscuro (#12081A) sobre todo relleno coral.
+- **Do** usar Geist Mono con cifras tabulares para fechas, cuentas y metadatos.
+- **Do** dar a los titulares de sección una segunda mitad en tono tenue.
 
 ### Don't:
-- **Don't** usar tarjetas de icono ni cajas anidadas dentro de una hoja.
-- **Don't** usar Montserrat fuera del wordmark.
-- **Don't** usar coral como fondo de sección o decoración.
-- **Don't** usar sombras duras desplazadas ni resplandores.
-- **Don't** construir un hero de titular con fila de tarjetas.
+- **Don't** usar el coral para decorar: ni fondos de sección, ni gradientes, ni texto de cuerpo.
+- **Don't** usar fondos blancos fuera de las ventanas de ACUP Brain.
+- **Don't** usar Montserrat fuera del logotipo ni Geist Mono en titulares.
+- **Don't** agregar sombras a tarjetas de contenido; la sombra es solo para paneles de producto.
+- **Don't** poner etiquetas o antetítulos sobre los titulares de sección.
+
+## Versión clara y fotografía (actualización 23-11-2026)
+
+- Dos temas con el mismo sistema: oscuro (por defecto, `#05070D`) y claro (`#F5F6F9`, paneles blancos, texto `#0E1330`). El visitante cambia con el botón sol/luna; se recuerda en el navegador y también se elige por enlace con `?tema=claro` u `?tema=oscuro`.
+- La portada con foto y la escena de terreno son siempre oscuras; ambas fotos se funden con el fondo de la página (máscara degradada), sin cortes duros.
+- Fotografías generadas con IA en Google Flow (`assets/img/hero.jpg`, `assets/img/terreno.jpg`), marcadas en el HTML como escenas ilustrativas. Reemplazar por fotos reales cuando existan.
+- Escena de terreno: la foto queda fija al hacer scroll y aparecen registros de ejemplo en tarjetas de vidrio unidas por líneas punteadas a puntos de la foto.
