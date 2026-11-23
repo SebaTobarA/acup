@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "montserrat",
+        "createdAt": "2026-11-23T19:52:27.910Z",
+        "reason": "PRODUCT.md brand commitment: wordmark set in Montserrat Bold; used only for the wordmark"
+      }
+    ]
+  }
+}

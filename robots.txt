@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sebatobara.github.io/acup/sitemap.xml
+Sitemap: https://acup.cl/sitemap.xml

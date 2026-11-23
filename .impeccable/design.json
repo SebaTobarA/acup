@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-23T19:57:58.690679+00:00",
+  "title": "Design System: ACUP",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "primary",
+        "displayName": "Marino ACUP",
+        "tonalRamp": [
+          "#141B47",
+          "#1A2358",
+          "#283679",
+          "#30408E",
+          "#5464A8",
+          "#8590C4",
+          "#BCC4EA",
+          "#EEF0FA"
+        ]
+      },
+      "navy-700": {
+        "role": "primary",
+        "displayName": "Marino hover"
+      },
+      "navy-900": {
+        "role": "primary",
+        "displayName": "Marino tapa"
+      },
+      "navy-950": {
+        "role": "primary",
+        "displayName": "Marino noche"
+      },
+      "coral": {
+        "role": "secondary",
+        "displayName": "Coral marcador",
+        "tonalRamp": [
+          "#5E1222",
+          "#8E1D37",
+          "#BF2A4C",
+          "#F85A7A",
+          "#FA7591",
+          "#F7C4D0",
+          "#FEEBEF",
+          "#FFF6F8"
+        ]
+      },
+      "coral-ink": {
+        "role": "secondary",
+        "displayName": "Coral tinta"
+      },
+      "coral-wash": {
+        "role": "secondary",
+        "displayName": "Coral lavado"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta"
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Texto"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Apagado"
+      },
+      "stock": {
+        "role": "neutral",
+        "displayName": "Cartulina",
+        "tonalRamp": [
+          "#2B3259",
+          "#555D86",
+          "#8189AC",
+          "#C2C8D7",
+          "#D5D9E3",
+          "#E2E5EC",
+          "#EEF0F5",
+          "#F7F8FB"
+        ]
+      },
+      "stock-deep": {
+        "role": "neutral",
+        "displayName": "Cartulina honda"
+      },
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Hoja"
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Regla"
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Regla fuerte"
+      },
+      "cover-text": {
+        "role": "neutral",
+        "displayName": "Texto de tapa"
+      },
+      "cover-muted": {
+        "role": "neutral",
+        "displayName": "Texto de tapa apagado"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titular de la tapa y de la contratapa."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Título de cada hoja."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Título y preguntas de la hoja del diagnóstico."
+      },
+      "title-sm": {
+        "displayName": "Title small",
+        "purpose": "Títulos de filas, pasos y planes."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido, 40–62ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Folios de hoja y pestañas del canto."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Puntaje del resultado del diagnóstico."
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "Solo el wordmark \"acup\" con punto coral."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet",
+        "value": "0 1px 1px rgba(22,29,69,.06), 0 12px 30px -16px rgba(22,29,69,.38)",
+        "purpose": "Toda hoja sobre cartulina."
+      },
+      {
+        "name": "lift",
+        "value": "0 2px 3px rgba(22,29,69,.08), 0 22px 44px -18px rgba(22,29,69,.45)",
+        "purpose": "La carpeta y la vista de la plataforma."
+      },
+      {
+        "name": "button",
+        "value": "0 1px 1px rgba(22,29,69,.15), 0 8px 18px -10px rgba(22,29,69,.55)",
+        "purpose": "Botón primario."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Ease-out exponencial para todo cambio de estado y entrada de hoja."
+      },
+      {
+        "name": "ease-exit",
+        "value": "cubic-bezier(.4, 0, 1, 1)",
+        "purpose": "Salida de la hoja archivada hacia la izquierda (170ms)."
+      },
+      {
+        "name": "sheet-out",
+        "value": "170ms",
+        "purpose": "Hoja sale: translateX(-28px) rotate(-0.6deg), opacidad 0."
+      },
+      {
+        "name": "sheet-in",
+        "value": "420ms",
+        "purpose": "Hoja entra desde translateX(34px)."
+      },
+      {
+        "name": "accordion",
+        "value": "450ms",
+        "purpose": "Acordeón por grid-template-rows 0fr a 1fr."
+      },
+      {
+        "name": "state",
+        "value": "200ms",
+        "purpose": "Hover y bordes de controles."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "520px"
+      },
+      {
+        "name": "sm",
+        "value": "560px"
+      },
+      {
+        "name": "md",
+        "value": "760px"
+      },
+      {
+        "name": "lg",
+        "value": "900px"
+      },
+      {
+        "name": "folder",
+        "value": "980px"
+      },
+      {
+        "name": "tabs",
+        "value": "1180px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal sobre hoja o cartulina.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Comenzar el autodiagnóstico <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h13M13 6.5l5.5 5.5-5.5 5.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button>",
+      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-btn{display:inline-flex;align-items:center;gap:.55em;min-height:46px;padding:.7em 1.25em;border-radius:6px;border:1.5px solid transparent;font-family:Archivo,system-ui,sans-serif;font-weight:600;font-size:1rem;line-height:1.2;cursor:pointer;transition:background-color .2s cubic-bezier(.16,1,.3,1),border-color .2s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1)}.ds-btn:focus-visible{outline:2px solid #F85A7A;outline-offset:3px}.ds-btn-primary{background:var(--navy);color:#fff;box-shadow:0 1px 1px rgba(22,29,69,.15),0 8px 18px -10px rgba(22,29,69,.55)}.ds-btn-primary:hover{background:var(--navy-900);transform:translateY(-1px)}.ds-btn-primary:active{transform:none}"
+    },
+    {
+      "name": "Botón de línea",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Acción secundaria sobre hoja.",
+      "html": "<button class=\"ds-btn ds-btn-line\">Ver planes</button>",
+      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-btn{display:inline-flex;align-items:center;gap:.55em;min-height:46px;padding:.7em 1.25em;border-radius:6px;border:1.5px solid transparent;font-family:Archivo,system-ui,sans-serif;font-weight:600;font-size:1rem;line-height:1.2;cursor:pointer;transition:background-color .2s cubic-bezier(.16,1,.3,1),border-color .2s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1)}.ds-btn:focus-visible{outline:2px solid #F85A7A;outline-offset:3px}.ds-btn-line{background:transparent;color:var(--navy);border-color:var(--rule-strong)}.ds-btn-line:hover{border-color:var(--navy);color:var(--navy-900)}"
+    },
+    {
+      "name": "Botón coral sobre contratapa",
+      "kind": "button",
+      "refersTo": "button-coral",
+      "description": "Acción de contacto sobre marino; único uso de coral como fondo de control.",
+      "html": "<div style=\"background:#1A2358;padding:24px;border-radius:6px\"><button class=\"ds-btn ds-btn-coral\">Hablar con un asesor</button></div>",
+      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-btn{display:inline-flex;align-items:center;gap:.55em;min-height:46px;padding:.7em 1.25em;border-radius:6px;border:1.5px solid transparent;font-family:Archivo,system-ui,sans-serif;font-weight:600;font-size:1rem;line-height:1.2;cursor:pointer;transition:background-color .2s cubic-bezier(.16,1,.3,1),border-color .2s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1)}.ds-btn:focus-visible{outline:2px solid #F85A7A;outline-offset:3px}.ds-btn-coral{background:var(--coral);color:var(--navy-950)}.ds-btn-coral:hover{background:#FA7591}"
+    },
+    {
+      "name": "Campo de correo",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo del pedido de informe.",
+      "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"tu@empresa.cl\">",
+      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-input{min-height:48px;padding:0 14px;font-family:Archivo,system-ui,sans-serif;font-size:1rem;color:var(--ink);background:#fff;border:1.5px solid var(--rule-strong);border-radius:6px;caret-color:var(--coral)}.ds-input::placeholder{color:#6F769A}.ds-input:focus-visible{outline:2px solid var(--navy);outline-offset:1px;border-color:var(--navy)}"
+    },
+    {
+      "name": "Pestañas del canto",
+      "kind": "nav",
+      "refersTo": "edge-tab",
+      "description": "Índice fijo en el canto derecho desde 1180px.",
+      "html": "<ol class=\"ds-tabs\"><li><a href=\"#\" class=\"is-active\"><span class=\"n\">01</span>Diagnóstico</a></li><li><a href=\"#\"><span class=\"n\">02</span>Fechas</a></li><li><a href=\"#\"><span class=\"n\">03</span>Planes</a></li></ol>",
+      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-tabs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;align-items:flex-end}.ds-tabs a{display:flex;align-items:center;gap:8px;writing-mode:vertical-rl;padding:14px 8px 14px 9px;background:var(--navy-900);color:var(--cover-muted);font-family:Archivo,system-ui,sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.02em;text-decoration:none;border-radius:7px 0 0 7px;transform:translateX(4px);transition:transform .3s cubic-bezier(.16,1,.3,1),background-color .25s}.ds-tabs .n{opacity:.7}.ds-tabs a:hover{transform:none;color:#fff;background:#283679}.ds-tabs a.is-active{transform:none;background:var(--navy);color:#fff}.ds-tabs a.is-active .n{color:var(--coral);opacity:1}.ds-tabs a:focus-visible{outline:2px solid var(--coral);outline-offset:3px}"
+    },
+    {
+      "name": "Hoja foliada con banderita",
+      "kind": "card",
+      "refersTo": "sheet",
+      "description": "El único contenedor: hoja blanca sobre cartulina, con folio y banderita coral.",
+      "html": "<div class=\"ds-stock\"><article class=\"ds-sheet\"><span class=\"ds-flag\"></span><span class=\"ds-folio\">Hoja 01</span><h3>¿Tu empresa puede demostrar que cumple?</h3><p>10 preguntas · 2 minutos · Sin registrarte</p></article></div>",
+      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-stock{background:#E2E5EC;padding:32px 24px}.ds-sheet{position:relative;background:#fff;border-radius:6px;box-shadow:0 1px 1px rgba(22,29,69,.06),0 12px 30px -16px rgba(22,29,69,.38);padding:40px 28px 28px;font-family:Archivo,system-ui,sans-serif;color:#2B3259}.ds-sheet h3{margin:0;color:var(--ink);font-size:1.6rem;font-weight:620;line-height:1.1;letter-spacing:-.025em;max-width:17ch}.ds-sheet p{margin:14px 0 0;color:var(--muted)}.ds-folio{position:absolute;top:12px;left:28px;font-size:.72rem;font-weight:600;letter-spacing:.04em;color:#8189AC}.ds-flag{position:absolute;top:-10px;right:32px;width:22px;height:42px;background:var(--coral);clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%)}"
+    },
+    {
+      "name": "Respuesta del diagnóstico",
+      "kind": "custom",
+      "refersTo": "answer",
+      "description": "Opción de respuesta con marca circular; seleccionada en marino.",
+      "html": "<button class=\"ds-answer\" aria-pressed=\"true\"><span class=\"mark\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\"><path d=\"M5 12.5l4.2 4.2L19 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>Sí, y puedo mostrarlo<kbd>1</kbd></button>",
+      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-answer{display:flex;align-items:center;gap:14px;width:100%;min-height:56px;padding:12px 16px;text-align:left;background:#fff;border:1.5px solid var(--rule-strong);border-radius:6px;font-family:Archivo,system-ui,sans-serif;font-size:1.02rem;font-weight:560;color:var(--ink);cursor:pointer;transition:border-color .2s,background-color .2s}.ds-answer:hover{border-color:var(--navy);background:#F7F8FC}.ds-answer:focus-visible{outline:2px solid var(--coral);outline-offset:3px}.ds-answer .mark{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;border:1.5px solid var(--rule-strong);color:var(--muted)}.ds-answer[aria-pressed=true]{border-color:var(--navy);background:#F2F4FB}.ds-answer[aria-pressed=true] .mark{background:var(--navy);border-color:var(--navy);color:#fff}.ds-answer kbd{margin-left:auto;font:600 .75rem/1 Archivo,sans-serif;color:var(--muted);border:1px solid var(--rule);border-radius:4px;padding:4px 6px}"
+    },
+    {
+      "name": "Fila de registro con fecha próxima",
+      "kind": "custom",
+      "refersTo": "sheet",
+      "description": "Fila del registro de fechas; la próxima lleva banderita en el canto y Coral tinta.",
+      "html": "<ol class=\"ds-reg\"><li><time>01.02.2025</time><div><strong>DS 44</strong><p>Reemplaza al DS 40 y DS 54.</p></div><span>Vigente</span></li><li class=\"soon\"><time>01.11.2026</time><div><strong>Capacitación art. 16</strong><p>8 horas por trabajador.</p></div><span>Exigible</span></li></ol>",
+      "css": ":root{--navy:#30408E;--navy-900:#1A2358;--navy-950:#141B47;--ink:#161D45;--muted:#555D86;--rule:#DDE1EA;--rule-strong:#C2C8D7;--coral:#F85A7A;--coral-ink:#BF2A4C;--sheet:#fff;--cover-muted:#BCC4EA}.ds-reg{list-style:none;margin:0;padding:0 0 0 30px;border-top:2px solid var(--ink);font-family:Archivo,system-ui,sans-serif;}.ds-reg li{position:relative;display:grid;grid-template-columns:150px 1fr auto;gap:20px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--rule)}.ds-reg time{font-size:1.5rem;font-weight:600;letter-spacing:-.02em;color:var(--navy);font-variant-numeric:tabular-nums}.ds-reg strong{color:var(--ink);font-weight:650}.ds-reg p{margin:2px 0 0;color:var(--muted)}.ds-reg span{color:var(--muted);font-weight:560;font-size:.92rem}.ds-reg .soon time,.ds-reg .soon span{color:var(--coral-ink)}.ds-reg .soon span{font-weight:680}.ds-reg .soon::before{content:'';position:absolute;top:22px;left:-30px;width:24px;height:16px;background:var(--coral);clip-path:polygon(0 0,100% 0,78% 50%,100% 100%,0 100%)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La carpeta de acreditación",
+    "overview": "La página es la carpeta que una empresa ordenada entrega a un cliente grande: cartulina gris fría con fibra como fondo, una tapa marino profundo que abre el documento y lo cierra (contratapa), hojas blancas foliadas (\"Hoja 01\", \"Hoja 02\"…) con canto y sombra corta, pestañas marino en el canto derecho como índice. El coral es tinta de marcado: aparece solo donde falta algo o donde se marca algo.\n\nEl tono es cercano pero riguroso: tipografía Archivo de peso medio, titulares apretados, registros con líneas finas en lugar de cajas. La densidad es la de un documento bien diagramado, no la de un tablero. Se rechaza el hero de consultora con titular y fila de tarjetas con iconos.",
+    "keyCharacteristics": [
+      "Tres materiales: cartulina (fondo), hoja (contenido), tapa marino (apertura y cierre).",
+      "Cada sección es una hoja foliada; dentro de la hoja, filas separadas por reglas, nunca cajas anidadas.",
+      "Coral reservado para banderitas, brechas, timbre, el paso actual y el foco.",
+      "Movimiento de papel: la hoja se archiva hacia la izquierda y la siguiente entra desde la derecha."
+    ],
+    "rules": [
+      {
+        "name": "The Marker Ink Rule",
+        "body": "El coral marca lo que falta o lo que se señala ahora. Nunca es fondo de sección ni decoración; como texto se usa siempre Coral tinta (#BF2A4C).",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Materials Rule",
+        "body": "Toda superficie es cartulina, hoja o tapa marino. No hay un cuarto material.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Todo el texto es Archivo. Montserrat existe solo para el wordmark \"acup\" con su punto coral.",
+        "section": "typography"
+      },
+      {
+        "name": "The Short Shadow Rule",
+        "body": "Las sombras son de papel: offset vertical, blur con spread negativo, tinte marino. Nunca sombras duras desplazadas ni resplandores.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do poner cada sección en una hoja blanca foliada sobre la cartulina.",
+      "Do separar contenido con reglas de 1px y abrir registros con una regla de 2px tinta.",
+      "Do usar coral solo para lo que falta o se marca, y Coral tinta (#BF2A4C) cuando es texto.",
+      "Do mover las hojas con `cubic-bezier(.16, 1, .3, 1)`: salida 170ms, entrada 420ms, respetando `prefers-reduced-motion`.",
+      "Do usar cifras tabulares en fechas, folios, contadores y tablas."
+    ],
+    "donts": [
+      "Don't usar tarjetas de icono ni cajas anidadas dentro de una hoja.",
+      "Don't usar Montserrat fuera del wordmark.",
+      "Don't usar coral como fondo de sección o decoración.",
+      "Don't usar sombras duras desplazadas ni resplandores.",
+      "Don't construir un hero de titular con fila de tarjetas."
+    ]
+  }
+}

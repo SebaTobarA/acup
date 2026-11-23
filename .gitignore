@@ -5,3 +5,12 @@
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Impeccable: material de trabajo (se versionan config, design.json y surfaces/)
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/questions/
+.impeccable/hook.cache.json
+.impeccable/brief-body.md
+.impeccable/direction-round.json
+.impeccable/config.local.json
