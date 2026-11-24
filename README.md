@@ -4,14 +4,21 @@ Landing de una sola página de ACUP SpA: asesoría de prevención de riesgos que
 
 ## Estructura
 
-Sitio estático para GitHub Pages, sin build ni dependencias. Las tipografías se sirven desde el propio sitio (`assets/fonts/`).
+Sitio estático en Hostinger (`domains/acup.cl/public_html`), sin build ni dependencias, detrás del DNS de Cloudflare. Las tipografías se sirven desde el propio sitio (`assets/fonts/`).
 
 | Archivo | Contenido |
 |---|---|
 | `index.html` | La página completa: portada con autodiagnóstico, fechas de la norma, comparador, cómo funciona, planes, quién está detrás, preguntas frecuentes y cierre |
 | `styles.css` | Todos los estilos |
-| `app.js` | Autodiagnóstico, estado de las fechas respecto de hoy, comparador, acordeón e índice lateral |
-| `favicon.svg`, `robots.txt`, `sitemap.xml` | Metadatos del sitio (dominio canónico `https://acup.cl/`) |
+| `app.js` | Autodiagnóstico, estado de las fechas respecto de hoy, comparador y acordeón |
+| `informe.php` | Recibe el autodiagnóstico y envía el informe por SMTP (Hostinger) a la persona, con copia a `somos@acup.cl`. Los textos de cada brecha viven aquí |
+| `privacidad.html`, `aviso-legal.html`, `404.html` | Páginas legales y de error |
+| `.htaccess` | Página 404, HSTS y caché del navegador |
+| `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `robots.txt`, `sitemap.xml` | Metadatos del sitio (dominio canónico `https://acup.cl/`) |
+
+Fuera de `public_html`, en el servidor: `informe-config.php` con el buzón y la contraseña SMTP (`hola@acup.cl`, no se versiona) e `informe-data/` con los contadores del límite de envíos.
+
+Para publicar, se suben por SSH los archivos de la tabla y `assets/` (nunca `BRIEF.md`, `PRODUCT.md`, `DESIGN.md`, `README.md` ni `.impeccable/`). Al cambiar `styles.css`, `app.js` o `assets/moments/`, subir el `?v=` en las páginas (y en el `import` de `lib.js` dentro de `moments.js`).
 
 Para verlo en local:
 
@@ -38,12 +45,6 @@ Momentos con scroll (`assets/moments/`, de la skill design-taste-frontend): el e
 
 En pantalla se ven en coral con subrayado punteado (clase `.todo`) para que no se publiquen por descuido.
 
-- Precios en UF de los tres planes: `[PRECIO]`
-- Visita en terreno del plan Crecimiento: `[SEGÚN ZONA]`
-- Plazo de la puesta al día: `[PLAZO]`
-- Condiciones de permanencia: `[CONDICIONES DE CONTRATO]`
-- Número de WhatsApp: `[NÚMERO PENDIENTE]` (el botón hoy muestra un aviso y no abre nada)
-- Año de fundación en «Quiénes somos»: `[AÑO]` (el texto de esa sección es provisorio y está por afinar)
 - Fotos de portada y terreno: hoy son escenas generadas con IA en Google Flow; reemplazar por fotos reales cuando existan
-- Servicio que recibe el correo del autodiagnóstico: poner su URL en `REPORT_ENDPOINT` dentro de `app.js`. Mientras esté vacío, el formulario no envía nada y lo dice.
-- Dominio: para servir en `acup.cl` hay que configurar el dominio personalizado en GitHub Pages (archivo `CNAME` y DNS). Los metadatos ya apuntan a `https://acup.cl/`.
+- WhatsApp Business: configurar el número +56 9 6517 7551 que usa el botón del cierre
+- Textos de cada brecha en `informe.php` y política de privacidad: borradores por aprobar

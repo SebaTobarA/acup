@@ -25,7 +25,7 @@
                        visible page. Nothing waits for ever. Returns { destroy }.
   split(el, unit)      wraps the words ('words') or letters ('chars') of el in spans
                        (.mo-w, .mo-c, each with an inner .mo-i that moves) and keeps the text readable:
-                       the host gets aria-label, the spans aria-hidden. Returns the inner spans.
+                       the host gets a .sr-only copy of its text, the spans aria-hidden. Returns the inner spans.
   lines(words)         groups word spans into lines by their offsetTop; returns an array of arrays.
   fontsReady(ms)       resolves when the fonts are loaded, or after ms.
   clamp, lerp, ease    the maths.
@@ -98,7 +98,7 @@ export function once(el, fn, { threshold = 0.35, margin = '0px', rescue = 3000 }
 }
 
 export function split(el, unit = 'words') {
-  if (!el.getAttribute('aria-label')) el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+  const text = el.getAttribute('aria-label') ? '' : el.textContent.replace(/\s+/g, ' ').trim();
   const inners = [];
   const wrap = (text, cls) => {
     const s = document.createElement('span');
@@ -134,6 +134,8 @@ export function split(el, unit = 'words') {
   };
   walk(el);
   el.querySelectorAll('.mo-w').forEach(w => w.setAttribute('aria-hidden', 'true'));
+  // the readable text goes in a hidden span, not aria-label: aria-label is not allowed on a <p> or other generic host
+  if (text) { const sr = document.createElement('span'); sr.className = 'sr-only'; sr.textContent = text; el.append(sr); }
   return inners;
 }
 

@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#070B22">
 <link rel="canonical" href="https://acup.cl/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -23,13 +24,13 @@
 <meta name="twitter:description" content="Asesoría de prevención de riesgos y plataforma en un solo servicio. Autodiagnóstico de 10 preguntas: descubre qué podría demostrar hoy tu empresa.">
 
 <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=20261123d">
+<link rel="stylesheet" href="styles.css?v=20261124b">
 <script>try{var q=new URLSearchParams(location.search).get('tema');var t=q==='claro'?'light':q==='oscuro'?'dark':localStorage.getItem('acup-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.classList.add('js','m-enter');setTimeout(function(){document.documentElement.classList.add('m-enter-done')},900);document.documentElement.classList.add('mo-js');setTimeout(function(){document.documentElement.classList.add('mo-safe')},2500)</script>
-<link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js">
-<script type="module" src="assets/moments/moments.js"></script>
-<script src="app.js?v=20261123d" defer></script>
+<link rel="modulepreload" href="assets/moments/moments.js?v=20261124d"><link rel="modulepreload" href="assets/moments/lib.js?v=20261124d">
+<script type="module" src="assets/moments/moments.js?v=20261124d"></script>
+<script src="app.js?v=20261124d" defer></script>
 
-<!-- Datos estructurados. Solo información confirmada: sin precios, teléfono
+<!-- Datos estructurados. Solo información confirmada: sin
      ni dirección de calle, que aún están pendientes. -->
 <script type="application/ld+json">
 {
@@ -45,8 +46,11 @@
       "image": "https://acup.cl/favicon.svg",
       "description": "Asesoría de prevención de riesgos que pone al día a la empresa y la mantiene al día mes a mes, con una plataforma propia incluida para demostrar el cumplimiento ante clientes y fiscalizadores.",
       "email": "somos@acup.cl",
+      "telephone": "+56 9 6517 7551",
       "address": {
         "@type": "PostalAddress",
+        "addressLocality": "Valparaíso",
+        "addressRegion": "Región de Valparaíso",
         "addressCountry": "CL"
       },
       "areaServed": {
@@ -105,7 +109,7 @@
         {
           "@type": "Question",
           "name": "¿Atienden fuera de la Región de Valparaíso?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí. El diagnóstico, la puesta al día y la plataforma funcionan en línea en todo Chile. Las visitas en terreno se coordinan según la zona." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. El diagnóstico, la puesta al día y la plataforma funcionan en línea en todo Chile. Las visitas a terreno se conversan con cada empresa y el costo de traslado es adicional." }
         },
         {
           "@type": "Question",
@@ -116,6 +120,11 @@
           "@type": "Question",
           "name": "Mi cliente usa su propia plataforma de acreditación. ¿Igual me sirve?",
           "acceptedAnswer": { "@type": "Answer", "text": "Sí. No reemplazamos esa plataforma: preparamos y mantenemos al día lo que te exige." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por cuánto tiempo se contrata?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tú eliges la modalidad: mensual, anual o personalizada. El servicio dura lo que dure la modalidad que contrates." }
         }
       ]
     }
@@ -170,7 +179,7 @@
   <section class="hero" aria-labelledby="titular">
     <div class="hero-media" aria-hidden="true">
       <!-- IMAGEN: generada con IA en Google Flow (escena ilustrativa, no es un cliente ni un trabajador real). Reemplazable por foto real. -->
-      <img src="assets/img/hero.jpg" alt="" width="1376" height="768" fetchpriority="high" decoding="async">
+      <img src="assets/img/hero.webp" alt="" width="1376" height="768" fetchpriority="high" decoding="async">
     </div>
     <div class="wrap hero-inner">
       <div class="hero-copy">
@@ -232,7 +241,7 @@
     <div class="field-stage">
       <div class="field-media" aria-hidden="true">
         <!-- IMAGEN: generada con IA en Google Flow (escena ilustrativa). Reemplazable por foto real en terreno. -->
-        <img src="assets/img/terreno.jpg" alt="" width="1376" height="768" loading="lazy" decoding="async">
+        <img src="assets/img/terreno.webp" alt="" width="1376" height="768" loading="lazy" decoding="async">
       </div>
       <div class="wrap field-copy">
         <h2 id="terreno-h" class="h2">Lo que pasa en terreno queda listo para demostrar.</h2>
@@ -449,13 +458,13 @@
     <div class="wrap">
       <div class="section-head">
         <h2 id="planes-h" class="h2">Un plan mensual, <span class="dim">con la plataforma incluida.</span></h2>
-        <p class="section-sub">Todos incluyen la puesta al día inicial y la plataforma.</p>
+        <p class="section-sub">Servicio en línea: todos incluyen la puesta al día inicial y la plataforma. Las visitas a terreno se conversan con cada empresa, con el traslado a su cargo.</p>
       </div>
       <div class="plans">
       <article class="plan" aria-labelledby="p1">
         <h3 id="p1">Esencial</h3>
         <p class="plan-for">Para empresas de hasta 25 trabajadores</p>
-        <p class="price"><span class="todo">[PRECIO]</span> UF <span>al mes</span></p>
+        <p class="price">10 UF <span>al mes</span></p>
         <ul class="ticks">
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>DS 44 y Ley Karin al día</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Matriz IPER con perspectiva de género</li>
@@ -469,13 +478,12 @@
         <span class="stamp">Recomendado</span>
         <h3 id="p2">Crecimiento</h3>
         <p class="plan-for">Para empresas de 25 a 100 trabajadores</p>
-        <p class="price"><span class="todo">[PRECIO]</span> UF <span>al mes</span></p>
+        <p class="price">20 UF <span>al mes</span></p>
         <ul class="ticks">
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Todo lo de Esencial</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Capacitación del art. 16</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Apoyo al Comité Paritario</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Carpeta lista para clientes y licitaciones</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Visita mensual en terreno <span class="todo">[SEGÚN ZONA]</span></span></li>
         </ul>
         <a class="btn btn-primary" href="#contacto">Consultar por este plan</a>
       </article>
@@ -483,7 +491,7 @@
       <article class="plan" aria-labelledby="p3">
         <h3 id="p3">Empresa</h3>
         <p class="plan-for">Para más de 100 trabajadores o varias faenas</p>
-        <p class="price"><span class="todo">[PRECIO]</span> UF <span>al mes</span></p>
+        <p class="price">30 UF <span>al mes</span></p>
         <ul class="ticks">
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Todo lo de Crecimiento</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Una carpeta por cliente o faena</li>
@@ -496,7 +504,7 @@
     </div>
   </section>
 
-  <!-- 6 · Quiénes somos (texto corporativo provisorio: completar [AÑO] y afinar) -->
+  <!-- 6 · Quiénes somos -->
   <section class="section" id="quien" aria-labelledby="quien-h">
     <div class="wrap about">
       <div class="about-brand" aria-hidden="true">
@@ -504,7 +512,7 @@
         <span class="about-tag">Prevención de riesgos y tecnología</span>
       </div>
       <div class="about-text">
-        <h2 id="quien-h" class="h2">acup nació en <span class="todo">[AÑO]</span> para llevar la cultura preventiva a las organizaciones <span class="dim">con tecnología.</span></h2>
+        <h2 id="quien-h" class="h2">acup nació en 2023 para llevar la cultura preventiva a las organizaciones <span class="dim">con tecnología.</span></h2>
         <p>Unimos asesoría experta en prevención de riesgos y una plataforma propia en un solo servicio, porque cumplir no basta: hay que poder demostrarlo. Conocemos lo que una empresa grande revisa en sus proveedores, porque trabajamos 8 años de ese lado.</p>
       </div>
     </div>
@@ -517,7 +525,7 @@
       <div class="faq">
       <div class="faq-item">
         <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-1">¿Atienden fuera de la Región de Valparaíso?<svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
-        <div class="faq-a" id="faq-1"><div><p>Sí. El diagnóstico, la puesta al día y la plataforma funcionan en línea en todo Chile. Las visitas en terreno se coordinan según la zona.</p></div></div>
+        <div class="faq-a" id="faq-1"><div><p>Sí. El diagnóstico, la puesta al día y la plataforma funcionan en línea en todo Chile. Las visitas a terreno se conversan con cada empresa y el costo de traslado es adicional.</p></div></div>
       </div>
       <div class="faq-item">
         <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-2">¿Sirve si mi empresa recién está creciendo?<svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
@@ -528,12 +536,8 @@
         <div class="faq-a" id="faq-3"><div><p>Sí. No reemplazamos esa plataforma: preparamos y mantenemos al día lo que te exige.</p></div></div>
       </div>
       <div class="faq-item">
-        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-4">¿Cuánto demora la puesta al día?<svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
-        <div class="faq-a" id="faq-4"><div><p><span class="todo">[PLAZO]</span>, según el tamaño de tu empresa y lo que ya tengas hecho.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-5">¿Hay permanencia mínima?<svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
-        <div class="faq-a" id="faq-5"><div><p><span class="todo">[CONDICIONES DE CONTRATO]</span></p></div></div>
+        <h3><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-4">¿Por cuánto tiempo se contrata?<svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></h3>
+        <div class="faq-a" id="faq-4"><div><p>Tú eliges la modalidad: mensual, anual o personalizada. El servicio dura lo que dure la modalidad que contrates.</p></div></div>
       </div>
       </div>
     </div>
@@ -547,20 +551,18 @@
   <div class="wrap back-inner">
     <h2 class="back-h">¿Prefieres conversarlo directamente?</h2>
     <div class="back-actions">
-      <!-- PENDIENTE: reemplazar por https://wa.me/56XXXXXXXXX cuando exista el número. -->
-      <a class="btn btn-primary btn-lg is-pending" aria-disabled="true" role="link" tabindex="0" data-pending="WhatsApp">
+      <a class="btn btn-primary btn-lg" href="https://wa.me/56965177551?text=Hola%2C%20vengo%20de%20acup.cl" target="_blank" rel="noopener">
         <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>
-        Escribir por WhatsApp <span class="todo todo-dark">[NÚMERO PENDIENTE]</span>
+        Escribir por WhatsApp
       </a>
       <a class="btn btn-ghost btn-lg" href="mailto:somos@acup.cl?subject=Agendar%20una%20reuni%C3%B3n%20con%20ACUP">
         <svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>
         Agendar una reunión
       </a>
     </div>
-    <p class="pending-note" id="wa-note" hidden>El número de WhatsApp aún no está disponible. Escríbenos a <a href="mailto:somos@acup.cl">somos@acup.cl</a>.</p>
     <div class="colophon">
       <span class="wordmark">acup<span class="wordmark-dot" aria-hidden="true"></span></span>
-      <p>ACUP SpA · <a href="mailto:somos@acup.cl">somos@acup.cl</a> · Atendemos en todo Chile</p>
+      <p>ACUP SpA · <a href="mailto:somos@acup.cl">somos@acup.cl</a> · Atendemos en todo Chile · <a href="privacidad.html">Privacidad</a> · <a href="aviso-legal.html">Aviso legal</a></p>
     </div>
   </div>
 </footer>

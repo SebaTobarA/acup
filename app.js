@@ -29,10 +29,8 @@
     { v: 'ns', label: 'No estoy seguro', icon: 'i-q' }
   ];
 
-  /* PENDIENTE: URL del servicio de formularios que recibirá el informe
-     (por ejemplo, un endpoint de Formspree o similar compatible con un sitio
-     estático). Mientras esté vacío, el formulario NO envía nada y lo dice. */
-  var REPORT_ENDPOINT = '';
+  /* Recibe el resultado y envía el informe por correo (informe.php, en el mismo hosting). */
+  var REPORT_ENDPOINT = 'informe.php';
 
   var sheet = document.querySelector('.diag');
   var body = document.getElementById('diag-body');
@@ -147,6 +145,11 @@
             '<input id="report-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="nombre@tuempresa.cl" required aria-describedby="report-msg">' +
             '<button class="btn btn-primary" type="submit">Recibir informe</button>' +
           '</div>' +
+          '<label class="consent"><input type="checkbox" name="consentimiento" value="si" required> <span>' +
+            'Acepto que ACUP SpA use mi correo y mis respuestas para enviarme el informe y contactarme. ' +
+            '<a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a></span></label>' +
+          '<div class="hp" aria-hidden="true"><label for="report-web">No llenar</label>' +
+            '<input id="report-web" name="empresa_web" type="text" tabindex="-1" autocomplete="off"></div>' +
           '<p class="report-msg" id="report-msg" aria-live="polite"></p>' +
         '</form>' +
         '<div class="r-foot">' +
@@ -233,6 +236,7 @@
     var msg = form.querySelector('.report-msg');
     var value = input.value.trim();
     msg.className = 'report-msg';
+    msg.textContent = '';
     if (!value || !input.checkValidity()) {
       input.setAttribute('aria-invalid', 'true');
       msg.classList.add('is-error');
@@ -242,11 +246,11 @@
     }
     input.removeAttribute('aria-invalid');
 
-    if (!REPORT_ENDPOINT) {
-      /* Envío pendiente: no se simula. */
-      msg.classList.add('is-pending');
-      msg.innerHTML = '<strong>Envío pendiente de configurar.</strong> Tu correo no se envió todavía: el servicio que recibirá los informes aún no está conectado <span class="todo">[PENDIENTE]</span>. ' +
-        'Mientras tanto puedes <a href="' + esc(body.getAttribute('data-mailto')) + '">enviarnos tu resultado por correo</a> a somos@acup.cl.';
+    var consent = form.querySelector('input[name="consentimiento"]');
+    if (!consent.checked) {
+      msg.classList.add('is-error');
+      msg.textContent = 'Para enviarte el informe necesitamos que aceptes el uso de tu correo.';
+      consent.focus();
       return;
     }
 
@@ -255,17 +259,19 @@
     btn.textContent = 'Enviando…';
     var data = new FormData();
     data.append('email', value);
-    data.append('resultado', (QUESTIONS.length - gapsList().length) + ' de 10');
-    data.append('brechas', gapsList().map(function (g) { return g.q.gap; }).join('; '));
+    data.append('consentimiento', 'si');
+    data.append('respuestas', answers.join(','));
+    data.append('empresa_web', form.querySelector('input[name="empresa_web"]').value);
     fetch(REPORT_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
       .then(function (r) {
-        if (!r.ok) throw new Error('http');
-        msg.textContent = 'Listo. Te enviaremos tu informe a ' + value + '.';
+        if (!r.ok) throw new Error(r.status === 429 ? 'limite' : 'http');
+        msg.textContent = 'Listo. Te enviamos el informe a ' + value + '. Si no lo ves, revisa la carpeta de spam.';
         btn.textContent = 'Enviado';
       })
-      .catch(function () {
+      .catch(function (err) {
         msg.classList.add('is-error');
-        msg.innerHTML = 'No pudimos enviar tu correo. Inténtalo otra vez o escríbenos a <a href="mailto:somos@acup.cl">somos@acup.cl</a>.';
+        msg.innerHTML = (err.message === 'limite' ? 'Recibimos muchos envíos desde tu conexión. Inténtalo en una hora' : 'No pudimos enviar tu correo. Inténtalo otra vez') +
+          ' o <a href="' + esc(body.getAttribute('data-mailto')) + '">mándanos tu resultado por correo</a> a somos@acup.cl.';
         btn.disabled = false;
         btn.textContent = 'Recibir informe';
       });
@@ -406,18 +412,6 @@
   }
 
   /* ------------------------------------------------------------------
-     WhatsApp pendiente
-     ------------------------------------------------------------------ */
-
-  var wa = document.querySelector('[data-pending="WhatsApp"]');
-  var waNote = document.getElementById('wa-note');
-  if (wa && waNote) {
-    var showNote = function (e) { e.preventDefault(); waNote.hidden = false; };
-    wa.addEventListener('click', showNote);
-    wa.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') showNote(e); });
-  }
-
-  /* ------------------------------------------------------------------
      Índice lateral
      ------------------------------------------------------------------ */
 
@@ -442,14 +436,20 @@
     var cp = countCell.getAttribute('data-date').split('-');
     var target = new Date(+cp[0], +cp[1] - 1, +cp[2]);
     var put = function (u, v) { var n = countCell.querySelector('[data-unit="' + u + '"]'); if (n) n.textContent = String(v); };
+    var timer = window.setInterval(function () { tick(); }, 30000);
     var tick = function () {
-      var ms = Math.max(0, target - new Date());
+      var ms = target - new Date();
+      if (ms <= 0) {
+        // La fecha ya rige: en vez de quedar en 0 días 0 horas 0 min, la cifra pasa a «Vigente».
+        countCell.querySelector('.count').innerHTML = '<span class="count-n">Vigente</span>';
+        window.clearInterval(timer);
+        return;
+      }
       put('d', Math.floor(ms / 86400000));
       put('h', Math.floor(ms / 3600000) % 24);
       put('m', Math.floor(ms / 60000) % 60);
     };
     tick();
-    window.setInterval(tick, 30000);
   }
 
   /* Borde que se ilumina donde está el puntero (solo con mouse). */
