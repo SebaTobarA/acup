@@ -897,17 +897,6 @@ main > .how[data-moment]:not(.is-live) { min-height: 0; }
 .wordmark-xl .wordmark-dot { box-shadow: 0 0 6px rgba(248, 90, 122, .9), 0 0 28px rgba(248, 90, 122, .6); }
 .about-tag { font-family: var(--mono); font-size: .8rem; color: var(--muted); letter-spacing: .02em; }
 .about-text p { margin-top: 20px; font-size: 1.1rem; line-height: 1.6; color: var(--muted); max-width: 58ch; }
-/* Lo que automatiza la plataforma / lo que hacen personas */
-.split { margin-top: 28px; display: grid; gap: 14px; max-width: 640px; }
-@media (min-width: 640px) { .split { grid-template-columns: 1fr 1fr; } }
-.split > div { padding: 18px 20px; border: 1px solid var(--line-2); border-radius: 12px; background: rgba(var(--wash), .03); }
-.split .is-human { border-color: rgba(248, 90, 122, .4); background: var(--coral-wash); }
-.split h3 { font-family: var(--mono); font-size: .76rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
-.split .is-human h3 { color: var(--coral-ink); }
-.split ul { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; color: var(--text); font-size: .98rem; line-height: 1.4; }
-.split li { display: flex; gap: 10px; }
-.split li::before { content: ""; flex: none; width: 6px; height: 6px; margin-top: .5em; border-radius: 50%; background: var(--line-2); }
-.split .is-human li::before { background: var(--coral); }
 
 /* divisores: sin onda, solo un degradado largo y suave en el borde */
 .sdiv { height: 0 !important; margin: 0 !important; }
